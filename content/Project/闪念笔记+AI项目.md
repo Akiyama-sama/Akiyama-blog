@@ -128,7 +128,7 @@ npm install react-markdown react-syntax-highlighter
   **切勿分享**！文件权限需设为`600`（仅用户可读写）。
 - **公钥**：`~/.ssh/id_ed25519.pub`  
   内容以`ssh-ed25519`开头，需复制到GitHub的SSH设置页面。
-[[Git命令]]
+[[Git常用命令]]
 
 #### Nginx配置
 ```nginx
