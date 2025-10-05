@@ -1,15 +1,46 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
-  afterBody: [],
+  header:[
+    Component.Flex({
+      components: [
+        {
+          Component:Component.PageTitle(),
+          align:"start",
+          grow:true,
+        },
+        {
+          Component: Component.Search(),
+          align:"end",
+          grow: true,
+        },
+        { Component: Component.Darkmode(),
+          align:"end",
+        },
+        { Component: Component.ReaderMode(),
+          align:"end",
+        },
+      ],
+    }),
+  ],
+  afterBody: [
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Backlinks(),
+          align:"end",
+        },
+      ],
+    }),
+  ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub主页: "https://github.com/Akiyama-sama",
+      X主页: "https://x.com/lchngy502188733",
     },
   }),
 }
@@ -26,24 +57,28 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
     Component.Flex({
       components: [
         {
-          Component: Component.Search(),
-          grow: true,
+          Component: Component.MobileOnly(Component.Spacer()),
+          align:"center",
         },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
+        {
+          Component: Component.Explorer(),
+          align:"center",
+        },
       ],
-    }),
-    Component.Explorer(),
+    })
   ],
   right: [
-    Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.DesktopOnly(Component.TableOfContents()),
+          align:"center",
+        },
+      ],
+    }),
   ],
 }
 
@@ -51,17 +86,7 @@ export const defaultContentPageLayout: PageLayout = {
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
   left: [
-    Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-      ],
-    }),
     Component.Explorer(),
   ],
   right: [],

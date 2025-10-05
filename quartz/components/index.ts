@@ -23,8 +23,9 @@ import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
-
+import Header from "./Header"
 export {
+  Header,
   ArticleTitle,
   Content,
   TagContent,
