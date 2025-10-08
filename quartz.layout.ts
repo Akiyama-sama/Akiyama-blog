@@ -1,26 +1,23 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
-
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header:[
+  header: [
     Component.Flex({
       components: [
         {
-          Component:Component.PageTitle(),
-          align:"start",
-          grow:true,
+          Component: Component.PageTitle(),
+          align: "start",
+          grow: true,
         },
         {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Darkmode(),
-        },
-        { Component: Component.ReaderMode(),
-        },
+        { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
       ],
     }),
   ],
@@ -29,7 +26,7 @@ export const sharedPageComponents: SharedLayout = {
       components: [
         {
           Component: Component.Backlinks(),
-          align:"end",
+          align: "end",
         },
       ],
     }),
@@ -58,21 +55,26 @@ export const defaultContentPageLayout: PageLayout = {
       components: [
         {
           Component: Component.MobileOnly(Component.Spacer()),
-          align:"center",
+          align: "center",
         },
         {
-          Component: Component.Explorer(),
-          align:"center",
+          Component: Component.Explorer({
+            filterFn: (node) => {
+              const omit = new Set(["Random", "Attachment"])
+              return !omit.has(node.displayName)
+            },
+          }),
+          align: "center",
         },
       ],
-    })
+    }),
   ],
   right: [
     Component.Flex({
       components: [
         {
           Component: Component.DesktopOnly(Component.TableOfContents()),
-          align:"center",
+          align: "center",
         },
       ],
     }),
@@ -82,9 +84,6 @@ export const defaultContentPageLayout: PageLayout = {
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
-  left: [
-    Component.MobileOnly(Component.Spacer()),
-    Component.Explorer(),
-  ],
+  left: [Component.MobileOnly(Component.Spacer()), Component.Explorer()],
   right: [],
 }
