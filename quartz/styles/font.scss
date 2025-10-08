@@ -1,0 +1,22 @@
+:root {
+  --font-size-minus-3: 0.5787rem;
+  --font-size-minus-2: 0.6944rem;
+  --font-size-minus-1: 0.8333rem;
+  --font-size-plus-0: 1rem;
+  --font-size-plus-1: 1.2rem;
+  --font-size-plus-2: 1.44rem;
+  --font-size-plus-3: 1.728rem;
+  --font-size-plus-4: 2.0736rem;
+
+  --base-line-height: 1.4;
+  --min-font-size: 0.875rem; // 14px
+  --max-font-size: 1.5rem; // 24px
+  --base-font-size: clamp(
+    var(--min-font-size),
+    calc(var(--min-font-size) + 1vw),
+    var(--max-font-size)
+  );
+
+  font-size: var(--base-font-size);
+  text-rendering: geometricprecision;
+}

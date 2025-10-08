@@ -19,6 +19,7 @@ https://akiyama-sama.github.io/Akiyama-blog/
 ![](https://obsidian-picgo-mio.oss-cn-hangzhou.aliyuncs.com/20251007132841469.png)
 
 有关如何定制化样式与布局，官方文档：[Quartz 4](https://quartz.jzhao.xyz/#-get-started)写的很详细了，可以作为参考
+我自己的站点也仅仅修改了一些布局，与字体，如果要参考的话可以直接在[我的仓库](https://akiyama-sama.github.io/Akiyama-blog/)中找到`quartz.config.ts`
 
 如果想直接在本地看到效果，我们需要先在控制台进入到clone下来的仓库目录
 然后
