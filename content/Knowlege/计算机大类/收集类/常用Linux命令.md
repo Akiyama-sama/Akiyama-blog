@@ -51,6 +51,10 @@ grep(global regular expression)
 find [路径] [匹配条件] [动作]
 ```
 
+重命名文件
+```
+mv [旧文件名] [新文件名]
+```
 
 查看文件的所属数据内容
 ```

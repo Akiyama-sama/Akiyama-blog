@@ -61,6 +61,7 @@ alt+enter 进入光标的文件
 
 * ctrl+v 可视化选择快
 * shift+v 可视化选择行*
+* gg=G 真个文件格式化
 
 
 
