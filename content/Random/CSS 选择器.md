@@ -3,7 +3,7 @@ tags:
   - '#pernamant'
 ---
 
-### 一、基础选择器（Basic Selectors）
+## 一、基础选择器（Basic Selectors）
 #### 1. 通配选择器（Universal Selector）
 - **语法**：`*`
 - **作用**：匹配文档中所有元素
@@ -53,54 +53,15 @@ table {
 }
 ```
 
----
-
-### 二、层次选择器（Combinators）
-#### 1. 后代选择器（Descendant）
-- **语法**：`A B`
-- **作用**：选择 A 元素的所有 B 后代
-```css
-article p {  /* 选择 article 内的所有段落 */
-  line-height: 1.6;
-}
-```
-
-#### 2. 子元素选择器（Child）
-- **语法**：`A > B`
-- **作用**：仅选择直接子元素
-```css
-nav > ul {  /* 仅选择 nav 的直接子 ul */
-  padding-left: 0;
-}
-```
-
-#### 3. 相邻兄弟选择器（Adjacent Sibling）
-- **语法**：`A + B`
-- **作用**：选择紧接在 A 后的第一个兄弟 B
-```css
-h2 + p {  /* h2 后的第一个段落 */
-  margin-top: 5px;
-}
-```
-
-#### 4. 通用兄弟选择器（General Sibling）
-- **语法**：`A ~ B`
-- **作用**：选择 A 之后的所有兄弟 B
-```css
-input:checked ~ .content {  /* 选中复选框后的所有内容 */
-  display: block;
-}
-```
-
----
-
-### 三、属性选择器（Attribute Selectors）
+## 二、属性选择器（Attribute Selectors）
 #### 1. 基本属性选择
 - **存在判断**：`[attr]`
 ```css
 [disabled] {  /* 所有禁用元素 */
   opacity: 0.6;
 }
+<div disabled="true"/>/* 选择这个元素 */
+<div disabled="false"/>/* 选择这个元素 */
 ```
 
 #### 2. 精确匹配
@@ -109,6 +70,9 @@ input:checked ~ .content {  /* 选中复选框后的所有内容 */
 [type="email"] {  /* 精确匹配 email 输入框 */
   border-color: blue;
 }
+
+<div type="email"/> 选择这个
+<div type="phone"/> 不会选择这个
 ```
 
 #### 3. 部分匹配（CSS3 增强）
@@ -121,8 +85,13 @@ input:checked ~ .content {  /* 选中复选框后的所有内容 */
 | `[attr="val"]`  | 以指定值开头或紧接连字符 | `[lang="en"]`       | （en-US） |     |
 
 ---
+## 三、伪类选择器（Pseudo-classes）
 
-### 四、伪类选择器（Pseudo-classes）
+这类选择器用于选择特定的状态：例如悬浮、被访问、
+格式为：
+```css
+其他选择器:伪类 {}
+```
 #### 1. 状态伪类
 - **交互状态**：
   ```css
@@ -155,7 +124,15 @@ input:required { border-left: 3px solid red; }
 
 ---
 
-### 五、伪元素选择器（Pseudo-elements）
+## 四、[[伪元素选择器]]（Pseudo-elements）
+
+伪元素器并不是选择HTML结构当中的某个或者某些元素，而是在某个元素的基础之上，去创建一个抽象的元素，而这个元素不在HTML文件内，但浏览器会像普通元素那样对待他，伪元素器就是创建并选择这种元素的选择器
+
+
+格式为
+```css
+其他选择器::伪元素 {}
+```
 #### 1. 常用伪元素
 ```css
 p::first-letter {  /* 首字母下沉效果 */
@@ -178,14 +155,79 @@ p::first-letter {  /* 首字母下沉效果 */
 
 ---
 
-### 六、优先级计算规则
+
+
+## 五、[[层次选择器]]（Combinators）
+#### 1. 后代选择器（Descendant）
+- **语法**：`A B`
+- **作用**：选择 A 元素的所有 B 后代
+```css
+article p {  /* 选择 article 内的所有段落 */
+  line-height: 1.6;
+}
+<article>
+	<p>
+		<p></p> 所有的p元素都会被选择
+	</p>
+</articel>
+```
+
+#### 2. 子元素选择器（Child）
+- **语法**：`A > B`
+- **作用**：仅选择直接子元素
+```css
+article > p {  /* 仅选择 nav 的直接子 ul */
+  padding-left: 0;
+}
+<article>
+	<p>这里的p元素会被选择，因为是直接子元素
+		<p></p> 这里的p元素不会被选择
+	</p>
+</articel>
+
+```
+
+#### 3. 相邻兄弟选择器（Adjacent Sibling）
+- **语法**：`A + B`
+- **作用**：选择紧接在 A 后的第一个兄弟 B
+```css
+h2 + p {  /* h2 后的第一个段落 */
+  margin-top: 5px;
+}
+```
+
+#### 4. 通用兄弟选择器（General Sibling）
+- **语法**：`A ~ B`
+- **作用**：选择 A 之后的所有兄弟 B
+```css
+input:checked ~ .content {  /* 选中复选框后的所有内容 */
+  display: block;
+}
+```
+
+---
+
+
+
+## 六、复合选择器
+
+- 语法：元素选择器.元素选择器
+
+```css
+a.my-class {
+	color:red
+}
+```
+
+
+## 七、优先级计算规则
 [[CSS选择器的权重]]
 #### 1. 权重等级表
 | 选择器类型      | 示例                       | 权重值  |
 | ---------- | ------------------------ | ---- |
 | !important | `color: red !important;` | ∞    |
 | [[内联样式]]   | style="..."              | 1000 |
-| ID 选择器     | #header                  | 100  |
+| ID 选择器     | `#header`                | 100  |
 | 类/属性/伪类    | .btn, [type], :hover     | 10   |
 | 元素/伪元素     | div, ::before            | 1    |
 | 通配符/继承样式   | *                        | 0    |
@@ -203,7 +245,7 @@ ul#menu li:hover       /* 100 + 1 + 1 + 10 = 112 */
 
 ---
 
-### 七、最佳实践建议
+## 七、最佳实践建议
 1. **避免过度使用 ID 选择器**：高优先级会导致后续维护困难
 2. **合理使用类选择器**：`.card-header` 比 `div > h3` 更灵活
 3. **善用属性选择器**：`[class^="col-"]` 实现栅格系统
@@ -212,7 +254,7 @@ ul#menu li:hover       /* 100 + 1 + 1 + 10 = 112 */
 
 ---
 
-### 八、综合应用示例
+## 八、综合应用示例
 ```html
 <ul class="menu">
   <li><a href="#home">首页</a></li>
