@@ -11,9 +11,6 @@ tags:
 [[CSS 选择器]]
 [[盒模型]]
 
-
-
----
 ## 开始
 
 每个元素被视为一个“盒子”，每个盒子都有这几部分组成：
@@ -273,4 +270,537 @@ div {
   transform: rotate(60deg);
 }
 ```
+
+auto : 这是一个不带数字的一种单位，意在填充可用的剩余部分
+
+## 逻辑属性
+
+在定义一个DOM的位置的时候，我们之前只能用物理位置，例如top,left,right,bottom来指定，但是这样的定义是相对于整个viewpoint（视窗）的，这样定义默认书写模式（write mode）是行内（inline）从左到右。行块（block）是从上到下的
+
+但如果是阿拉伯语的书写模式就不一样了，他们的行内（inline）是从右到左的，像是我们的中文古籍，inline是从上到下的
+
+这样该如何定位相对于书写内容（content）的属性呢？这时候就要用逻辑属性，inline始终代表着行内流，block始终代表行块流，inline-start就能代表行首，inline-end就代表着行尾，block-start就代表块手，block-end就代表着块尾
+
+![](https://web.dev/static/learn/css/logical-properties/image/a-diagram-showing-the-di-12ce9bdac4132_1440.png)
+
+
+定义书写模式：
+```css
+div {
+  writing-mode: vertical-rl; 行块从右到左
+  writing-mode: vertical-lr; 行块从左到右
+  writing-mode: horizontal-tb; 行块从上到下
+}
+
+```
+
+使用逻辑属性，就能直接作用于书写模式上的逻辑属性了
+
+例如margin-block-start：指的是行块之首
+
+因此，在定位margin，padding，border的逻辑位置的时候，使用逻辑属性会非常好用，例如：
+
+```css
+.my-element {
+  border-block-end: 1px solid red;
+  border-inline-end: 1px solid red;
+  border-end-end-radius: 1em;
+  padding-block:2em;
+  margin-inline:2em 0;
+}
+```
+
+
+逻辑属性引入了两个新单位： `vi` 和 `vb` 。一个 `vi` 单位是行内方向视口大小的 1%。非逻辑属性的等效单位是 `vw` 。一个 `vb` 单位是块方向视口大小的 1%。非逻辑属性的等效单位是 `vh`
+
+
+
+
+## 间距
+
+### margin
+
+外边距
+
+可以给margin的四边都定制长度
+![](https://web.dev/static/learn/css/spacing/image/the-word-trouble-runnin-645c6ed02703c.svg)
+
+可以直接简写(`margin: 20px 40px 30px`) ,如果只设置一个值，就直接引用到四边，如果两个值，就分别应用到x和y的边，如果设置三个值，第一个是top，第二是left+right，第三个是bottom
+
+单位可以用百分比，auto来定义，如果是百分比，就是直接用该盒子的width乘以百分比，如果是auto，那么将用来填充可用区域
+
+```css
+.box:nth-child(3) {
+  margin-inline: 0 auto; start的margin为0，end的margin为auto，填充可用的剩余区域
+}
+```
+
+
+其margin的值也可以为负的，可用于减少盒之间的空间，或者直接元素重叠
+
+
+**计算两个元素的间距到底为多少**
+
+两个元素之间的边距是由他们之间的margin最大值决定的
+例如：
+
+```css
+h1 {
+    margin-bottom: 2rem;
+}
+p {
+    margin-top: 3rem;
+}
+```
+
+他们之间的间距为3rem。但其中一个元素使用**绝对定位**的时候，他们之间的margin就会不会折叠，且如果他们之间的父元素用的是[[Flex]]布局的时候，他们之间的margin就不会重叠，而是合并
+
+### padding
+
+padding会占据盒子的内边距区域
+在box-sizing属性值不同的时候，padding会对盒子的影响也不同，例如为content-box的时候，width指定的是content的宽度，实际上的宽度为：content+padding+border，如果是border-box的时候，width指定的是content+padding+border的宽度，因此，会导致content收到挤压
+
+
+padding和margin一样，也可以用绝对属性与逻辑属性来指定方位，属性值也和margin一样，一个值代表应用四周，两个值代表应用x和y轴，三个值代表top，x轴，bottom
+
+
+## [[定位（position）]]
+
+默认postion属性值为static，这个值会让元素位置由编写的HTML结构决定，是由浏览器自助决定的，此时这个元素上的top,right,left,bottom属性均无效。
+
+而其他relative,absolute,fixed,sticky均是相对于一个基点的定位，他们之间的不同只是在于基点的不同罢了
+
+`position: relative` 元素仍会保持其在文档流中的位置，即基点是是static原来的位置，但是可以使用top,right,left,bottom等属性进行偏移，还可以用于给子元素为 `position:absolute`的元素进行相对定位
+
+`position: absolute` 元素将根据相对父级relative 的位置确定方向值，即基点在父元素为relative的元素上。
+
+`position: fixed` 元素将根据视口确定方向值，即基点在viewport（浏览器窗口），这会导致元素不会随着滚动而变化，像是固定在网页中，也可以搭配`top`、`right`、`bottom` 或 `left`。
+
+`position: sticky` 元素 仅当其处于停靠/卡住状态时才会应用方向值，这是一个动态设置为relative/fixed的属性值，前提是必须搭配`top`、`right`、`bottom` 或 `left`，sticky才能生效，
+
+当页面滚动，父元素开始脱离视口时（即部分不可见），只要与`sticky`元素的距离达到生效门槛，`relative`定位自动切换为`fixed`定位；等到父元素完全脱离视口时（即完全不可见），`fixed`定位自动切换回`relative`定位。
+例如：
+
+```css
+#toolbar {
+  position: sticky; /* 其他浏览器 */
+  top: 20px; /* 切换的门槛值*/
+}
+```
+
+页面滚动，当#toolbar的父元素脱离视口的时候，一旦viewport顶部与#toolbar距离小于20px的门槛值的时候，position会变为fixed，一旦父元素完全脱离整个视口的时候，会变为relative
+
+## 边界 border
+
+边界有这几种属性：width，style，color，radius
+可以通过`boder-属性`来定义边框的属性，或者是通过这几个的顺序进行简写
+
+```css
+div {
+	border: 1px solid red
+}
+```
+
+其中，如果没指定boder的color，border的color会自动使用字体的color，且默认情况下border为0px
+
+[`border-image`](https://developer.mozilla.org/docs/Web/CSS/border-image) 这个属性还可以直接使用图片作为边框
+
+
+## 阴影 shadow
+
+
+box-shadow为HTML元素盒子添加阴影，适用于block和inline元素，
+
+属性值依次为：水平偏移，垂直偏移，模糊半径，扩展半径，颜色
+
+还可以在前面加inset来切换为向内阴影
+
+```css
+/* Outer shadow */
+.my-element {
+    box-shadow: 5px 5px 20px 5px #000;
+}
+
+/* Inner shadow */
+.my-element {
+    box-shadow: inset 5px 5px 20px 5px #000;
+}
+```
+
+text-shadow为文字创建阴影，其属性顺序也相同，只不过没有inset关键字,也没有扩散半径的值
+
+这两种shadow都可以通过`逗号`来分隔几种类型的shadow类型，可以产生非常炫酷的3D效果
+
+```css
+.my-element {
+  text-shadow: 1px 1px 0px white,
+    2px 2px 0px firebrick;
+  color: darkslategray;
+}
+```
+
+![](https://obsidian-picgo-mio.oss-cn-hangzhou.aliyuncs.com/20251013140101763.png)
+
+当我们想给一些不是文字和DOM盒子的不规则物品添加阴影，例如衣服的时候，我们可以使用drop-shadow来添加阴影
+
+```css
+figure img {
+  filter: drop-shadow(0px 0px 10px rgba(0 0 0 / 30%))
+}
+```
+
+## 焦点 focus
+
+当我们在浏览器中使用Tab，或者点击的时候，会看到某些盒子周围会发光，这就是获得了焦点，HTML文档中有一个属性名为tabindex，通过这个index的值，来修改Tab的索引值顺序，但不能小于0，任何小于0的tabindex只能通过编程来访问
+
+我们可以通过outline属性来自定义焦点轮廓样式
+
+
+## Z-index
+
+文档需要堆叠的时候就需要用到z-index这个属性，这个属性决定哪些盒子摆放在上面，即z-index较大者，放在上面
+
+需要注意的是，在Nomal flow的上下文中，也就是该元素为positon:static的时候，z-index会不起作用，z-index只在static以外的值起作用
+
+但如果使用z-index的父元素使用flex或者grid布局的时候，就不用手动指定这些盒子的position了，z-index会自动起作用，因为已经不在Nomal flow当的上下文当中了
+
+
+### 堆叠上下文 Stacking context
+
+这里的z-index的比较只在同一层父级进行比较，不同层级的z-index是不能比较的
+
+```css
+.my-element {
+  position: relative;
+  z-index: -1;
+}
+
+.my-element .child {
+	position: relative;
+	z-index: 0;
+}
+```
+
+例如这类的my-element，都通过position激活了自身的z-index属性，但child类与my-element类不在同一父层，而是父子的关系，因此尽管父的z-index小于child，但是还是父元素叠在上面，原因是他们两个之间的Stacking context不同
+
+
+### 创建上下文
+
+不需要应用 `z-index` 和 `position` 来创建新的 [堆叠上下文](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) 。您可以通过为创建新复合层的属性（例如 `opacity` 、 `will-change` 和 `transform` ）添加值来创建新的堆叠上下文
+
+## 锚点定位 Anchor position
+
+### 单个锚点
+
+当时用点击某个元素，然后出现下拉菜单的时候，就会用到锚点定位，即是锚定某个元素为基点，让这个元素相对于这个基点进行定位
+
+这里就需要两个元素都要设置相关属性，一是基点元素设置锚点，属性名为anchor-name：
+
+```css
+#anchor {
+   anchor-name: --my-anchor; 
+}
+```
+
+二是为被束缚元素设置属性position-anchor，与此同时这个元素的position必须为absolute或者fixed，目的是需要这个元素有利于正常的文档流之外
+
+```css
+#positionedElement {
+     position: absolute;
+     position-anchor: --my-anchor;
+     position-area: end;
+}
+```
+
+但button里面有个属性为`popovertarget`，他自动设置一个其值为锚点名的“隐式”锚点
+
+```html
+<button popovertarget="positionedElement" id="anchor">Anchor</button>
+<p popover id="positionedElement" class="box">Positioned Element</p>
+```
+
+### 多个锚点
+
+参考
+https://web.dev/learn/css/anchor-positioning#scoping_the_potential_anchors
+这篇文章
+
+### 锚点定位
+
+提供两种方法进行相对于锚点的定位：
+`position-area` and the `anchor()`
+
+positon-area可以使用物理关键字或者使用逻辑属性来相对于锚点进行定位
+
+![](https://obsidian-picgo-mio.oss-cn-hangzhou.aliyuncs.com/20251013161227780.png)
+![](https://obsidian-picgo-mio.oss-cn-hangzhou.aliyuncs.com/20251013161239584.png)
+![](https://obsidian-picgo-mio.oss-cn-hangzhou.aliyuncs.com/20251013161400733.png)
+
+添加span关键字可以在添加相邻区域，例如下拉菜单的常见写法为：
+
+```css
+position-area: block-end span-inline-end
+```
+
+https://anchor-tool.com/
+这个网站可以用来训练position-area
+
+span-all关键字可以三行或者三列
+
+
+### anchor函数
+
+`anchor()` 函数接受一个锚点名称和一个锚点方向。如果你的元素有一个默认锚点（无论是通过 `position-anchor` 设置还是隐式设置，例如使用弹出窗口），则可以省略锚点名称。
+
+```css
+.positionedElement {
+  block-start: anchor(--my-anchor start);
+  /*  OR  */
+  position-anchor: --my-anchor;
+  block-start: anchor(start);
+}
+```
+
+
+### 处理overflow
+
+当定位元素溢出的时候，可以用`position-try`值来设置后备值
+
+```css
+#positionedElement {
+  position: absolute;
+  position-anchor: --my-anchor;
+  position-area: block-end span-inline-end;
+  min-width: max-content;
+  position-try: block-end, block-start span-inline-start;
+}
+```
+
+后备值用flip-等关键词也可以
+```css
+.positioned-element {
+    position-try-fallbacks: flip-start;
+}
+```
+
+还可以自定义positon-try的值
+
+```css
+@position-try --menu-below {
+  position-area: bottom span-right;
+  margin-top: 1em;
+}
+
+#positioned-element {
+  position-try: --menu-below;
+}
+```
+
+在锚点滚动的时候，定位元素也会跟着滚动，当锚点消失在视图之外的时候，如果我们也希望定位元素隐藏时，用`position-visibility: anchors-visible`
+
+## popover and dialog
+
+在button，div等元素中，有一个`popovertarget`属性，这个属性值设置为某个元素的id值的时候，点击设置了`popovertarget`的元素，会弹出那个id元素
+
+那个元素使用popovertargetaction="hide"这个属性，就可以点击的时候隐藏
+
+还可以使用JS中的`showPopover()`, `hidePopover()`, or `togglePopover()`.函数来指定某些元素弹出或者隐藏
+
+
+### 三种popover类型
+
+被弹出的元素在HTML设置属性的时候会决定出三种不同的类型
+
+```html
+<div id="popover" popover>My popover</div>
+```
+
+默认类型，即弹出过后，如果有其他弹出的弹窗/点击其他区域/按ESC键盘，就会让这个弹出消失
+
+```html
+<div id="popover" popover="manual">My popover</div>
+```
+
+手动类型，弹出过后不会自动消失，而是必须手动消失
+
+```html
+<div id="popover" popover="hint">My popover</div>
+```
+
+提示弹窗类型，通过非点击事件（悬停，焦点）来触发弹窗
+
+### 样式和动画
+
+```css
+:popover-open
+```
+
+这个[[伪类选择器]]会仅在popover被打开的情况下应用
+
+弹出动画需要分解三个步骤：
+
+1. 初始样式：`@starting-style {popover:popover-open { } }`
+2. 弹出后的样式：`popover:popover-open { }`
+3. 弹出窗口关闭时的样式`popover { }`  
+
+
+### 嵌套弹窗
+
+可以在被弹出的popover里面继续设置popovertarget，如此就能实现嵌套弹窗，自动弹窗与提示弹窗都有一个单独的堆栈
+
+## 函数 Function
+
+参考网站：
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_values_and_units/CSS_value_functions
+
+以下会写出可能有用或者有趣的函数
+
+`atan2()` 函数接受两个参数，分别表示相对于原点的点，并返回指向该点的角度。：https://web.dev/learn/css/functions#atan2
+
+算出指向该点的角度，可以实现像是眼球随着鼠标滚动之类的效果
+
+ [`clip-path`](https://developer.mozilla.org/docs/Web/CSS/clip-path) ， [`offset-path`](https://developer.mozilla.org/docs/Web/CSS/offset-path) 和 [`shape-outside`](https://developer.mozilla.org/docs/Web/CSS/shape-outside)可以用来塑形
+
+ transform 函数，它可以倾斜、调整元素的大小，甚至改变元素的深度
+
+## 文本与排版
+
+用@font-face 来引入字体，用font-family来使用具体的字体
+
+```css
+@font-face {
+  font-family: "Trickster";
+  src:
+    local("Trickster"),
+    url("trickster-COLRv1.otf") format("opentype") tech(color-COLRv1),
+    url("trickster-outline.otf") format("opentype"),
+    url("trickster-outline.woff") format("woff")
+}
+```
+
+使用font-style来指定文字的斜体
+
+- nomal：正常，无斜体
+- italic：斜体，但是类“草书”的形式
+- oblique：斜体，但是较为正式的斜体形式
+
+使用font-weight来指定文字的粗细
+关键字有：nomal ,bold ，数值分别为400,700，也可以在@font-face导入字体的时候，直接指定字体的粗细
+
+
+使用font-size可以指定字体的大小，除了使用长度值以外，也可以使用关键字，从小到大为：
+xx-small;x-smal;small;medium;large;x-large;xx-large
+
+在[[em与rem的区别]]当中，区别就是em继承的是父元素的font-size的大小，而rem继承的是根元素的font-size
+
+使用line-height指定元素中的每行高度，可以接受数字，长度，百分比或者关键字，但一般用数字，以避免继承问题
+
+使用letter-spacing控制文本中的水平间距，接受长度值
+使用word-spacing更爱单词之间的间距
+
+font的简写形式参考这篇文章：
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/font#syntax
+
+使用text-decoration-line以及text-decoration-color可以设置横线：line接受`underline` 、 `overline` 和 `line-through`关键字， [`text-decoration-style`](https://developer.mozilla.org/docs/Web/CSS/text-decoration-style)属性接受关键字 `solid` 、 `double` 、 `dotted` 、 `dashed` 和 `wavy`，用于修饰横线，[`text-decoration-thickness`](https://developer.mozilla.org/docs/Web/CSS/text-decoration-thickness)用于修修改横线的粗细
+
+[`text-indent`](https://developer.mozilla.org/docs/Web/CSS/text-indent)可以为文本设置缩进
+[`text-overflow`](https://developer.mozilla.org/docs/Web/CSS/text-overflow)用于处理文字溢出，有两个选项：clip默认，为阶段，第二个`ellipsis`溢出显示省略号
+
+
+[`white-space`](https://developer.mozilla.org/docs/Web/CSS/white-space)用于处理如何控制元素中的空格
+`white-space: pre` 可用于渲染 [ASCII 艺术](https://en.wikipedia.org/wiki/ASCII_art)或仔细缩进的代码块。
+
+
+ [`word-break`](https://developer.mozilla.org/docs/Web/CSS/word-break)用于控制单词换行时的行为，是将这个单词拦腰斩断：break-all，还是放在下一行nomal(默认)
+
+[`text-align`](https://developer.mozilla.org/docs/Web/CSS/text-align)用于控制块元素或者表单元素在文本中的对齐方式，有如下关键字： `left` 、 `right` 、 `start` 、 `end` 、 `center` 、 `justify` 和 `match-parent` 。
+
+![](https://obsidian-picgo-mio.oss-cn-hangzhou.aliyuncs.com/20251014151734608.png)
+
+ [`text-wrap`](https://developer.mozilla.org/docs/Web/CSS/text-wrap) 来改变元素内文本的换行方式。
+ 
+使用 [`direction`](https://developer.mozilla.org/docs/Web/CSS/direction) 设置文本的方向，可以是 `ltr` （从左到右，默认）或 `rtl` （从右到左）
+
+使用 [`text-shadow`](https://developer.mozilla.org/docs/Web/CSS/text-shadow) 为文本添加阴影。此属性需要三个长度（ `x-offset` 、 `y-offset` 和 `blur-radius` ）和一个颜色。
+
+## 渐变 Gridiant
+
+[`linear-gradient()`](https://developer.mozilla.org/docs/Web/CSS/linear-gradient\(\)) 函数逐步生成一种或多种颜色的图像
+
+```css
+.my-element {
+    background: linear-gradient(black, white);
+}
+```
+
+可以传递一个角度或表示角度的关键字。如果您选择使用关键字，请在 `to` 关键字后指定方向，只需在第一个参数上，加入方向，例如`to right`即可
+
+```css
+.my-element {
+    background: linear-gradient(to right, black, white);
+}
+```
+
+色标值定义了颜色停止并与其相邻颜色混合的位置。例如，一个渐变以 45 度角开始，从深红色开始，在渐变大小的 30% 处变为浅红色：它看起来像这样。
+
+```css
+.my-element {
+    background: linear-gradient(45deg, darkred 30%, crimson);
+}
+```
+
+[`conic-gradient()`](https://developer.mozilla.org/docs/Web/CSS/conic-gradient\(\))圆锥渐变是围绕着中心点进行渐变
+
+[`repeating-linear-gradient()`](https://developer.mozilla.org/docs/Web/CSS/repeating-linear-gradient\(\))重复线性渐变，可以用来做蓝白碗背景的效果（笑）
+ [`repeating-radial-gradient()`](https://developer.mozilla.org/docs/Web/CSS/repeating-radial-gradient\(\)) 和 [`repeating-conic-gradient()`](https://developer.mozilla.org/docs/Web/CSS/repeating-conic-gradient\(\)) 。这是其他渐变，具体看MDN文档
+
+渐变的前一个参数，接受in+色彩空间，可以参考
+https://developer.chrome.com/docs/css-ui/access-colors-spaces?hl=zh-cn
+```css
+.my-element {
+  background: linear-gradient(in oklch, deeppink, yellow);
+}
+```
+
+上面这样可以通过切换色彩空间来去除不饱和中间的颜色，因此在渐变不理想的时候可以试试这个
+
+## 滤镜 filter
+
+以下属性接受filter属性
+
+- blur:高斯模糊，唯一参数为radius，只能用长度单位传递
+- brightness：增加或则减少元素亮度，只能用百分比
+- contrast：对比度，用百分比
+- grayscale：给元素上灰度效果，用百分比，默认为1，即完全黑化
+- invert：反转元素中的颜色，用百分比，默认为1，即完全反转
+- opacity：不透明度，用百分比或者数字
+- saturate：饱和度，用数字或者百分比
+- sepia：棕褐色色调的滤镜，用数字或则百分比
+- hue-rotate：改变[[hsl]]中色盘的角度，例如改变元素颜色120deg
+- drop-shadow：与box-shadow几乎相同，添加阴影，但不支持inset
+- url：允许通过链接的SVG元素设置过滤[点击此处了解有关 SVG 过滤器的更多信息](https://developer.mozilla.org/docs/Web/SVG/Element/filter)
+
+`backdrop-filter` 和 `filter`能用的属性都一样，只不过`backdrop-filter ` 运用的是background，`filter`运用在整个元素当中
+
+## 混合 blend modes
+
+`mix-blend-mode` 将混合应用于整个元素， `background-blend-mode` 将混合应用于元素的背景。融合背景一般是用于对颜色进行融合
+
+混合模式分为两类：可分离和不可分离。可分离混合模式会分别考虑每个颜色分量（例如 RGB）。不可分离混合模式则会平等地考虑所有颜色分量。
+https://web.dev/learn/css/blend-modes
+- 可分离：
+	- nomal：默认混合模式，不会改变与其他元素的混合方式
+	- multipy：像是透明胶片堆叠的效果，亮色的部分更亮，暗的部分更暗，会强调原来的色调
+	- screen：与multipy相反的效果，会削弱元素的颜色效果，产生与背景相似的色调
+	- overlay：multipy与screen之间的效果，基础深色更深，基础浅色更浅，中等色阶颜色不受影响
+	- darken：比较元素与背景的深色亮度，并选择最暗的那一个
+	- lighted：与darken相反
+	- color-doge：元素中的背景色变亮
+	- color-burn：增加对比度
+	- hart-light、soft-light、diffence、exclusion
+- 不可分离
+	- hue、saturation、color、luminosity
+
+设置 [`isolation`](https://developer.mozilla.org/docs/Web/CSS/isolation) 如果将属性设置为 `isolate` ，它将创建一个新的堆叠上下文，从而阻止其与背景层混合，像z-index的堆叠上下文一样。
+
 

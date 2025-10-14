@@ -85,7 +85,7 @@ table {
 | `[attr="val"]`  | 以指定值开头或紧接连字符 | `[lang="en"]`       | （en-US） |     |
 
 ---
-## 三、伪类选择器（Pseudo-classes）
+## 三、[[伪类选择器]]（Pseudo-classes）
 
 这类选择器用于选择特定的状态：例如悬浮、被访问、
 格式为：
@@ -97,8 +97,11 @@ table {
   ```css
   a:link {}     /* 未访问链接 */
   a:visited {}  /* 已访问链接 */
+  a:hover {}  /*悬停*/
+  a:active {}  /* 指点击开始但尚未释放时的状态 */
   button:hover { transform: scale(1.05); }
-  input:focus { box-shadow: 0 0 3px blue; }
+  input:focus { box-shadow: 0 0 3px blue; }/*获得焦点*/
+
   ```
 
 #### 2. 结构伪类

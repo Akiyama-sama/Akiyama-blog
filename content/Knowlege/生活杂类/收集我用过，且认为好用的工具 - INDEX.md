@@ -13,6 +13,9 @@ Windows各种小工具神器（本机搜索，查各种文档，局域网传文�
 查看外存占用具体情况：[TreeSize](https://www.jam-software.com/treesize)
 图床上传工具：[picgo](https://github.com/Molunerfinn/PicGo)
 类[[卡片笔记]]法的软件（可编辑Markdown，Wiki）：[Obsidian](https://obsidian.md/)
+跨平台阅读器（全桌面端，移动端）：[Readest](https://github.com/readest/readest)
+Windows桌面美化工具：[Seelen-UI](https://github.com/eythaann/Seelen-UI)
+
 
 ## 浏览器插件
 
