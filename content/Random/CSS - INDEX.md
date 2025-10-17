@@ -723,7 +723,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/font#syntax
 
 使用 [`text-shadow`](https://developer.mozilla.org/docs/Web/CSS/text-shadow) 为文本添加阴影。此属性需要三个长度（ `x-offset` 、 `y-offset` 和 `blur-radius` ）和一个颜色。
 
-## 渐变 Gridiant
+## [[渐变 Gridiant]]
 
 [`linear-gradient()`](https://developer.mozilla.org/docs/Web/CSS/linear-gradient\(\)) 函数逐步生成一种或多种颜色的图像
 
@@ -803,4 +803,119 @@ https://web.dev/learn/css/blend-modes
 
 设置 [`isolation`](https://developer.mozilla.org/docs/Web/CSS/isolation) 如果将属性设置为 `isolate` ，它将创建一个新的堆叠上下文，从而阻止其与背景层混合，像z-index的堆叠上下文一样。
 
+
+## 关键帧与动画
+
+动画就是在动画开始播放与结束以及中间状态下定义某个时态的CSS样式，然后浏览器自动计算出这个过程的动画播放，因此，我们需要定义中间时刻的样式，就需要用到关键帧
+
+结构：
+```css
+@keywords 自定义关键帧名{
+	from {
+	
+	}
+	to {
+	
+	}
+}
+```
+
+from to可以用百分比来替代，指代动画进行的百分比时刻
+
+自定义有关键帧名用于传递给animation属性的animation-name值，animation属性是执行动画的执行者，这里写的关键帧就像写好的舞台脚本，递给演员（animation）去真正演绎
+
+animation的各个属性有：
+- animation-name：之前所说的自定义关键帧名
+- animation-duration：动画持续时间/播放周期
+- animation-timing-function：动画移动曲线函数，具体有哪些可以查看MDN文档
+- animation-delay：延迟多少秒才开始播放
+- animation-iteration-count：执行多少次，infinite为无限次
+- animation-direction：设置关键帧的运行方向
+- animation-fill-mode：定义关键帧中那些值动画开始前或结束后保留
+- animation-play-state：设置动画播放开关
+
+## 过渡 transition
+
+transition也是一种动画，不过是那种在开始与结束中间，只有一个中间状态的特殊动画，一般在给元素设置hover，或者其他状态，或在三种状态下切换时所用的属性
+
+有如下属性：
+
+- transiton-property：指定哪些CSS属性播放转换动画，background-color就只指定背景色，transition-all指定所有可过渡的CSS元素，至于哪些CSS属性可以添加，可以参阅 [MDN 上的可动画 CSS 属性列表](https://developer.mozilla.org/docs/Web/CSS/CSS_animated_properties) ，一般像是颜色，大小之类的可以转换，像是平移旋转需要依赖transform属性
+- transition-duration：过渡持续时间
+- transition-function：与animation一样的动画函数
+- transiton-dely：延迟发生时间
+
+
+### transform
+
+他是一个专门指定元素**平移（translate），旋转（rotate），缩放（scale）** 的一个CSS属性，与color，background-color类似，但它是一个GPU加速属性，在transition中监听这个属性可以用到GPU加速，而transition监听其他CSS属性却不行，所以transition属性性能较好
+
+有好多关键词比较像，有容易搞混，专开一个：
+[[transition，transform，translate关键字在CSS中的区别]]
+
+```css
+.square {
+  transition: scale 250ms ease 0s, rotate 250ms ease 250ms,
+    translate 250ms ease 500ms,
+    /* All `transform` transitions will happen over 750ms and start immediately. */
+      transform 750ms ease 0s;
+}
+```
+
+例如这里的transition属性，监听了4个CSS属性，scale，rotate，translate，tranform，并为每个属性设置了过渡动画
+
+### 其他单独的transition-property
+
+`color` 、 `background-color` 和 `border-color`
+
+[`filter`](https://developer.mozilla.org/docs/Web/CSS/filter) 是一个强大的 CSS 属性，可以让你动态添加图形效果。不同的 `filter` 状态之间的转换可以创造出一些令人印象深刻的效果
+
+
+### transition触发器
+
+需要在开始与结束中有中间态的动画才能使用transition属性，典型示例就是：hover之类的伪类选择器，hover这里设置的CSS样式就是一个中间态，满足transition的要求
+
+以下是一些可以触发元素状态变化的伪类和事件的列表。
+
+- [`:hover`](https://web.dev/learn/css/pseudo-classes#hover) ：当光标位于元素上方时匹配。
+- [`:focus`](https://web.dev/learn/css/pseudo-classes#focus_focus-within_and_focus-visible) ：如果元素获得焦点则匹配。
+
+- [`:focus-within`](https://web.dev/learn/css/pseudo-classes#focus_focus-within_and_focus-visible) ：如果元素或其任何后代获得焦点则匹配。
+- [`:target`](https://web.dev/learn/css/pseudo-classes#target) ：当当前 URL 的[片段](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#fragment)与元素的 `id` 属性值匹配时匹配。
+ 
+- [`:active`](https://web.dev/learn/css/pseudo-classes#active) ：当元素被激活时匹配（通常是当鼠标按下时）。
+ 
+- 通过 JavaScript 更改 `class` ：当使用 JavaScript 更改元素的 CSS `class` 时，CSS 将转换已更改的合格属性。
+
+## 当中间状态也有transition时 - 不对称状态
+
+以hover为例，transition的过渡为：base->hover->base
+
+如果hover的状态以及base状态都设置得有transition，这时候就出现了不对称过渡，
+
+开始base->hover应用的是hover的transition，结束hover-base的时候运用的是base中写的transition
+
+这就是一个典型的例子
+```css
+.my-element {
+  background: red;
+
+  /* This transition is applied on the "exit" transition */
+  transition: background 2000ms ease-in;
+}
+
+.my-element:hover {
+  background: blue;
+
+  /* This transition is applied on the "enter" transition */
+  transition: background 150ms ease;
+}
+```
+
+在对称状态的时候，一般hover中没有设置transition，这时候才回运用base的transition写法
+
+
+### 动画性能考虑
+
+https://web.dev/articles/animations-guide
 

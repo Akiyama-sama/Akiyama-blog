@@ -63,6 +63,10 @@ alt+enter 进入光标的文件
 * shift+v 可视化选择行*
 * gg=G 真个文件格式化
 
+- via 选中某个范围（inner arround）
+- viw选中某个单词 （inner word）
+
+
 
 
 
