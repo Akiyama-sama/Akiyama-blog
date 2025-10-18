@@ -887,7 +887,7 @@ transition也是一种动画，不过是那种在开始与结束中间，只有�
  
 - 通过 JavaScript 更改 `class` ：当使用 JavaScript 更改元素的 CSS `class` 时，CSS 将转换已更改的合格属性。
 
-## 当中间状态也有transition时 - 不对称状态
+### 当中间状态也有transition时 - 不对称状态
 
 以hover为例，transition的过渡为：base->hover->base
 
@@ -919,3 +919,39 @@ transition也是一种动画，不过是那种在开始与结束中间，只有�
 
 https://web.dev/articles/animations-guide
 
+## 媒体查询
+
+使用@media关键字可以查询对应的媒体/视口大小，以生效对应的CSS样式
+
+- 查询视口大小可以用范围表示，即max-width
+- 朝向也可被查询：orientation:landscape
+- hover也可以被查询，运用到hover的意味着用户使用的是某种指点设备，因此触摸盘与键盘导航的设备就不能应用到
+
+用逻辑与创建查询列表：用and关键字可以把所有需要查询的条件相与
+```css
+@media screen and (min-width: 400px) and (orientation: landscape) {
+  body {
+    color: blue;
+  }
+}
+```
+
+逻辑“或”可用逗号进行分开，
+
+```css
+@media screen and (min-width: 400px), screen and (orientation: landscape) {
+  body {
+    color: blue;
+  }
+}
+```
+
+逻辑“非”用not关键字，这就直接反转了整个媒体查询的含义
+
+```css
+@media not all and (orientation: landscape) {
+  body {
+    color: blue;
+  }
+}
+```
