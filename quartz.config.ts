@@ -23,8 +23,8 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Fira Code",
-        body: "Fira Code",
+        header: "lxgw wenkai tc",
+        body: "LXGW WenKai TC",
         code: "Fira Code",
       },
       colors: {

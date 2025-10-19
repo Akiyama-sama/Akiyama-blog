@@ -77,7 +77,6 @@
   &.desktop-only {
     @media all and not ($mobile) {
       display: flex;
-      overflow: scroll;
     }
   }
 

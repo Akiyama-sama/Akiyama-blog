@@ -8,7 +8,8 @@ html {
   scroll-behavior: smooth;
   text-size-adjust: none;
   overflow-x: hidden;
-  font-size:20px;
+  font-size: 20px;
+  text-autospace: nomal;
   width: 100vw;
 }
 
@@ -220,6 +221,12 @@ a {
       display: flex;
       height: 100vh;
       position: sticky;
+
+      //config sidebar style;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     & .sidebar.left {
