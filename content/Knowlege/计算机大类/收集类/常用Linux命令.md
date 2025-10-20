@@ -99,5 +99,23 @@ useradd -g 组名 -m 用户名
 passwd 密码
 ```
 
+## 关于进程
+
+查看某端口号的占用情况
+
+```
+ss -tulnp | grep 端口号
+```
 
 
+查看防火墙
+
+```
+sudo ufw status
+```
+
+开启某个款口号
+
+```
+sudo ufw allow 端口号/tcp
+```
