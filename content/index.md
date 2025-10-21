@@ -1,7 +1,7 @@
 ---
 title: Hi , I 'm Akiyama
 ---
-你好，我是Akiyama，
+哈喽，I'm Akiyama，
 这是我的[GitHub](https://github.com/Akiyama-sama)主页，你可以在这里找到我做的项目
 这是我的[X](https://x.com/lchngy502188733)主页，我经常在那里活跃
 

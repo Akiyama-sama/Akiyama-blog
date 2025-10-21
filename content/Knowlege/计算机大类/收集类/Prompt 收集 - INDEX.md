@@ -3,4 +3,5 @@
 [[页面设计Prompt]]
 [[AI指导学习Prompt]]
 [[概念指导Prompt]]
+[[搞懂一个观点prompt]]
 

@@ -60,7 +60,7 @@ export const defaultContentPageLayout: PageLayout = {
         {
           Component: Component.Explorer({
             filterFn: (node) => {
-              const omit = new Set(["Random", "Attachment"])
+              const omit = new Set(["Random", "Attachment", "templates"])
               return !omit.has(node.displayName)
             },
           }),
