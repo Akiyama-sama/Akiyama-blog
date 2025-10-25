@@ -488,6 +488,8 @@ figure img {
 
 不需要应用 `z-index` 和 `position` 来创建新的 [堆叠上下文](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) 。您可以通过为创建新复合层的属性（例如 `opacity` 、 `will-change` 和 `transform` ）添加值来创建新的堆叠上下文
 
+[[哪些css属性会创建新的堆叠上下文]]
+
 ## 锚点定位 Anchor position
 
 ### 单个锚点
