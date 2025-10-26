@@ -187,13 +187,7 @@ new Promise((resolve, reject) => {...})
 
 ---
 
-#  如果你想更深入：
 
-我可以接下来帮你手写实现 `Promise.all`、`Promise.race`，或介绍微任务队列和 Event Loop 如何配合 Promise 执行机制。
-
-也可以带你看 ES6 规范中对 Promise 的完整描述（称为 Promises/A+ 规范）！
-
-需要我继续哪一块？来吧，咱们继续“造轮子”的旅程 
 
 
 

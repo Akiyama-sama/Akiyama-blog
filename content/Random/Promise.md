@@ -12,6 +12,7 @@ Promise只有三种状态：
 
 Promise的语法糖：[[async await]]
 Promise的底层：[[Promise底层讲解]]
+[[构建自己的Promise]]
 ## 基本结构
 
 ```js
@@ -43,11 +44,6 @@ promise
 * 封装异步操作时用Promise
 
 
-
-
-
-
-
-
-
 # reference
+https://wangdoc.com/javascript/async/promise
+https://es6.ruanyifeng.com/#docs/promise

@@ -32,6 +32,7 @@ tags:
 
 
 ## 杂项
+[[构建自己的Promise]]
 [[构建自己的React]]
 [[构建自己的Redux]]
 [[Tyscript 类型的高级用法]]
