@@ -119,3 +119,9 @@ sudo ufw status
 ```
 sudo ufw allow 端口号/tcp
 ```
+
+激活某个环境（加载配置文件）
+
+```
+source ~/.bashrc(即环境或者配置文件的路径)
+```
