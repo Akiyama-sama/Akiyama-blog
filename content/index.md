@@ -25,9 +25,8 @@ title: Hi , I 'm Akiyama
 
 正在完善的知识索引：
 
-[[政治 - INDEX]]
 [[CSS - INDEX]]
-[[计算机大类 - INDEX]]
+[[设计模式 - INDEX]]
 
 目前我正在进行的项目：
 
