@@ -26,6 +26,7 @@ title: Hi , I 'm Akiyama
 正在完善的知识索引：
 
 [[CSS - INDEX]]
+[[构建自己的 XXX - INDEX]]
 [[设计模式 - INDEX]]
 
 目前我正在进行的项目：
