@@ -1,7 +1,14 @@
 
-[[Prompt收集/观点分析prompt|观点分析prompt]]
+
+# 知识相关
+
+[[知识的解构与建构]]
 [[页面设计Prompt]]
 [[AI指导学习Prompt]]
 [[概念指导Prompt]]
-[[分析一个议题prompt]]
 
+
+# 议题相关
+[[观点分析prompt]]
+[[分析一个议题prompt]]
+[[对复杂议题进行升维分析]]

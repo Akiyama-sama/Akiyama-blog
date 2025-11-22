@@ -7,7 +7,7 @@ transition是一个过渡关键字，transition可以指定tranform这个CSS属�
 }
 ```
 
-其中transform属性是专门用于平移，旋转，缩放的属性
+其中transform属性是专门用于平移(translate)，旋转，缩放的属性
 
 平移的关键词就是translate
 
