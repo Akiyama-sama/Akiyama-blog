@@ -36,7 +36,7 @@ tags:
 ## 杂项
 
 [[Web3 - INDEX]]
-[[Tyscript 类型的高级用法]]
+[[Typescript 类型的高级用法]]
 [[各个主流图片格式的区别]]
 [[FastAPI速成]]
 宝塔用户名：rljiloxw
