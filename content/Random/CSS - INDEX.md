@@ -465,7 +465,7 @@ figure img {
 但如果使用z-index的父元素使用flex或者grid布局的时候，就不用手动指定这些盒子的position了，z-index会自动起作用，因为已经不在Nomal flow当的上下文当中了
 
 
-### 堆叠上下文 Stacking context
+### 层叠上下文 Stacking context
 
 这里的z-index的比较只在同一层父级进行比较，不同层级的z-index是不能比较的
 
@@ -483,12 +483,25 @@ figure img {
 
 例如这类的my-element，都通过position激活了自身的z-index属性，但child类与my-element类不在同一父层，而是父子的关系，因此尽管父的z-index小于child，但是还是父元素叠在上面，原因是他们两个之间的Stacking context不同
 
+具体的[[层叠等级]]：
+
+1. **背景和边框 (Background & Borders)**：最底层，地基。
+2. **负 z-index (-ve z-index)**：`z-index` 为负值的定位元素（Positioned）。
+3. **块级盒子 (Block)**：普通的 `div` 等，用于布局。
+4. **浮动盒子 (Float)**：`float` 元素。
+5. **行内盒子 (Inline)**：`span`、文字内容。
+    - _注意：_ 浏览器认为**内容（文字）比布局（块/浮动）更重要**，所以文字默认会浮在 div 上面。
+6. **z-index: auto / 0**：`z-index` 为 0 或 auto 的定位元素。
+7. **正 z-index (+ve z-index)**：`z-index` > 0 的定位元素（数值越大越靠上）。
+
+---
+
 
 ### 创建上下文
 
 不需要应用 `z-index` 和 `position` 来创建新的 [堆叠上下文](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) 。您可以通过为创建新复合层的属性（例如 `opacity` 、 `will-change` 和 `transform` ）添加值来创建新的堆叠上下文
 
-[[哪些css属性会创建新的堆叠上下文]]
+[[哪些css属性会创建新的层叠上下文]]
 
 ## 锚点定位 Anchor position
 
@@ -641,9 +654,9 @@ span-all关键字可以三行或者三列
 
 弹出动画需要分解三个步骤：
 
-1. 初始样式：`@starting-style {popover:popover-open { } }`
-2. 弹出后的样式：`popover:popover-open { }`
-3. 弹出窗口关闭时的样式`popover { }`  
+8. 初始样式：`@starting-style {popover:popover-open { } }`
+9. 弹出后的样式：`popover:popover-open { }`
+10. 弹出窗口关闭时的样式`popover { }`  
 
 
 ### 嵌套弹窗
@@ -975,9 +988,9 @@ https://web.dev/articles/animations-guide
 [[包含块]]是一个参照系矩形，当一个元素需要计算自己的大小或者位置的时候，需要根据这个参照矩形来进行计算
 
 **A1. 要素 (核心零件)**
-1. **子元素 (Descendant)：** 需要定位或定尺寸的那个元素。
-2. **定位属性 (position)：** 子元素的 `position` 属性（fixed, absolute, static, relative）决定了它去认谁做“干爹”（包含块）。
-3. **祖先元素 (Ancestor)：** 潜在的包含块候选人。
+11. **子元素 (Descendant)：** 需要定位或定尺寸的那个元素。
+12. **定位属性 (position)：** 子元素的 `position` 属性（fixed, absolute, static, relative）决定了它去认谁做“干爹”（包含块）。
+13. **祖先元素 (Ancestor)：** 潜在的包含块候选人。
 
 
 **A2. 结构 (核心规则 - 也是最容易错的地方)** 包含块是谁？完全取决于子元素的 `position`：
@@ -1005,9 +1018,9 @@ https://web.dev/articles/animations-guide
 
 **A1. 要素 (类型)** MDN 文档提到了几种主要的上下文，这代表不同的“特区规则”：
 
-1. **BFC (Block Formatting Context):** 处理块级盒子。最常用，用于清除浮动、防止 margin 重叠。
-2. **IFC (Inline Formatting Context):** 处理行内盒子（文字）。决定文字如何折行、如何对齐。
-3. **Flex / Grid Context:** 现代布局产生的上下文，规则更强大。
+14. **BFC (Block Formatting Context):** 处理块级盒子。最常用，用于清除浮动、防止 margin 重叠。
+15. **IFC (Inline Formatting Context):** 处理行内盒子（文字）。决定文字如何折行、如何对齐。
+16. **Flex / Grid Context:** 现代布局产生的上下文，规则更强大。
     
 
 **A2. 结构 (触发条件)** “结界”不是天然存在的，需要用特定的 CSS 咒语召唤（触发）：
@@ -1019,9 +1032,9 @@ https://web.dev/articles/animations-guide
 
 **A3. 系统 (涌现功能 - BFC 的三大铁律)**
 
-1. **内部箱子垂直放：** 里面还是遵循文档流。
-2. **排除浮动：** BFC 区域不会与浮动元素重叠（会自动收缩避开浮动）。
-3. **包含浮动：** 计算 BFC 高度时，浮动子元素也参与计算（**这是最重要的功能，用于解决“高度塌陷”**）。
+17. **内部箱子垂直放：** 里面还是遵循文档流。
+18. **排除浮动：** BFC 区域不会与浮动元素重叠（会自动收缩避开浮动）。
+19. **包含浮动：** 计算 BFC 高度时，浮动子元素也参与计算（**这是最重要的功能，用于解决“高度塌陷”**）。
 
 
 

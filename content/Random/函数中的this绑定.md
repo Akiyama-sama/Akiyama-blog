@@ -32,7 +32,7 @@ const bobIntro = introduce.bind(person1);
 bobIntro(25); // `this`永久绑定到person1，输出: "My name is Bob, and I'm 25 years old."
 ```
 
-4 new绑定，当这个函数为构造函数的时候，this指向被这个构造函数所实例化的对象
+4. new绑定，当这个函数为构造函数的时候，this指向被这个构造函数所实例化的对象
 
 ## 箭头函数的this
 

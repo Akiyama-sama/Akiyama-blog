@@ -11,6 +11,7 @@ React合成事件
 ```jsx
 <button conClick={e=>{console.log(e.nativeEvent)}}
 ```
+
 原生事件
 ```js
 const onclick = e=>{
@@ -29,7 +30,9 @@ const onclick = e=>{
 合成事件用`conClick={}`来传递一个函数名
 原生事件是直接用字符串：`onclick="handleClick()"`
 
+**执行顺序不同**
 
+原生事件绑定在具体的dom节点上，先进行执行，而React的合成事件都绑定在document对象上，当真实 DOM 元素触发事件，会冒泡到 document 对象后，再处理 React 事件
 
 
 
