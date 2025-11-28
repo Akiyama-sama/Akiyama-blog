@@ -106,7 +106,7 @@ npm install react-markdown react-syntax-highlighter
 ### 数据存储第一版：localstorage
 
 ### 调用AI-API
-没有写过，本来想着直接调用，不要太过复杂，毕竟是MVP，想着尽快交付可以使用的版本原型。但实在没写过，看看一些教程，甚至花20买了[[kai  Qwerty Learner]]的一个[小册](https://juejin.cn/book/7347579913702293567/section/7360946625923317798?utm_source=post_pay_page)
+没有写过，本来想着直接调用，不要太过复杂，毕竟是MVP，想着尽快交付可以使用的版本原型。但实在没写过，看看一些教程，甚至花20买了[[kaiyi]]的一个[小册](https://juejin.cn/book/7347579913702293567/section/7360946625923317798?utm_source=post_pay_page)
 
 但现在看来是冲动了，我学习这个也挺花时间的，感觉后面才有用，后面再看吧。得先快速把原型建好了来
 

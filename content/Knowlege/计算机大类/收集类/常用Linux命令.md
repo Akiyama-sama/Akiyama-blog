@@ -51,7 +51,7 @@ grep(global regular expression)
 find [路径] [匹配条件] [动作]
 ```
 
-重命名文件
+重命名文件/剪切文件
 ```
 mv [旧文件名] [新文件名]
 ```
