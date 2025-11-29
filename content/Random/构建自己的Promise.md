@@ -10,22 +10,28 @@ type PromiseState = "pending" | "fulfilled" | "rejected";
 type Reject = (reason: any) => void;
 type Resolve = (value: any) => void;
 type Executor = (resolve: Resolve, reject: Reject) => void;
+type VoidFunction = (value?: any) => void;
+
 
 class MyPromise {
 	private state: PromiseState = "pending";
 	private value: any;
 	private reason: any;
+	private onFulfilledCallbacks: VoidFunction[] = [];
+	private onRejectedCallbacks: VoidFunction[] = [];
 	constructor(executor: Executor) {
 		const resolve: Resolve = (value) => {
 			if (this.state == "pending") {
 				this.state = "fulfilled";
 				this.value = value
+				this.successCallbacks.forEach(cb => cb(value));
 			}
 		};
 		const reject:Reject=(reason)=>{
 			if(this.state == 'pending') {
 				this.state='rejected'
 				this.reason = reason
+				this.onRejectedCallbacks.forEach(fn => fn(this.reason));
 			}
 		}
 		try{
@@ -86,7 +92,18 @@ then = (onFulfilled: Resolve, onRejected: Reject) => {
 	};
 ```
 
-这里的.then方法等水平上来了再理解吧，我现在有些蠢，在AI的帮助下也理解不了里面的逻辑
+这里的.then方法返回一个新的Promise，以支持传入执行新的异步函数，并再次进行.then这样的链式调用，让我们可以以同步的形式写出异步代码，解决了回调地狱
+
+
+来看看这个.then方法：就是包装一个新的Promise，
+
+在这个Promise当中：
+- case: 之前的异步操作状态为fulfilled
+	- 执行这个新包装的fulfilledWrapper函数，这个函数会执行新包装的Promise所传递resolve回调函数
+- case: 之前的异步操作状态为rejected
+	-  执行这个新包装的rejectedWrapper函数，这个函数会执行新包装的Promise所传递reject回调函数
+- case: pending
+	- 即要么是初始状态，要么是异步函数正在执行，这时候就要把resolve以及reject回调放在onFulfilledCallbacks以及onRejectedCallbacks回调函数队列当中，直到状态改变的时候再执行这个队列里面的异步回调
 
 
 ![](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*zZRhLUW7g1nk8o7R)

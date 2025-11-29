@@ -261,7 +261,7 @@ function performUnitOfWork (fiber:Fiber){
     if (fiber.sibling) {
         return fiber.sibling;
     }
-
+	// 3.两者都没有，直到返回到叔叔节点
     let newFiber:Fiber|null = fiber.parent
     while(newFiber){
         if(newFiber.sibling){
