@@ -2,57 +2,105 @@
 date: 2025-10-21
 tags: 
 ---
-## 问题描述：
-[@LyricsPage.tsx](zed:///agent/file?path=F%3A%5Cproject%5CMelodict-test%5CMelodict%5Csrc%5Crenderer%5Csrc%5Ccomponents%5CLyricsPage%5CLyricsPage.tsx) [@LyricLine.tsx](zed:///agent/file?path=F%3A%5Cproject%5CMelodict-test%5CMelodict%5Csrc%5Crenderer%5Csrc%5Ccomponents%5CLyricsPage%5CLyricLine.tsx) 在这两个组件当中，我加上了AnalyzedGeneralToken这个组件的时候，导致了内存泄露，在播放一首歌的时候，不清楚是哪里的闭包还没有清理干净，上一首歌的内存还保留进了下一首歌当中，导致内存当中像是@keyframes以及animation之类的css属性内存猛涨，[@AnalyzedGeneralToken.tsx](zed:///agent/file?path=F%3A%5Cproject%5CMelodict-test%5CMelodict%5Csrc%5Crenderer%5Csrc%5Ccomponents%5CAnalyedLyrics%5CAnalyzedGeneralToken.tsx) ，请仔细查阅相关组件代码，找出罪魁祸首并且纠正他
+● 内存泄漏的根本原因分析
 
-## 思考过程
+  旧版代码存在的问题
 
-这段材料记录了您在**React应用**中定位**内存泄漏**的详细调试和策略调整过程，主要集中在**`AnalyzedGeneralToken`**、**`LyricLine`** 和 **`LyricsPage`** 三个组件。
+  用户提供的旧版代码中，监听函数 handleLyricsActivity 被定义为一个 useCallback 函数，并作为依赖项传递给了 useEffect：
 
-您的核心怀疑点是：
+```tsx
+  const handleLyricsActivity = useCallback(...) // 依赖 [isAutoScrolling, syncedLyrics]
 
-- **CSS 属性累积：** 怀疑在歌曲切换时，与 **`AnalyzedGeneralToken`** 相关的 **`@keyframes`** 和 **`animation`** 等 **CSS 属性**（特别是**动态生成的样式**或 **CSS-in-JS** 注入的样式）未能正确释放，导致内存泄漏。
-    
-- **事件监听器（Closure）问题：** 怀疑在 **`LyricLine.tsx`** 中的 **`handleLyricsActivity`** 事件监听器未被正确移除（尤其是在组件卸载和歌曲切换时），或者其闭包保留了不必要的引用。
-    
+  useEffect(() => {
+    document.addEventListener('player/positionChange', handleLyricsActivity);
 
----
+    return () => document.removeEventListener('player/positionChange', handleLyricsActivity);
+  }, [handleLyricsActivity]); // 使用 handleLyricsActivity 作为依赖
+```
 
-## 核心调试方向和策略变化
+  这种模式会导致内存泄漏，原因如下：
+  1. handleLyricsActivity 函数依赖于 [isAutoScrolling, syncedLyrics]，当这些依赖发生变化时，useCallback 会返回一个新的函数引用。
+  2. 每次 handleLyricsActivity 变化时，useEffect 都会执行，先移除旧的监听器，再添加新的监听器。
+  3. 关键问题：useCallback 返回的是新的函数引用，而移除监听器时需要使用与添加时完全相同的函数引用。当函数引用变化时，removeEventListener       
+  无法找到要移除的旧监听器，导致旧监听器永远留在 document 上。
 
-### 1. **`AnalyzedGeneralToken` 组件检查 (CSS 泄漏嫌疑)**
+  React 中的函数引用问题
 
-- **初期关注点：** 组件生命周期、`useEffect` 中的未清理副作用、未分离的事件监听器、`ReactDOM.createPortal` 的使用。
-    
-- **重点转移：** 发现可疑的 `useEffect` 和 Portal 代码被注释后，将焦点转向 **`style` prop** 的使用、**`analyzedLyric`** 属性的变化如何触发渲染和样式更新，以及 `useMemo` 钩子的依赖项。
-    
-- **核心排查目标：** 查找任何**动态 CSS 注入**或**未清理的 CSS 规则**，特别是与**动画和关键帧**相关的样式，检查它们是否在组件卸载或 `analyzedLyric` 变化时未能从文档头部 (`<head>`) 清除。
-    
+  在 React 中，每次组件渲染时，函数都会被重新创建。useCallback 可以记忆函数，但当依赖变化时仍会返回新的引用。当 useEffect
+  的依赖变化时，旧的 useEffect 清理函数会执行，但此时要移除的监听器已经被更新为新的引用，导致清理失败。
 
-### 2. **`LyricLine` 组件检查 (事件监听器泄漏嫌疑)**
+● 修复方案：使用 useRef 解决问题
 
-- **持续关注点：** **`handleLyricsActivity`** 回调函数及其依赖项（如 `isAutoScrolling`, `syncedLyrics`, `lyricsRef`）的正确性。
-    
-- **反复策略：** 多次**重构**事件监听器的管理方式，从最初的 `useCallback` 和 `useEffect` 模式，转向使用 **`useRef`** 和稳定的事件处理函数，以确保在组件卸载或歌曲变化时，事件监听器能够**可靠地被移除**，消除闭包可能导致的内存保留问题。
-    
+  修复后的代码
 
-### 3. **Prop 依赖和数据流检查**
+  修复后的代码使用了 useRef 来存储最新的事件处理函数，并使用一个稳定的中间函数来调用它：
 
-- **关键 Props：** 仔细检查传递给 `AnalyzedGeneralToken` 的 **`analyzedLyric`** 和 **`paletteData`**，评估它们的数据结构、大小以及对组件重新渲染和生命周期的影响，以排除因保留大型对象或循环依赖导致的泄漏。
-    
+```tsx
+  const activityHandlerRef = useRef<(e: Event) => void>();
 
----
+  useEffect(() => {
+    activityHandlerRef.current = (e: Event) => {
+      // 事件处理逻辑
+    };
+  }, [isAutoScrolling, syncedLyrics]);
 
-**总结：** 您的调查在 **“动态 CSS 样式积累”** 和 **“事件监听器未正确清理”** 这两个高频的 React 内存泄漏原因之间反复验证和修复。目前您已经**重构了 `LyricLine` 的事件监听器**，下一步是**彻底找出 `AnalyzedGeneralToken` 中动态样式（特别是 `@keyframes` 和 `animation`）的来源和清理机制。**
+  useEffect(() => {
+    const listener = (e: Event) => activityHandlerRef.current?.(e);
 
+    document.addEventListener('player/positionChange', listener);
 
-## 回答
+    return () => document.removeEventListener('player/positionChange', listener);
+  }, []); // 空依赖数组，仅在组件挂载/卸载时执行
+```
 
-好的，我明白了。您遇到了一个内存泄漏问题，该问题在您将 `AnalyzedGeneralToken` 组件添加到 `LyricsPage` 和 `LyricLine` 组件后出现。您怀疑是闭包清理不当导致的，具体表现为切换歌曲时，旧歌曲的 `@keyframes` 和 `animation` 等 CSS 属性仍在内存中累积。
+  为什么这样能解决内存泄漏？
 
-这是一个典型的与事件监听器和组件生命周期相关的内存泄漏场景。每个 `LyricLine` 组件都向 `document` 添加了一个事件监听器，如果这些监听器在组件卸载时没有被正确移除，它们将继续持有对旧组件实例、状态和属性的引用，阻止垃圾回收。
+  1. 稳定的函数引用：listener 是一个稳定的中间函数，它的引用不会改变（因为 useEffect 的依赖数组是空的）。
+  2. 更新机制：当 isAutoScrolling 或 syncedLyrics 变化时，第一个 useEffect 会更新 activityHandlerRef.current
+  的值，使其指向最新的事件处理函数。
+  1. 清理保证：第二个 useEffect 在组件卸载时，始终能够正确移除 listener（因为 listener 的引用始终相同）。
 
-我将采取以下步骤来解决这个问题：
+● 未来避免内存泄漏的启示
 
-1.  **重构 `LyricLine.tsx` 中的事件监听器**：我将修改 `LyricLine.tsx` 中处理歌词同步的事件监听器。当前的实现虽然看起来没问题，但在大量组件实例（每行歌词一个）的情况下，存在因函数实例变化而导致清理失败的潜在风险。我将采用一种更健壮的模式，使用 `useRef` 来持有事件处理函数，并确保在组件挂载时添加的监听器和在卸载时移除的监听器是完全相同的实例。这可以根除此类内存泄漏。
-2.  **清理 `AnalyzedGeneralToken.tsx` 中的代码**：我将清理 `AnalyzedGeneralToken.tsx` 中 `useMemo` 钩子的依赖项，使其更加清晰和正确。虽然这可能不是泄漏的直接原因，但它是良好的代码实践，可以防止未来出现相关问题。
+  1. 理解事件监听的移除机制
+
+  - 向 DOM 或全局对象（如 window、document）添加事件监听器时，必须确保能在组件卸载或不再需要时移除它们。
+  - removeEventListener 必须使用与 addEventListener 完全相同的函数引用才能生效。
+
+  2. 正确使用 React 的依赖管理
+
+  - 避免在 useEffect 中直接使用依赖变化的函数，除非这些函数不依赖于组件状态或 props。
+  - 对于依赖频繁变化的事件处理函数，推荐使用 useRef + 中间函数的模式。
+
+  1. 优先使用 React 提供的受控事件
+
+  - 尽可能使用 React 组件内部的 onClick、onChange 等事件属性，而非直接操作 DOM。这些事件会被 React 自动管理，无需手动清理。
+
+  2. 组件卸载时的清理
+
+  - 对于任何在组件外部创建的资源（如事件监听、定时器、WebSocket 连接等），都必须在组件卸载时清理。
+
+  3. 代码审查关注的重点
+
+  - 检查所有 useEffect 中是否存在未正确清理的资源。
+  - 检查事件监听的移除是否使用了与添加时相同的函数引用。
+
+● 总结
+
+  内存泄漏原因
+
+  旧版代码中的事件监听器没有被正确移除，因为 handleLyricsActivity 函数依赖于 [isAutoScrolling,
+  syncedLyrics]，当这些依赖变化时，函数引用也会变化，导致 removeEventListener 无法找到要移除的旧监听器，从而造成内存泄漏。
+
+  修复原理
+
+  修复后的代码使用 useRef 存储最新的事件处理函数，并使用一个稳定的中间函数 listener 来调用它。这样，addEventListener 和 removeEventListener    
+   始终使用相同的函数引用 listener，确保了监听器能在组件卸载时被正确移除。
+
+  预防措施
+
+  1. 理解事件监听的移除机制
+  2. 正确使用 React 的依赖管理
+  3. 优先使用 React 提供的受控事件
+  4. 组件卸载时清理所有外部资源
+  5. 代码审查关注清理逻辑 
