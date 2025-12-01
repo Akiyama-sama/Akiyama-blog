@@ -9,6 +9,7 @@ tags:
 [[计算机组成原理 - INDEX]]
 [[计算机操作系统 - INDEX]]
 [[算法分析与设计 - INDEX]]
+[[Linux程序设计 - INDEX]]
 [[吴恩达机器学习笔记 - INDEX]]
 [[软件工程 - INDEX]]
 [[CSS - INDEX]]
