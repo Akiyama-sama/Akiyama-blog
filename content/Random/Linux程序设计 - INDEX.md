@@ -475,7 +475,64 @@ int main() {
     return 0;
 }
 ```
+# 第五章 文件和目录的维护 (Exam Focus: 目录操作与链接管理)
 
+## 1. 权限与所有者 (系统调用版)
+
+第一章我们讲了 `chmod` 命令，这里要掌握的是对应的 **C 系统调用**。
+
+- **`chmod` 函数**：
+    
+    ```c
+    int chmod(const char *path, mode_t mode);
+    ```
+    - **考点**：`mode` 参数通常使用八进制数字，如 `0644` 。
+- **`chown` 函数**：
+
+    ```c
+    int chown(const char *path, uid_t owner, gid_t group);
+    ```
+
+    - **考点**：需要配合 `getuid()` (获取当前用户ID) 和 `getgid()` (获取当前组ID) 使用 。
+
+
+## 2. 链接管理 (高频考点：硬链接 vs 软链接)
+
+这是本章理论部分最容易出**简答题**或**选择题**的地方。
+
+- **硬链接 (Hard Link)**：
+    - **本质**：两个文件名指向同一个 **Inode** 。
+    - **创建**：`link(const char *path1, const char *path2)` 。
+    - **删除**：**`unlink(const char *path)`** 。
+        - **注意**：`unlink` 只是将 Inode 的链接计数减 1。只有当计数为 0 且没有进程打开该文件时，文件内容才会被真正删除 。这也是为什么我们在代码中常用 `unlink` 来删除临时文件。
+            
+- **软链接 (Symbolic Link)**：
+    
+    - **本质**：一个独立的文件，内容是另一个文件的**路径** 。
+    - **创建**：`symlink(const char *path1, const char *path2)` 。
+        
+
+## 3. 目录操作 (基础)
+
+- **创建/删除**：
+    - `mkdir(path, mode)`：创建目录 。
+    - `rmdir(path)`：**只能删除空目录** 。
+- **导航**：
+    - `chdir(path)`：相当于 Shell 中的 `cd` 命令，改变当前工作目录 。
+    - `getcwd(buf, size)`：相当于 Shell 中的 `pwd` 命令，获取当前绝对路径 。
+
+## 4. 扫描目录 (C程序编写核心)
+
+如果考试要求你“编写一个程序，列出当前目录下的所有文件”，这部分是必须掌握的。
+
+Linux 使用**目录流 (Directory Stream)** 的概念，类似于文件流。
+
+- **`DIR *opendir(const char *name)`**：打开目录，返回指向目录流的指针 。
+- **`struct dirent *readdir(DIR *dirp)`**：读取下一个目录项 。
+    - **`struct dirent` 结构体** (必背成员) ：
+        - `d_ino`：Inode 编号。
+        - **`d_name`**：文件名 (最常用)。
+- **`int closedir(DIR *dirp)`**：关闭目录流 。
 
 # 第六章 Linux环境 (Exam Focus: 参数解析、环境变量、时间处理)
 
@@ -598,3 +655,378 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
+
+
+# 第七章 数据管理 (Exam Focus: 内存管理与锁机制)
+
+## 1. 动态内存管理 (基础必考)
+
+Linux 程序通常不允许直接访问物理内存，而是使用虚拟内存。
+- **分配内存 `malloc`**：
+
+    ```c
+    void *malloc(size_t size);
+    ```
+    - **考点**：返回 `void *` 指针，失败返回 `NULL` 1。分配的内存未初始化，可能包含垃圾数据。
+    - **`calloc`**：类似于 `malloc`，但会自动将内存初始化为 **0** 2。
+    - **`realloc`**：改变已分配内存块的大小 3。
+- **释放内存 `free`**：
+    ```c
+    void free(void *ptr_to_memory);
+    ```
+    - **考点**：必须配对使用。释放后不能再访问该块内存，否则会导致未定义行为。
+- **常见错误**：
+    - **段错误 (Segmentation Fault)**：访问了非法的内存地址（如空指针、越界）4。
+
+## 2. 文件锁定 (高频难点)
+
+为了防止多个进程同时修改同一个文件导致数据混乱，Linux 提供了锁定机制。
+
+**A. 锁文件 (Lock Files) - 粗粒度**
+- **原理**：创建一个临时文件作为“锁”。如果文件存在，表示资源被占用；如果不存在，则创建该文件并占用资源。
+- 原子操作 (必考代码)：
+    使用 open 系统调用，必须带有 O_CREAT 和 O_EXCL 标志 5。
+
+    ```c
+    // 如果文件已存在，open 将返回 -1，表示加锁失败
+    int fd = open("/tmp/LCK.test", O_RDWR | O_CREAT | O_EXCL, 0444);
+    ```
+- **临界区 (Critical Section)**：需要独占访问资源的代码段 6。进入前加锁，退出后删除锁文件 (`unlink`)。
+
+B. 区域锁定 (Region Locking) - 细粒度
+
+使用 fcntl 系统调用对文件的某一部分进行锁定，效率更高。
+
+- **函数原型**：`int fcntl(int fildes, int command, struct flock *flock_structure);` 7。
+- **`command` 参数**：
+    - `F_GETLK`：测试能不能加锁（不真加）8。
+    - `F_SETLK`：尝试加锁，失败立刻返回 -1 9。
+    - `F_SETLKW`：尝试加锁，被占用则**等待 (Wait)** 10。
+- **锁的类型 (`l_type`)** (必考辨析)：
+    - **`F_RDLCK` (共享锁/读锁)**：多个进程可以同时读。只要有一个读锁存在，就没人能加写锁 11。
+    - **`F_WRLCK` (独占锁/写锁)**：一次只能有一个进程拥有。一旦加上写锁，其他进程既不能读也不能写 12。
+        
+- **`struct flock` 结构体**：
+    - `l_type`：锁类型。
+    - `l_whence`, `l_start`, `l_len`：定义锁定的区域范围 13。
+    - `l_pid`：持有锁的进程ID。
+
+# 第九章 开发工具 (Exam Focus: GCC与Makefile)
+
+## 1. GCC 编译流程 (必考填空/选择)
+GCC 编译一个 C 程序经历四个步骤，顺序不能乱 ：
+1. **预处理 (Pre-Processing)**：处理 `#include`, `#define`。
+    - 命令：`gcc -E`，生成 `.i` 文件。
+2. **编译 (Compiling)**：检查语法，翻译成汇编语言。
+    - 命令：`gcc -S`，生成 `.s` 文件。
+3. **汇编 (Assembling)**：将汇编转成二进制目标代码。
+    - 命令：`gcc -c`，生成 `.o` 文件。
+4. **链接 (Linking)**：合并目标代码和库文件，生成可执行文件。
+    - 命令：`gcc -o`。
+
+## 2. 函数库 (静态 vs 动态)
+
+- **静态库 (`.a`)**：代码被拷贝到可执行文件中，程序大，但独立运行。
+- **动态库 (`.so`)**：代码不拷贝，程序运行时加载，节省空间 。
+
+# 第十章 进程 (Exam Focus: 代码逻辑解释 & 僵尸进程)
+
+## 1. 进程基础概念 (选择/填空)
+
+- **定义**：进程是一个正在运行的程序实例 。
+- **PID (Process ID)**：每个进程都有唯一的非负整数 ID 。
+    - **PID 1**：**init 进程**（或 systemd），是系统所有其他用户进程的祖先 。
+- **进程表**：Linux 内核维护的表，记录所有进程信息 。
+- **进程状态** (重点记忆符号)：
+    - **R** (Running)：正在运行或在队列中 。
+    - **S** (Sleeping)：可中断睡眠 。
+    - **Z** (Zombie)：**僵尸进程**。进程已结束，但父进程还没回收它的资源（还没调用 `wait`）。
+
+#### 2. 启动新进程：`system` (简单但低效)
+
+- **函数**：`int system(const char *string);`
+- **原理**：它会启动一个 shell (`/bin/sh`) 来执行命令 。
+- **缺点**：效率低（多启动了一个 shell），且无法控制细节 。
+
+#### 3. 复制进程：`fork` (核心中的核心)
+
+**这是代码解释题的必考点，请务必死磕以下逻辑：**
+
+- **函数**：`pid_t fork(void);`
+- **功能**：复制当前进程。在进程表中创建一个新的表项。新进程（子进程）几乎是父进程的完整副本（代码、数据、堆栈都复制）。
+- **返回值** (判断父子的关键) ：
+    - **返回 -1**：出错。
+    - **返回 0**：**在子进程中**。
+    - **返回 >0** (子进程的PID)：**在父进程中**。
+- **执行顺序**：`fork` 之后，父子进程并发执行，谁先执行是不确定的（取决于调度器）。
+
+## 4. 替换进程：`exec` 系列 (代码解释题常见)
+
+- **原理**：`fork` 是复制，`exec` 是**替换**。它用一个新的程序替换当前进程的代码段、数据段。**PID 不变** 。
+- **特点**：一旦 `exec` 成功，原进程后续的代码**不再执行**（因为它已经被新代码覆盖了）。
+    
+- **常见函数**：
+    - `execl`, `execv` (基础版)
+    - `execlp`, `execvp` (带 `p` 表示会在 `PATH` 环境变量中查找程序) 。
+
+## 5. 等待进程与僵尸进程：`wait` (简答/代码题)
+
+- **僵尸进程 (Zombie)**：子进程结束了，但父进程还在运行且没有调用 `wait` 来获取子进程的退出状态。子进程的尸体（进程表项）就会一直保留 。
+- **处理方法**：父进程调用 `wait` 或 `waitpid`。
+    - `pid_t wait(int *stat_val);`：挂起父进程，直到任意一个子进程结束 。
+    - `pid_t waitpid(pid_t pid, int *stat_val, int options);`：可以等待指定 PID 的子进程，或者使用 `WNOHANG` 选项（非阻塞，即使子进程没结束也立刻返回）。
+
+---
+
+## 讲师画重点：如何应对“代码解释题” (fork篇)
+
+考试常常会给出类似下面的代码，问你输出结果或进程关系。
+
+**典型代码分析：**
+
+
+```c
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    pid_t pid;
+    char *message;
+    int n;
+
+    printf("fork program starting\n"); // 只输出一次
+    pid = fork(); // 分叉点！
+
+    switch(pid) {
+        case -1:
+            perror("fork failed");
+            exit(1);
+        case 0:
+            // 这里是子进程执行的代码
+            message = "This is the child";
+            n = 3;
+            break;
+        default:
+            // 这里是父进程执行的代码 (pid 是子进程的 ID，肯定 > 0)
+            message = "This is the parent";
+            n = 3;
+            break;
+    }
+
+    // 父子进程都会执行这段循环，因为它们是两个独立的进程
+    for(; n > 0; n--) {
+        puts(message);
+        sleep(1);
+    }
+    exit(0);
+}
+```
+
+**解题逻辑 (必背)：**
+
+5. **分叉点**：看到 `fork()`，脑子里马上画出两条线，一条父进程，一条子进程。
+6. **数据隔离**：虽然代码变量名一样，但父子进程的 `n` 和 `message` 是独立的内存空间，互不干扰。
+7. **并发执行**：输出结果通常是交替的（Parent... Child... Parent...），但也可能乱序。
+8. **Exec 陷阱**：如果代码在 `fork` 后调用了 `execlp("ps", ...)`，那么子进程那条线后面的 `printf` 只要写在 `exec` 后面，就**永远不会执行**（除非 exec 失败）。
+
+# 第十一章 信号 (Exam Focus: 异步处理 & 代码解释)
+
+## 1. 信号的基本概念 (选择/填空)
+
+- **定义**：信号是 UNIX/LINUX 系统响应某些条件而产生的一个事件 。
+- **本质**：**软中断**。在软件层次上对中断机制的一种模拟 。
+- **来源**：
+    - **终端用户**：输入 `Ctrl+C` (SIGINT) 。
+    - **错误条件**：内存段冲突 (SIGSEGV)、非法指令 (SIGILL) 。
+    - **程序发送**：`kill` 命令或函数 。
+- **特点**：进程间通信中**唯一的异步通信机制** 。
+
+## 2. 常见信号 (必背，用于分析代码行为)
+
+考试中经常会看到 `kill(pid, SIGXXX)`，你需要知道这些信号是干嘛的：
+
+- **`SIGINT`** (2)：**终端中断**。通常由用户按下 `Ctrl+C` 产生，默认动作是终止进程 。
+- **`SIGQUIT`** (3)：**中断退出**。通常由用户按下 `Ctrl+\` 产生 。
+- **`SIGKILL`** (9)：**强制终止**。**不能被捕获或忽略**。这是“必杀技” 。
+- **`SIGALRM`** (14)：**超时警告**。由 `alarm()` 函数设定的定时器超时产生 。
+- **`SIGCHLD`** (17)：**子进程状态改变**。当子进程停止或退出时产生，默认动作是**忽略** 。
+- **`SIGSTOP`** (19)：**停止执行** (暂停)。**不能被捕获或忽略** 。
+- **`SIGCONT`** (18)：**继续执行**。让暂停的进程恢复运行 。
+## 3. 号处理 (代码解释题核心)
+
+A. 处理方式 (三种)
+9. **捕获 (Catch)**：指定处理函数。
+10. **忽略 (Ignore)**：`SIG_IGN`。
+11. **默认动作 (Default)**：`SIG_DFL` (通常是终止)。
+
+**B. `signal` 函数 (注册信号处理)**
+
+```c
+#include <signal.h>
+void (*signal(int sig, void (*func)(int)))(int);
+```
+
+- **功能**：给信号 `sig` 注册处理函数 `func` 。
+- **参数 `func`**：
+    - 自定义函数名：如 `ouch`。
+    - **`SIG_IGN`**：忽略信号 。
+    - **`SIG_DFL`**：恢复默认行为 。
+
+**C. `sigaction` 函数 (健壮的接口)** 比 `signal` 更安全，支持信号屏蔽 。
+
+- **结构体 `struct sigaction`**：
+    - `sa_handler`：处理函数或 `SIG_DFL`/`SIG_IGN` 。
+    - `sa_mask`：**信号屏蔽字**。在处理该信号时，临时屏蔽 `sa_mask` 中的其他信号 。
+
+## 4. 发送信号的函数 (编程/解释)
+
+- **`kill(pid_t pid, int sig)`**：发送信号 `sig` 给进程 `pid` 。
+- **`alarm(unsigned int seconds)`**：设置闹钟。`seconds` 秒后发送 **`SIGALRM`** 信号 。
+    - _注意_：每个进程只能有一个闹钟 。
+- **`pause(void)`**：**挂起进程**，直到收到一个信号 。
+
+
+## 5. 信号集与屏蔽 (进阶考点)
+
+- **信号集操作**：`sigemptyset` (清空), `sigfillset` (全填), `sigaddset` (添加), `sigdelset` (删除), `sigismember` (判断) 。
+- **屏蔽信号 (`sigprocmask`)**：
+    - `SIG_BLOCK`：添加屏蔽。
+    - `SIG_UNBLOCK`：解除屏蔽。
+    - `SIG_SETMASK`：重置屏蔽 。
+- **未处理信号 (`sigpending`)**：获取当前被阻塞（屏蔽）且已经产生的信号 。
+
+
+---
+
+## 讲师画重点：如何应对“代码解释题” (信号篇)
+
+考试可能会给出一段包含 `signal`, `fork`, `alarm`, `pause` 的混合代码，问你程序的执行流程。
+
+典型代码分析 (基于课件 )：
+
+
+```c
+#include <signal.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+static int alarm_fired = 0;
+
+// 信号处理函数
+void ding(int sig) {
+    alarm_fired = 1;
+}
+
+int main() {
+    pid_t pid;
+    printf("alarm application starting\n");
+    
+    pid = fork(); // 创建子进程
+    switch(pid) {
+        case -1: perror("fork failed"); exit(1);
+        case 0: // 子进程
+            sleep(5); // 睡5秒
+            kill(getppid(), SIGALRM); // 给父进程发闹钟信号
+            exit(0); // 子进程结束
+    }
+
+    // 父进程
+    printf("waiting for alarm to go off\n");
+    (void) signal(SIGALRM, ding); // 1. 注册信号处理函数
+    pause(); // 2. 挂起，等待信号
+    
+    // 3. 收到信号后，pause返回，继续执行
+    if (alarm_fired) printf("Ding!\n");
+    printf("done\n");
+    exit(0);
+}
+```
+
+**解题逻辑 (必背)：**
+
+12. **注册阶段**：`signal` 只是告诉内核“如果收到 SIGALRM，就去执行 `ding`”，此时 `ding` **不会** 执行。
+    
+13. **挂起阶段**：`pause()` 让父进程睡眠，节省 CPU。
+    
+14. **触发阶段**：子进程 5 秒后发信号。父进程收到信号，被唤醒。
+    
+15. **处理阶段**：父进程先去执行 `ding()` 函数 (`alarm_fired` 变 1)，函数返回后，`pause()` 返回，主程序继续往下执行 `if (alarm_fired)...`。
+
+
+# 第十二章 套接字 (Exam Focus: TCP网络编程流程)
+
+## 1. 核心概念 (选择/填空)
+
+- **定义**：Socket 是一种通信机制，既用于同一台机器进程间通信，也用于网络间不同机器通信 1。
+- **本质**：在 Linux 中，Socket 也是一种**文件描述符**，对其进行数据传输就像读写文件一样 2。
+- **域 (Domain)** 3：
+    - **`AF_INET`**：网络套接字 (IPv4)，最常用。
+    - `AF_UNIX`：本地套接字 (文件系统路径)，用于本机通信。
+- **类型 (Type)** 4：
+    - **`SOCK_STREAM`**：**流式**套接字 (TCP)。有序、可靠、面向连接（像打电话）。
+    - `SOCK_DGRAM`：**数据报**套接字 (UDP)。无序、不可靠、无连接（像发短信）。
+
+## 2. TCP 通信流程 (必考流程图)
+
+这是本章的灵魂，必须背下来服务器和客户端分别要做什么 5。
+
+|**步骤**|**服务器端 (Server)**|**客户端 (Client)**|**备注**|
+|---|---|---|---|
+|1|**`socket()`** 创建|**`socket()`** 创建|买电话机|
+|2|**`bind()`** 绑定地址|-|插上电话线，定号码|
+|3|**`listen()`** 监听|-|打开铃声，准备接听|
+|4|**`accept()`** 接受连接|**`connect()`** 连接|服务器接电话，客户拨号|
+|5|`read()` / `write()`|`read()` / `write()`|通话 (收/发数据)|
+|6|`close()`|`close()`|挂断|
+
+## 3. 关键函数详解 (代码题核心)
+
+**A. `socket` - 创建**
+
+```c
+int socket(int domain, int type, int protocol);
+```
+- **用法**：`fd = socket(AF_INET, SOCK_STREAM, 0);` 6。
+
+B. 地址结构体 struct sockaddr_in (必背配置)
+
+在使用 bind 或 connect 前，必须填充这个结构体 7。
+
+```c
+struct sockaddr_in addr;
+addr.sin_family = AF_INET;
+addr.sin_port = htons(9734); // 端口号 (主机字节序转网络字节序)
+addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // IP地址字符串转二进制
+// 或者服务器监听所有IP: addr.sin_addr.s_addr = htonl(INADDR_ANY);
+```
+**C. `bind` - 绑定 (服务器)**
+
+```c
+int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+```
+- **作用**：给 socket 起名字（绑定 IP 和 端口）8。
+
+**D. `listen` - 监听 (服务器)**
+
+```c
+int listen(int sockfd, int backlog);
+```
+
+- **作用**：创建连接队列。`backlog` 指定队列最大长度 9。
+**E. `accept` - 接受 (服务器 - 重点)**
+
+```c
+int client_fd = accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
+```
+
+- **关键考点**：它会**阻塞**等待。**返回值是一个新的 socket 描述符** (`client_fd`)，专门用于和这个特定的客户端通信。原来的 `sockfd` 继续监听其他人的电话 10101010。
+
+**F. `connect` - 连接 (客户端)**
+
+```c
+int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+```
+- **作用**：拨号。成功返回 0 11
