@@ -3,113 +3,278 @@ date: 2025-12-20
 tags: 
 ---
 
-# Feature 开发文档 (V4.0 - 切片化与意图驱动模式)
+# Feature 开发文档（V6.0 - 切片化 Store + Actions Hook 意图层）
 
-## 一、 Feature 定义
-一个 Feature 是一个独立的业务模块（如：`auth`, `discover`, `chat`）。它遵循“高内聚，低耦合”原则，包含该业务所需的所有 UI、逻辑、状态与类型。
-## 二、 目录结构
+## 一、Feature 定义
+
+一个 Feature 是一个独立的业务模块（如：`auth`, `discover`, `chat`）。遵循“高内聚、低耦合”，包含该业务所需的 UI、逻辑、状态与类型。
+
+---
+
+## 二、目录结构（V6.0）
 
 1. **顶层 Feature 组件**：入口组件（如 `discover.tsx`），负责业务布局组装。
-2. **components/**：功能拆分的子组件，仅负责 UI 渲染与数据/事件绑定。
-3. **hooks/**：**仅存放 TanStack Query 相关 Hook**。负责服务端数据获取、缓存与同步。
-4. **stores/**：存放 Zustand Store。包含 **Sliced State** 与 **Global Handlers**。
-5. **types/**：存放该 Feature 相关的类型定义（DTO、业务模型、Store 接口）。
-6. **index.ts**：统一出口，供外部 Feature 导入。
+    
+2. **components/**：子组件，仅负责 UI 渲染与事件绑定（调用 actions）。
+    
+3. **hooks/**：只存放与 TanStack Query 相关内容，以及 **业务意图 Actions Hook**
+    
+    - `useGetXXX` / `useXXXMutation`（Orval 或手写 Query/Mutation）
+        
+    - `use[Feature]Actions.ts`：**唯一的业务意图层（所有 handle/流程都在此）**
+        
+4. **stores/**：Zustand Store：**仅存放切片化 state + 原子 set 函数**（无 handlers）
+    
+5. **types/**：DTO、业务模型、store 接口、UI 相关类型。
+    
+6. **index.ts**：统一出口。
+    
 
+---
+
+## 三、分层职责（核心规范）
+
+### 1）Store：Sliced State & Atomic Setters（仅此而已）
+
+- **命名规范**：名词切片（如 `searchParams`, `detail`）
+    
+- **包含内容**
+    
+    - State：基础变量
+        
+    - Actions：只允许原子 `setXXX`（或纯更新函数）
+        
+- **严禁内容**
+    
+    - `if/else` 业务判断
+        
+    - `toast`
+        
+    - 路由跳转
+        
+    - 异步请求 / `mutateAsync`
+        
+    - 跨切片编排（除了简单合并更新）
+        
+
+> Store 的定位：**“Feature 内的本地 UI 状态容器”**，而不是业务流程层。
 
 ---
 
-## 三、 Store 架构分层（核心规范）
+### 2）Actions Hook：唯一意图层（业务流程/副作用/跨切片编排）
 
-在 `stores/[name]-store.ts` 中，必须按照以下“切片与编排”逻辑组织：
-### 1. 切片化状态 (Sliced State & Atomic Actions)
-
-将**状态**与其对应的**原子操作**聚合在同一个命名切片中。
-- **命名规范**：使用名词指代业务块（如 `searchParams`, `engineDetail`）。
-- **包含内容**：
-    - **State**：基础变量。
-    - **Actions**：如果与修改基础变量相关就以 `setXXX` 命名的原子 setter 函数。如果是其他逻辑就自行命名
-- **准则**：切片内的 Actions 必须是**纯函数**，严禁包含业务判断或异步请求。
-
-
-### 2. 业务意图层 (Global Handlers)
-
-- **命名规范**：统一以 `handle[动作]` 命名（如 `handleExecuteSearch`）。
-- **职责**：作为指挥官，**编排**各个切片中的原子 Actions。
-- **适用场景**：
-    - **业务拦截**：校验登录状态（`useAuthStore`）、权限判断。
-    - **异步副作用**：调用接口（Mutate）、弹出 `toast`、路由跳转。
-    - **多状态联动**：一次交互需要同时更新多个切片状态。
+- 文件：`hooks/use[Feature]Actions.ts`
+    
+- **命名规范**：对外暴露的动作用动词：`login`, `logout`, `sendCode`, `openDetail`
+    
+- **职责**
+    
+    - 调用 Orval 的 Query/Mutation hooks（`mutateAsync`）
+        
+    - 做业务校验 / 权限拦截
+        
+    - 统一 toast、路由跳转
+        
+    - 调用 store 的原子 set 完成多状态联动
+        
+    - 处理异步串联（verify -> change password 等）
+        
+- **强约束**
+    
+    - **组件层禁止写业务流程**
+        
+    - **Store 禁止写业务流程**
+        
+    - 所有业务流程必须集中在 `use[Feature]Actions()`，确保可读性与可追踪性
+        
 
 ---
-## 四、 Feature 开发流程
-### 1. 数据规划
-- 在 `types/` 补齐类型，在 `hooks/` 封装 `useGetXXX`（TanStack Query）。
-### 2. Store 编写模板 (Zustand)
-```TypeScript
-export const useDiscoverStore = create((set, get) => ({
-  // --- 切片 1：搜索参数 (高聚合) ---
-  searchParams: {
-    query: '',
-    page: 1,
-    setQuery: (query) => set(s => ({ searchParams: { ...s.searchParams, query } })),
-    setPage: (page) => set(s => ({ searchParams: { ...s.searchParams, page } })),
-  },
 
-  // --- 切片 2：详情控制 ---
-  detail: {
-    isOpen: false,
-    selectedId: null,
-    setOpen: (isOpen) => set(s => ({ detail: { ...s.detail, isOpen } })),
-    setSelectedId: (id) => set(s => ({ detail: { ...s.detail, selectedId: id } })),
-  },
+### 3）组件层：无脑渲染 + 调用 actions
 
-  // --- 业务编排：Handlers ---
-  handlers: {
-    handleSearch: (query) => {
-      const { user } = useAuthStore.getState().auth;
-      if (!user) return showErrorData('请先登录'); // 业务拦截
-      
-      const { setQuery, setPage } = get().searchParams;
-      setQuery(query); // 调用原子 Action
-      setPage(1);
-    },
-    handleOpenDetail: (engine) => {
-      get().detail.setSelectedId(engine.id);
-      get().detail.setOpen(true); // 多状态联动
-    }
-  }
+- 组件只做：
+    
+    - 读取 store slice 状态
+        
+    - 调用 actions hook 暴露的方法
+        
+- 组件严禁：
+    
+    - 登录校验、权限判断
+        
+    - 复杂数据处理（filter/split/merge 等）
+        
+    - 直接调用 `useMutation().mutateAsync`（必须由 actions hook 封装）
+        
+
+---
+
+## 四、Feature 开发流程（V6.0）
+
+### Step 1：types/ 与 hooks/（Orval）准备
+
+- DTO/Response 类型由 Orval 生成优先
+    
+- Query/Mutation hooks 放在 `hooks/`，例如 `hooks/orval.ts` 或按域拆分
+    
+
+### Step 2：stores/ 按切片写 UI State
+
+export const useDiscoverStore = create((set) => ({  
+  searchParams: {  
+    query: '',  
+    page: 1,  
+    setQuery: (query: string) =>  
+      set((s) => ({ searchParams: { ...s.searchParams, query } })),  
+    setPage: (page: number) =>  
+      set((s) => ({ searchParams: { ...s.searchParams, page } })),  
+  },  
+​  
+  detail: {  
+    isOpen: false,  
+    selectedId: null as string | null,  
+    setOpen: (isOpen: boolean) =>  
+      set((s) => ({ detail: { ...s.detail, isOpen } })),  
+    setSelectedId: (id: string | null) =>  
+      set((s) => ({ detail: { ...s.detail, selectedId: id } })),  
+  },  
 }))
-```
 
-### 3. 组件装配原则
+### Step 3：hooks/use[Feature]Actions.ts 写所有业务意图
 
-- **UI 绑定**：组件只关心“展示什么”和“发生了什么”。
-- **禁止逻辑渗透**：组件内严禁出现 `if (!user)` 或复杂的 `split/filter` 数据处理逻辑。
-- **写法示例**：
-    - 简单受控：`<Input value={searchParams.query} onChange={e => searchParams.setQuery(e.target.value)} />`
-    - 业务触发：`<Button onClick={() => handlers.handleSearch(query)} />`
+> 你不再需要 handlers 的签名与 deps 注入样板代码。类型直接来自 Orval 的 hook。
+
+import { useDiscoverStore } from '../stores/discover-store'  
+import { useSearchEnginesMutation } from './orval'  
+import { useNavigate } from '@tanstack/react-router'  
+import { toast } from 'sonner'  
+import { useAuthStore } from '@/features/auth/stores/auth-store'  
+​  
+export function useDiscoverActions() {  
+  const navigate = useNavigate()  
+​  
+  // 只拿 store 的原子 set（避免整 store 订阅导致重渲染）  
+  const setQuery = useDiscoverStore((s) => s.searchParams.setQuery)  
+  const setPage = useDiscoverStore((s) => s.searchParams.setPage)  
+  const setSelectedId = useDiscoverStore((s) => s.detail.setSelectedId)  
+  const setOpen = useDiscoverStore((s) => s.detail.setOpen)  
+​  
+  const { user } = useAuthStore((s) => s.auth) // 示例：跨 feature 读取  
+​  
+  const searchMutation = useSearchEnginesMutation()  
+​  
+  return {  
+    executeSearch: async (query: string) => {  
+      if (!user) {  
+        toast.error('请先登录')  
+        navigate({ to: '/login' })  
+        return  
+      }  
+​  
+      setQuery(query)  
+      setPage(1)  
+​  
+      await searchMutation.mutateAsync({ data: { query, page: 1 } })  
+    },  
+​  
+    openDetail: (engineId: string) => {  
+      setSelectedId(engineId)  
+      setOpen(true)  
+    },  
+​  
+    closeDetail: () => {  
+      setOpen(false)  
+      setSelectedId(null)  
+    },  
+  }  
+}
 
 ---
-## 五、 核心开发守卫 (Guardrails)
 
-|**范畴**|**归宿**|**命名规范**|**AI 判定逻辑**|
+## 五、组件装配写法（V6.0）
+
+const searchParams = useDiscoverStore((s) => s.searchParams)  
+const detail = useDiscoverStore((s) => s.detail)  
+const actions = useDiscoverActions()  
+​  
+<Input  
+  value={searchParams.query}  
+  onChange={(e) => searchParams.setQuery(e.target.value)}  
+/>  
+​  
+<Button onClick={() => actions.executeSearch(searchParams.query)}>  
+  搜索  
+</Button>  
+​  
+<Dialog open={detail.isOpen} onOpenChange={detail.setOpen} />
+
+---
+
+## 六、核心开发守卫（Guardrails - V6.0）
+
+|范畴|归宿|命名规范|判定逻辑|
 |---|---|---|---|
-|**服务端数据**|**Hooks (Query)**|`useGetXXX`|只要是后端接口返回的数据|
-|**聚合参数/状态**|**Store (Slice)**|`nounSlice`|相关的变量及其 set 动作|
-|**原子变更**|**Slice Actions**|`setXXX`|仅仅是单值的 `set` 操作|
-|**业务逻辑/流程**|**Store Handlers**|`handleXXX`|包含判断、异步、提示、或跨切片操作|
-|**极简局部 UI**|**useState**|-|只有当前组件自己用的状态（如 `isHovered`）|
+|服务端数据（Query/Mutation）|hooks/|`useGetXXX` / `useXXXMutation`|后端数据获取与提交|
+|业务意图/流程/副作用|hooks/use[Feature]Actions|动词：`login/sendCode/openDetail`|判断、异步、toast、跳转、跨切片联动|
+|聚合参数/状态|stores/（slice）|名词切片|变量 + 原子 set|
+|原子变更|slice actions|`setXXX`|单值 set / 纯更新|
+|极简局部 UI|组件 useState|-|仅当前组件使用|
 
 ---
 
-## 六、 AI 开发提示语 (Prompt Enhancement)
+## 七、API 调用原则（V6.0）
 
-> “请按照 **V4.0 切片化架构** 开发此 Feature。
+1. **Store 内禁止**引入 TanStack Query hooks（`useQuery/useMutation`）
+    
+2. **组件内禁止**直接 `mutateAsync`（必须走 actions）
+    
+3. Actions Hook 可以：
+    
+    - 调用 Orval hooks（mutation/query）
+        
+    - 调用 store setters
+        
+    - 做校验/跳转/toast
+        
+4. Query invalidation / toast 允许放在 Actions Hook（集中可读）
+    
+
+---
+
+## 八、（强烈建议）Actions Hook 书写规范（避免变成巨型文件）
+
+为避免你担心的“actions hook 变大”，给出硬规范：
+
+1. **按用例分组**：一个文件内按 `AuthFlow / PasswordFlow / ProfileFlow` 分段
+    
+2. **每个 action 不超过 ~30 行**：超出就提取成同文件内的 `async function` 私有函数（仍在 actions 文件内，保持集中）
+    
+3. **Actions 返回对象必须稳定**（性能/可读性）
+    
+    - 使用 `useMemo` 包装返回对象
+        
+    - 大型 action 用 `useCallback`
+        
+
+> 你也可以先不做 memo，等性能有问题再加；但 “只订阅 setters” 建议立即执行。
+
+---
+
+## 九、AI 开发提示语（V6.0）
+
+> “请按照 **V6.0 切片化 Store + Actions Hook 意图层** 开发此 Feature。
 > 
-> 1. 状态与原子 `set` 函数必须聚合在对应的切片对象中（如 `searchParams`）。
+> 1. Store 只允许 state + 原子 set（纯更新），禁止 handlers、业务判断、异步、toast、跳转。
 >     
-> 2. 所有涉及 `if/else`、`toast`、`mutate` 或跨切片的操作，必须封装在顶层的 `handlers` 对象中，并以 `handle` 开头。
+> 2. 所有业务流程（if/else、mutateAsync、toast、跳转、跨切片联动）必须集中写在 `hooks/use[Feature]Actions.ts` 中。
 >     
-> 3. 确保组件层是‘无脑渲染’的，不包含任何业务校验逻辑。”
->
+> 3. 组件层只渲染与绑定，禁止业务校验与直接 mutateAsync。”
+>     
+
+---
+
+## 十、（可选）统一出口 index.ts
+
+export * from './stores/discover-store'  
+export * from './hooks/useDiscoverActions'  
+export * from './types'

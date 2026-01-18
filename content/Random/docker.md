@@ -39,6 +39,29 @@ docker ps
 ```
 
 
+## docker compose
+
+```
+docker-compose down
+```
+关闭compose 
+
+```
+docker-compose up
+```
+
+开启 compose，
+```
+-d 后台运行
+--build 重新构建再运行
+```
+
+
+
+
+
+
+
 
 
 
