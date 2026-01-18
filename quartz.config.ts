@@ -56,6 +56,15 @@ const config: QuartzConfig = {
   plugins: {
     transformers: [
       Plugin.FrontMatter(),
+      Plugin.FileMerge({
+        rules: [
+          {
+            mainFile: "index.md",
+            mergeFiles: ["Thought.md"],
+            separator: "\n\n---\n\n",
+          },
+        ],
+      }),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "git", "filesystem"],
       }),
