@@ -15,14 +15,14 @@ npx quartz build --serve
 
 构建到指定目录（例如 `docs`）：
 ```bash
-npx quartz build --serve -d docs
+pnpx quartz build --serve -d docs
 
 ```
 
 
 * **Lint 检查与类型检查：**
 ```bash
-npm run check
+pnpm run check
 
 ```
 
@@ -30,7 +30,7 @@ npm run check
 此命令会运行 `tsc --noEmit`（确保类型安全）和 `prettier . --check`（检查格式）。
 * **格式化：**
 ```bash
-npm run format
+pnpm run format
 
 ```
 
@@ -39,14 +39,14 @@ npm run format
 * **测试：**
 * **运行所有测试：**
 ```bash
-npm test
+pnpm test
 
 ```
 
 
 * **运行单个测试：**
 ```bash
-npx tsx --test path/to/file.test.ts
+pnpx tsx --test path/to/file.test.ts
 
 ```
 

@@ -45,7 +45,6 @@ HEAD是用于方便用户移动提交记录的一个指针而已，没有其他�
 `git reset --mixed HEAD~1` 撤回上一次提交，将上次提交保留在工作区，适用于少提交了一些文件，想重新提交的情况。
 `git revert HEAD`是与多人协同工作时的用法，他是新提交一个记录，此记录是用来撤销当前提交的，即revert 之后就可以把你的更改推送到远程仓库与别人分享啦
 
-
 ## 远程仓库
 `git clone`将远程仓库的代码克隆到本地，并且多了一个名为 `o/main` 的远程分支（- `<remote name>/<branch name>`）
 远程分支有一个特别的属性，在你切换到远程分支时，自动进入分离 HEAD 状态
@@ -63,6 +62,14 @@ HEAD是用于方便用户移动提交记录的一个指针而已，没有其他�
 `git pull --rebase`=`git fetch`+`git rebase`即从远程仓库下载数据到本地的远程分支o/main，然后合并main和o/main到o/mian 的儿子
 
 `git push -u orign main`.` -u`参数用于关联本地与远程分支，后续推送只需`git push`
+
+
+**工作区分拣**
+
+例如我想让两个分支并行开发，这时候就可以利用 git 的 worktree
+
+`git worktree add ../originpointenginefront-auth-phone feat/auth-phone`
+
 
 
 

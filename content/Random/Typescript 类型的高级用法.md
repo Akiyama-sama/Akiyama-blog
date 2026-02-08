@@ -50,6 +50,36 @@ interface A<T> {
 
 A这个类型会遍历传递过来的T的所有属性键，并添加到自己的属性当中，并且还可以用as来为这些属性键依次起别名
 
+
+下面的示例是 typeof 以及 keyof 的配合组合，可以仅编辑一个对象，就能进行类型推断枚举，相较于枚举 emun 关键字，他还可以作为值使用（对象本身），还可以类型推断，是比较推崇的做法，这里是在 orval 学习到的
+
+```ts
+export type OriginpointengineInternalApiHandlersResCode = typeof OriginpointengineInternalApiHandlersResCode[keyof typeof OriginpointengineInternalApiHandlersResCode];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const OriginpointengineInternalApiHandlersResCode = {
+  CodeSuccess: 1000,
+  CodeInvalidParam: 1001,
+  CodeNeedLogin: 1100,
+  CodeInvalidToken: 1101,
+  CodeTokenExpired: 1102,
+  CodeUserNotFound: 1200,
+  CodeUsernameTaken: 1201,
+  CodeEmailTaken: 1202,
+  CodeAccountNotActive: 1203,
+  CodeInvalidCredentials: 1204,
+  CodeVerificationFailed: 1205,
+  /** 手机号已被使用 */
+  CodePhoneTaken: 1206,
+  /** 手机号未注册 */
+  CodePhoneNotRegistered: 1207,
+  /** 手机号已绑定 */
+  CodePhoneBound: 1208,
+} as const;
+```
+
+
+
 # reference
 
 https://www.youtube.com/watch?v=bnTAOB3P6nM&t=807s
