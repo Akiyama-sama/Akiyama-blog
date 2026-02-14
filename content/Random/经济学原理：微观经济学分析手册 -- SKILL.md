@@ -1,13 +1,4 @@
----
-title: principles of Economics: Microeconomics (Mankiw)
-date: 2026-02-09
-author: N. Gregory Mankiw
-tags:
-  - read
-  - xray
-  - book
-identifier: 20260209T214912
----
+
 
 # NAPKIN | 餐巾纸
 
