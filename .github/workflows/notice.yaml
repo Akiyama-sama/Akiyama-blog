@@ -1,0 +1,28 @@
+name: Notice Server Pull
+
+on:
+  push:
+    branches:
+      - v4
+
+env:
+  SSH_HOST: 47.121.184.107
+  SSH_USER: mio
+  SSH_PORT: "22"
+  PROJECT_DIR: /home/mio/.openclaw/workspace/mio/project/Akiyama-blog
+
+jobs:
+  git-pull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull latest on server
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USER }}
+          port: ${{ env.SSH_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd "${PROJECT_DIR}"
+            git pull --ff-only
