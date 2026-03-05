@@ -1,5 +1,5 @@
 ---
-title: Hi , I 'm Akiyama
+title: mio's blog
 ---
 哈喽，I'm Akiyama，
 这是我的[GitHub](https://github.com/Akiyama-sama)主页，你可以在这里找到我做的项目
