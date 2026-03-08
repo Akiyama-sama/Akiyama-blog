@@ -16,7 +16,7 @@ tags:
     - forEach(callback)：遍历每个元素，无返回值。 实现伪代码：
     - map(callback)：返回新数组，每个元素是回调函数的返回值。 时间复杂度O(n)，空间复杂度O(n)。 伪代码：
     - filter(callback)：返回满足条件的元素组成的新数组。 伪代码：
-    - reduce(callback, initialValue)：累积计算，将数组归约为单个值。 回调函数形式：(accumulator, current, index, array) => newValue 伪代码：
+    - reduce(callback, initialValue)：累积计算，将数组归约为单个值。 回调函数形式：(accumulator, current, index, array) => newValue 
     - some(callback)：只要有一个元素满足条件就返回true。短路求值，一旦发现即停止。
     - every(callback)：所有元素都满足才返回true。同样支持短路。
     - find(callback)：返回第一个满足条件的元素，否则undefined。

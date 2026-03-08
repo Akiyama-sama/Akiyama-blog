@@ -2,7 +2,7 @@
 tags:
   - '#pernamant'
 ---
-## 行内元素
+3## 行内元素
 用上此标签的元素不会换行
 `<span><a><img><b><i><strong><select><input>`
 

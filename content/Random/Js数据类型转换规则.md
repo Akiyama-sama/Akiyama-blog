@@ -6,8 +6,7 @@ tags:
 
 ### 转为Boolean
 
-false有 false,0,"", null , undefinded, NaN
-true 除了上面的值，其他都转为true，包括[],{} 和空函数
+false有 false,0,"", null , undefinded, NaN 除了上面的值，其他都转为true，包括[],{} 和空函数
 
 ### 转为String
 

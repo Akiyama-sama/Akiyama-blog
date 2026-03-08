@@ -6,7 +6,7 @@ tags:
 
 * Undefined：表示变量未被初始化，即一个变量声明过后没被赋值
 * Null：表示一个空的值（有值，只不过值为空），或者一个不存在的对象
-* Bolean：true/false
+* Boolean：true/false
 * Number：表示双精度64位二进制格式的浮点数，可以表示整数和浮点数，特殊值包括NaN和Infinity，这两者都是Number类型
 * String：字符串文本
 * Symbol：用来创建唯一且不可变的值，主要用于对象属性的唯一标识，避免属性名冲突
