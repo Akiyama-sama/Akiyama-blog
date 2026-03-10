@@ -2,7 +2,7 @@
 tags:
   - '#pernamant'
 ---
-## 普通函数的this
+**## 普通函数的this
 
 普通函数的this有四种常见绑定规则：
 

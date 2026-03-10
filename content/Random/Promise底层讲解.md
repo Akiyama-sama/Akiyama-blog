@@ -177,13 +177,13 @@ new Promise((resolve, reject) => {...})
 
 为了简单，我们没实现的还有：
 
-|功能名|描述说明|
-|---|---|
-|`Promise.resolve()`|快速生成已完成的 Promise|
-|`Promise.reject()`|快速生成已失败的 Promise|
-|`Promise.all()`|并发多个 Promise，全部成功才算成功|
-|`Promise.race()`|谁先完成就返回谁|
-|微任务队列处理|真正的 Promise 回调是通过微任务（微任务队列）执行的|
+| 功能名                 | 描述说明                           |
+| ------------------- | ------------------------------ |
+| `Promise.resolve()` | 快速生成已完成的 Promise               |
+| `Promise.reject()`  | 快速生成已失败的 Promise               |
+| `Promise.all()`     | 并发多个 Promise，全部成功才算成功          |
+| `Promise.race()`    | 谁先完成就返回谁                       |
+| 微任务队列处理             | 真正的 Promise 回调是通过微任务（微任务队列）执行的 |
 
 ---
 
