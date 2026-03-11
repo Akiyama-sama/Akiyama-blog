@@ -133,14 +133,6 @@ visual mode与nomal mode的操作逻辑正好相反：
 
 
 
-
-
-
-
-
-
-
-
 - o 新增一行，并且进入insert模式 ， O表示在当前行的上一行新增一行，并且进入insert模式
 - 光标移动到最后：G 移动到顶部：gg
 - y 复制一个词 yank

@@ -18,4 +18,9 @@ async function myFunction() {
 }
 
 ```
+
+
+其本质上，就是将 await 下面的代码给包装到了.then()方法里面去。
+
+
 # reference
