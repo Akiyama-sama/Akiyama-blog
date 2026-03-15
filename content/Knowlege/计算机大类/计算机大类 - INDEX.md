@@ -2,7 +2,7 @@
 tags:
   - index
 ---
-**
+
 ## 知识类
 
 [[计算机网络 - INDEX]]
@@ -42,6 +42,7 @@ tags:
 [[Typescript 类型的高级用法]]
 [[各个主流图片格式的区别]]
 [[FastAPI速成]]
+[[AI 时代编程的最佳实践]]
 宝塔用户名：rljiloxw
 
 

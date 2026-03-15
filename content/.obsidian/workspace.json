@@ -1,0 +1,295 @@
+{
+  "main": {
+    "id": "a137b51653cb02cb",
+    "type": "split",
+    "children": [
+      {
+        "id": "a5d333096091807f",
+        "type": "tabs",
+        "dimension": 60.3542234332425,
+        "children": [
+          {
+            "id": "cb844779eb2f6dca",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/性能测试.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "性能测试"
+            }
+          },
+          {
+            "id": "7ac3c2e7cb6f61c9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Knowlege/计算机大类/软件测试/软件测试复习资料/22_测试流程概述.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "22_测试流程概述"
+            }
+          }
+        ]
+      },
+      {
+        "id": "c881ef1ff37c67b5",
+        "type": "tabs",
+        "dimension": 39.6457765667575,
+        "children": [
+          {
+            "id": "f96ce634888cd28b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Knowlege/计算机大类/软件测试/软件测试复习资料/42_复习要点.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "42_复习要点"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e956b2bf2c43c743",
+    "type": "split",
+    "children": [
+      {
+        "id": "27fcf288f3b0d884",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7050e38a60fcac81",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "3d4b8079df874ed2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "8bc4ee6f2b3d5b42",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 257.5,
+    "collapsed": true
+  },
+  "right": {
+    "id": "84ca7dee8a0a8f88",
+    "type": "split",
+    "children": [
+      {
+        "id": "b74435d9d464af02",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca39693affefbe0d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Private/大三下期末考试记录.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "大三下期末考试记录 的反向链接列表"
+            }
+          },
+          {
+            "id": "8fa4cfe0ff6262fc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Private/大三下期末考试记录.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "大三下期末考试记录 的出链列表"
+            }
+          },
+          {
+            "id": "3461707cad602df2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "5124f88ea1bfb4fe",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "ec4af8933b0032d4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Private/大三下期末考试记录.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大三下期末考试记录 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "f96ce634888cd28b",
+  "lastOpenFiles": [
+    "Random/性能测试.md",
+    "Random/自顶向下 - 集成测试.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/42_复习要点.md",
+    "Random/系统测试.md",
+    "Random/集成测试.md",
+    "Random/黑盒测试.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/02_软件测试与缺陷.md",
+    "Knowlege/计算机大类/软件测试/软件测试 - INDEX.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/36_什么是安全测试.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/32_什么是性能测试.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/14_边界值分析法.md",
+    "Random/需求评审.md",
+    "Random/设计评审.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/07_路径分析法.md",
+    "Random/覆盖分析方法.md",
+    "Random/W模型.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/05_什么是白盒测试.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/21_实验与作业_黑盒测试.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/22_测试流程概述.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/16_决策表法.md",
+    "Random/路径分析方法.md",
+    "Random/等价类划分法.md",
+    "Random/边界值分析法.md",
+    "Random/路径覆盖.md",
+    "Random/基本路径覆盖.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/06_覆盖分析法.md",
+    "MC",
+    "Attachment/Pasted image 20260314213542.png",
+    "Knowlege/计算机大类/软件测试.zip",
+    "tmp/~$AI Coding 一年实战 - v2.pptx",
+    "tmp/AI Coding 一年实战 - v2.pptx",
+    "tmp/generate_ai_coding_ppt.py",
+    "tmp/AI Coding 一年实战.pptx",
+    "tmp",
+    "Project/~$AI Coding 一年实战.pptx",
+    "Project/AI Coding 一年实战.pptx",
+    "Project/generate_ai_coding_ppt.py"
+  ]
+}
