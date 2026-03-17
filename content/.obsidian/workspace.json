@@ -6,7 +6,6 @@
       {
         "id": "a5d333096091807f",
         "type": "tabs",
-        "dimension": 60.3542234332425,
         "children": [
           {
             "id": "cb844779eb2f6dca",
@@ -14,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/性能测试.md",
+                "file": "Thought.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -29,16 +28,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "性能测试"
+              "title": "Thought"
             }
           },
           {
-            "id": "7ac3c2e7cb6f61c9",
+            "id": "91c9bbfb64c5825b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Knowlege/计算机大类/软件测试/软件测试复习资料/22_测试流程概述.md",
+                "file": "Random/面试150道刷题.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -53,23 +52,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "22_测试流程概述"
+              "title": "面试150道刷题"
             }
-          }
-        ]
-      },
-      {
-        "id": "c881ef1ff37c67b5",
-        "type": "tabs",
-        "dimension": 39.6457765667575,
-        "children": [
+          },
           {
-            "id": "f96ce634888cd28b",
+            "id": "d6475e69b82d4e76",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Knowlege/计算机大类/软件测试/软件测试复习资料/42_复习要点.md",
+                "file": "Random/字母异位词分组.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -84,10 +76,59 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "42_复习要点"
+              "title": "字母异位词分组"
+            }
+          },
+          {
+            "id": "29e498c2a4ab031e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Private/大三下期末考试记录.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "大三下期末考试记录"
+            }
+          },
+          {
+            "id": "6846e516b3d48c0f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Knowlege/计算机大类/收集类/Prompt收集/分析一个议题prompt.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "分析一个议题prompt"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -252,34 +293,34 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "f96ce634888cd28b",
+  "active": "29e498c2a4ab031e",
   "lastOpenFiles": [
+    "Knowlege/计算机大类/收集类/Prompt收集/分析一个议题prompt.md",
+    "Knowlege/计算机大类/收集类/Prompt 收集 - INDEX.md",
+    "Knowlege/计算机大类/收集类/Prompt收集/观点分析prompt.md",
+    "Knowlege/计算机大类/收集类/Prompt收集/AI指导学习Prompt.md",
+    "Random/概念指导Prompt.md",
+    "Random/Promise.md",
+    "Private/大三下期末考试记录.md",
+    "Random/字母异位词分组.md",
+    "Random/面试150道刷题.md",
+    "Random/有效的字母异位词.md",
+    "Random/单词规律.md",
+    "Knowlege/计算机大类/软件测试/软件测试复习资料/22_测试流程概述.md",
+    "Random/同构字符串.md",
+    "Random/Worktrunk 完全指南：让 Git Worktree 和 Claude Code 和平共处  工具  余弦の博客.md",
+    "Thought.md",
+    "index.md",
+    "AGENTS.md",
+    "Knowlege/计算机大类/计算机组成原理/计算机组成原理 - INDEX.md",
+    "Knowlege/计算机大类/计算机操作系统/计算机操作系统 - INDEX.md",
+    "Knowlege/计算机大类/人工智能/吴恩达机器学习笔记 - INDEX.md",
     "Random/性能测试.md",
-    "Random/自顶向下 - 集成测试.md",
     "Knowlege/计算机大类/软件测试/软件测试复习资料/42_复习要点.md",
+    "Random/自顶向下 - 集成测试.md",
     "Random/系统测试.md",
     "Random/集成测试.md",
     "Random/黑盒测试.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/02_软件测试与缺陷.md",
-    "Knowlege/计算机大类/软件测试/软件测试 - INDEX.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/36_什么是安全测试.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/32_什么是性能测试.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/14_边界值分析法.md",
-    "Random/需求评审.md",
-    "Random/设计评审.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/07_路径分析法.md",
-    "Random/覆盖分析方法.md",
-    "Random/W模型.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/05_什么是白盒测试.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/21_实验与作业_黑盒测试.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/22_测试流程概述.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/16_决策表法.md",
-    "Random/路径分析方法.md",
-    "Random/等价类划分法.md",
-    "Random/边界值分析法.md",
-    "Random/路径覆盖.md",
-    "Random/基本路径覆盖.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/06_覆盖分析法.md",
     "MC",
     "Attachment/Pasted image 20260314213542.png",
     "Knowlege/计算机大类/软件测试.zip",
