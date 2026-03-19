@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thought.md",
+                "file": "AGENTS.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,107 +28,10 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Thought"
-            }
-          },
-          {
-            "id": "91c9bbfb64c5825b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Random/面试150道刷题.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "面试150道刷题"
-            }
-          },
-          {
-            "id": "d6475e69b82d4e76",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Random/字母异位词分组.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "字母异位词分组"
-            }
-          },
-          {
-            "id": "29e498c2a4ab031e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Private/大三下期末考试记录.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "大三下期末考试记录"
-            }
-          },
-          {
-            "id": "6846e516b3d48c0f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Knowlege/计算机大类/收集类/Prompt收集/分析一个议题prompt.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "分析一个议题prompt"
+              "title": "AGENTS"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -185,8 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 257.5,
-    "collapsed": true
+    "width": 257.5
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -293,34 +195,34 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "29e498c2a4ab031e",
+  "active": "cb844779eb2f6dca",
   "lastOpenFiles": [
+    "index.md",
+    "Thought.md",
+    "Random/docker.md",
+    "Random/给一台新的主机添加ssh权限.md",
+    "Random/AI 时代编程的最佳实践.md",
+    "Random/AI Coding 一年实战：从效率幻觉到能力进化.md",
+    "Random/面试150道刷题.md",
+    "Random/字母异位词分组.md",
     "Knowlege/计算机大类/收集类/Prompt收集/分析一个议题prompt.md",
+    "Random/同构字符串.md",
+    "Private/大三下期末考试记录.md",
     "Knowlege/计算机大类/收集类/Prompt 收集 - INDEX.md",
     "Knowlege/计算机大类/收集类/Prompt收集/观点分析prompt.md",
     "Knowlege/计算机大类/收集类/Prompt收集/AI指导学习Prompt.md",
     "Random/概念指导Prompt.md",
     "Random/Promise.md",
-    "Private/大三下期末考试记录.md",
-    "Random/字母异位词分组.md",
-    "Random/面试150道刷题.md",
     "Random/有效的字母异位词.md",
     "Random/单词规律.md",
     "Knowlege/计算机大类/软件测试/软件测试复习资料/22_测试流程概述.md",
-    "Random/同构字符串.md",
     "Random/Worktrunk 完全指南：让 Git Worktree 和 Claude Code 和平共处  工具  余弦の博客.md",
-    "Thought.md",
-    "index.md",
     "AGENTS.md",
     "Knowlege/计算机大类/计算机组成原理/计算机组成原理 - INDEX.md",
     "Knowlege/计算机大类/计算机操作系统/计算机操作系统 - INDEX.md",
     "Knowlege/计算机大类/人工智能/吴恩达机器学习笔记 - INDEX.md",
     "Random/性能测试.md",
     "Knowlege/计算机大类/软件测试/软件测试复习资料/42_复习要点.md",
-    "Random/自顶向下 - 集成测试.md",
-    "Random/系统测试.md",
-    "Random/集成测试.md",
-    "Random/黑盒测试.md",
     "MC",
     "Attachment/Pasted image 20260314213542.png",
     "Knowlege/计算机大类/软件测试.zip",
