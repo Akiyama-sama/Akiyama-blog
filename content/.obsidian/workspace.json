@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AGENTS.md",
+                "file": "Thought.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,55 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "AGENTS"
+              "title": "Thought"
+            }
+          },
+          {
+            "id": "e7df93ebba23417d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/面试150道刷题.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "面试150道刷题"
+            }
+          },
+          {
+            "id": "40c7b8189a4d46c0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/合并区间.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "合并区间"
             }
           }
         ]
@@ -195,16 +243,26 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "cb844779eb2f6dca",
+  "active": "7050e38a60fcac81",
   "lastOpenFiles": [
+    "Random/AI Coding 一年实战：从效率幻觉到能力进化.md",
+    "Random/合并区间.md",
+    "Random/面试150道刷题.md",
+    "Random/汇总区间.md",
+    "Random/最长连续序列.md",
+    "Random/存在重复元素 2.md",
+    "Random/快乐数.md",
+    "Random/AI 时代编程的最佳实践.md",
+    "Random/ts 项目通用约束.md",
+    "Random/SOLID 原则.md",
+    "Project/唱歌背单词AI初次开发.md",
+    "Project/Melodict 项目重新开始.md",
+    "Random/字母异位词分组.md",
+    "AGENTS.md",
     "index.md",
     "Thought.md",
     "Random/docker.md",
     "Random/给一台新的主机添加ssh权限.md",
-    "Random/AI 时代编程的最佳实践.md",
-    "Random/AI Coding 一年实战：从效率幻觉到能力进化.md",
-    "Random/面试150道刷题.md",
-    "Random/字母异位词分组.md",
     "Knowlege/计算机大类/收集类/Prompt收集/分析一个议题prompt.md",
     "Random/同构字符串.md",
     "Private/大三下期末考试记录.md",
@@ -213,16 +271,6 @@
     "Knowlege/计算机大类/收集类/Prompt收集/AI指导学习Prompt.md",
     "Random/概念指导Prompt.md",
     "Random/Promise.md",
-    "Random/有效的字母异位词.md",
-    "Random/单词规律.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/22_测试流程概述.md",
-    "Random/Worktrunk 完全指南：让 Git Worktree 和 Claude Code 和平共处  工具  余弦の博客.md",
-    "AGENTS.md",
-    "Knowlege/计算机大类/计算机组成原理/计算机组成原理 - INDEX.md",
-    "Knowlege/计算机大类/计算机操作系统/计算机操作系统 - INDEX.md",
-    "Knowlege/计算机大类/人工智能/吴恩达机器学习笔记 - INDEX.md",
-    "Random/性能测试.md",
-    "Knowlege/计算机大类/软件测试/软件测试复习资料/42_复习要点.md",
     "MC",
     "Attachment/Pasted image 20260314213542.png",
     "Knowlege/计算机大类/软件测试.zip",
