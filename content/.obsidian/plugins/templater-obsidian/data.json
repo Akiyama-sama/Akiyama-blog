@@ -37,7 +37,7 @@
   "syntax_highlighting": true,
   "syntax_highlighting_mobile": false,
   "enabled_templates_hotkeys": [
-    ""
+    "templates/date_command.md"
   ],
   "startup_templates": [
     "templates/Random - Template.md"

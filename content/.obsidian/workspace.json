@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "a5d333096091807f",
+        "id": "ae706569323b802d",
         "type": "tabs",
         "children": [
           {
-            "id": "5e9fd645802aef05",
+            "id": "6632cd324fb59d56",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thought.md",
+                "file": "Random/反转链表1.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,31 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Thought"
+              "title": "反转链表1"
+            }
+          },
+          {
+            "id": "027a6742677eca1b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/快速排序.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "快速排序"
             }
           }
         ]
@@ -88,8 +112,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 257.5,
-    "collapsed": true
+    "width": 213.5
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -193,37 +216,38 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "5e9fd645802aef05",
+  "active": "6632cd324fb59d56",
   "lastOpenFiles": [
-    "Private/大三下期末考试记录.md",
-    "Project/前端实习挑战.md",
-    "Random/面试150道刷题.md",
-    "Random/丘奇-图灵论题.md",
-    "Random/图灵机.md",
-    "Random/停机问题.md",
-    "Random/算法.md",
-    "Knowlege/计算机大类/算法分析与设计/算法分析与设计 - INDEX.md",
-    "Random/删除链表的倒数第 n 个节点.md",
-    "Random/Git常用命令.md",
-    "Random/反转链表2.md",
-    "Random/反转链表1.md",
-    "Random/随机链表的复制.md",
+    "Random/LRU缓存.md",
+    "Random/无重复字符的最长字符.md",
+    "Knowlege/计算机大类/人工智能/吴恩达机器学习笔记 - INDEX.md",
+    "Knowlege/计算机大类/计算机大类 - INDEX.md",
+    "Random/吴恩达 AI Agent.md",
+    "index.md",
+    "Knowlege/计算机大类/收集类/Prompt 收集 - INDEX.md",
+    "Knowlege/生活杂类/收集我用过，且认为好用的工具 - INDEX.md",
+    "Random/设计模式 - INDEX.md",
+    "Random/构建自己的 XXX - INDEX.md",
+    "Random/面试经历 - INDEX.md",
+    "Random/用友网络科技股份有限公司 前端实习生.md",
     "Thought.md",
     "AGENTS.md",
-    "Random/数组扁平化.md",
-    "Random/watch和computed的区别.md",
-    "Random/Worktrunk 完全指南：让 Git Worktree 和 Claude Code 和平共处  工具  余弦の博客.md",
-    "Random/CSS 选择器.md",
-    "Random/CSS - INDEX.md",
-    "Random/合并两个有序链表.md",
-    "Random/两数相加.md",
-    "Random/环形链表.md",
-    "index.md",
-    "Random/逆波兰表达式求值.md",
-    "Random/最小栈.md",
+    "Random/面试150道刷题.md",
+    "Random/快速排序.md",
+    "Random/排序经典算法.md",
+    "Random/插入排序.md",
+    "Random/选择排序.md",
+    "Random/冒泡排序.md",
+    "Random/对称二叉树.md",
+    "Random/翻转二叉树.md",
+    "Random/相同的树.md",
+    "templates/date_command.md",
+    "Random/对复杂议题进行升维分析.md",
+    "Random/知识的解构与建构.md",
     "MC",
     "Attachment/Pasted image 20260314213542.png",
     "Knowlege/计算机大类/软件测试.zip",
