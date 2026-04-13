@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ae706569323b802d",
+        "id": "4c5b87cb43c2ecc3",
         "type": "tabs",
         "children": [
           {
-            "id": "6632cd324fb59d56",
+            "id": "a5000ec0a60f0507",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/反转链表1.md",
+                "file": "Thought.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,31 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "反转链表1"
-            }
-          },
-          {
-            "id": "027a6742677eca1b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Random/快速排序.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "快速排序"
+              "title": "Thought"
             }
           }
         ]
@@ -112,7 +88,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 213.5
+    "width": 213.5,
+    "collapsed": true
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -220,34 +197,34 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "6632cd324fb59d56",
+  "active": "a5000ec0a60f0507",
   "lastOpenFiles": [
-    "Random/LRU缓存.md",
-    "Random/无重复字符的最长字符.md",
-    "Knowlege/计算机大类/人工智能/吴恩达机器学习笔记 - INDEX.md",
-    "Knowlege/计算机大类/计算机大类 - INDEX.md",
-    "Random/吴恩达 AI Agent.md",
-    "index.md",
-    "Knowlege/计算机大类/收集类/Prompt 收集 - INDEX.md",
-    "Knowlege/生活杂类/收集我用过，且认为好用的工具 - INDEX.md",
-    "Random/设计模式 - INDEX.md",
-    "Random/构建自己的 XXX - INDEX.md",
-    "Random/面试经历 - INDEX.md",
-    "Random/用友网络科技股份有限公司 前端实习生.md",
+    "Random/盒模型.md",
     "Thought.md",
-    "AGENTS.md",
+    "Random/欲把西湖比西子，淡妆浓抹总相宜：杭州实习两月有感.md",
+    "Project/前端实习挑战.md",
+    "Random/Promise底层讲解.md",
+    "Random/Promise.md",
+    "Random/Promise_any.md",
+    "Random/Typescript 类型的高级用法.md",
+    "Random/面向对象编程.md",
+    "Random/Promise_race.md",
+    "Random/Promise_all.md",
+    "Random/Js的 == 与 === 有什么区别.md",
+    "Random/js 当中 new 关键字.md",
+    "Random/手写 new.md",
+    "Random/面试鸭.md",
+    "Random/原型链.md",
+    "Random/允许 2 个任务执行的异步调度器.md",
+    "Random/构建自己的Promise.md",
+    "Random/var const let的区别.md",
+    "Random/闭包.md",
+    "Random/控制反转 IoC.md",
     "Random/面试150道刷题.md",
-    "Random/快速排序.md",
-    "Random/排序经典算法.md",
-    "Random/插入排序.md",
-    "Random/选择排序.md",
-    "Random/冒泡排序.md",
-    "Random/对称二叉树.md",
-    "Random/翻转二叉树.md",
-    "Random/相同的树.md",
-    "templates/date_command.md",
-    "Random/对复杂议题进行升维分析.md",
-    "Random/知识的解构与建构.md",
+    "Random/虚拟列表.md",
+    "Random/transition关键字.md",
+    "Random/浏览器渲染流程.md",
+    "Random/重绘(Repaint).md",
     "MC",
     "Attachment/Pasted image 20260314213542.png",
     "Knowlege/计算机大类/软件测试.zip",

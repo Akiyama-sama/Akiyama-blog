@@ -16,64 +16,33 @@ tags:
 递归出口为数组长度为1
 
 
-```js
-const arr = [5, 3, 8, 4, 2];
+```ts
+function findKthLargest(nums: number[], k: number): number {
+    // 随机选择一个基准值（pivot）
+    const pivot = nums[Math.floor(Math.random() * nums.length)];
+    
+    const left: number[] = [];   // 存放大于 pivot 的数
+    const mid: number[] = [];    // 存放等于 pivot 的数
+    const right: number[] = [];  // 存放小于 pivot 的数
 
-function quickSelect(arr, k) {
-  // 增加边界检查
-  if (k < 1 || k > arr.length) {
-    return null; 
-  }
-  return _quickSelect(arr, k);
-}
-
-function _quickSelect(arr, k) {
-  // 递归的终止条件
-  if (arr.length === 1) {
-    return arr[0];
-  }
-  
-  const { result, pivotIndex } = partition(arr);
-  
-  const targetIndex = k - 1; // 目标索引
-
-  if (pivotIndex === targetIndex) {
-    return result[pivotIndex];
-  } else if (pivotIndex > targetIndex) {
-    // 目标在左边
-    return _quickSelect(result.slice(0, pivotIndex), k);
-  } else { // pivotIndex < targetIndex
-    // 目标在右边，更新 k 值
-    const newK = k - (pivotIndex + 1);
-    return _quickSelect(result.slice(pivotIndex + 1), newK);
-  }
-}
-
-function partition(arr) {
-  const pivot = arr[0];
-  const left = [];
-  const right = [];
-  const mid = [];
-
-  for (let i = 1; i < arr.length; i++) {
-    const e = arr[i];
-    if (e < pivot) {
-      left.push(e);
-    } else if (e > pivot) {
-      right.push(e);
-    } else {
-      mid.push(e);
+    for (const num of nums) {
+        if (num > pivot) left.push(num);
+        else if (num < pivot) right.push(num);
+        else mid.push(num);
     }
-  }
 
-  // 修正：将 pivot 自身放回数组
-  const result = [...left, pivot, ...mid, ...right];
-  const pivotIndex = left.length; // pivot 的最终索引
-  return { result, pivotIndex };
+    // 情况 1：第 k 大在左边（大于 pivot 的部分）
+    if (k <= left.length) {
+        return findKthLargest(left, k);
+    }
+    // 情况 2：第 k 大就在中间（等于 pivot 的部分）
+    if (k <= left.length + mid.length) {
+        return pivot;
+    }
+    // 情况 3：第 k 大在右边（小于 pivot 的部分）
+    // 注意：k 也要相应减去左边和中间已经排除掉的个数
+    return findKthLargest(right, k - left.length - mid.length);
 }
-
-const result = quickSelect(arr, 2);
-console.log(result); // 正确输出: 3
 ```
 
 

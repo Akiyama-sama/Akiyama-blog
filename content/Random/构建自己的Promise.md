@@ -58,6 +58,9 @@ const promise = new MyPromise((resolve, reject) => {
 在使用promise的时候，我之前很纳闷，为何参数里面凭空多出来两个方法供我调用，我自己的概念中，函数参数是被传递的，而不是凭空多出来的，知道手写Promise，了解[[控制反转 IoC]]这个模式后才知道
 
 
+好吧主要不是这个原因，主要的原理是[[回调函数]]，exculator，即我传递过来的函数作为回调，在新建对象，即执行 constructor 构造函数的时候，把内部的 resolve 函数以及 reject 函数给构造好了，作为参数传递给了我自己写的 exculator，然后再执行 excualator 里面的实际代码。但本身 resolve 以及 reject 修改了 Promise 内部的局部变量，因此这个也有[[闭包]]的原理
+
+
 ```ts
 then = (onFulfilled: Resolve, onRejected: Reject) => {
 		return new MyPromise((resolve, reject) => {
