@@ -18,5 +18,12 @@ tags:
 7）其他特性：箭头函数没有自己的 arguments 对象，没有原型 prototype，不能用作 Generator 函数，不能使用 yeild 关键字，没有 super。
 
 
+## 面试版本：
+
+- 写法不同
+- 普通函数有 Call 以及 Construct 方法，可以被直接调用运行以及作为构造函数创建对象，箭头函数只有 Call 方法，不能作为构造函数
+- 普通函数的 this 绑定给 new 出来的那个对象，而箭头函数里面的 this 由编写箭头函数的地点的词法作用域决定
+
+
 
 # reference

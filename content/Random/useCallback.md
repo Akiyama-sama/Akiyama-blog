@@ -33,6 +33,11 @@ const memoizedValue = useMemo(() => {
 }, [a, b]);
 ```
 
+## 和 React.memo 的关系
+
+`useCallback` 经常和 [[React.memo]] 搭配使用：当 memo 子组件接收函数作为 props 时，可以用 `useCallback` 稳定函数引用，避免父组件每次渲染都创建新函数，导致 memo 子组件重新渲染。
+
+更多整体策略可以看 [[React性能优化]]。
 
 # reference
 [[useCallback AI讲解]]

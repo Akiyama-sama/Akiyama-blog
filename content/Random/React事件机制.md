@@ -37,8 +37,9 @@ React提供的事件对象与原生事件对象接口保持一致，修复了浏
 
 **执行顺序不同**
 
-原生事件绑定在具体的dom节点上，先进行执行，而React的合成事件都绑定在document对象上，当真实 DOM 元素触发事件，会冒泡到 document 对象后，再处理 React 事件
+原生事件绑定在具体的dom节点上，先进行执行，而React16 之前的合成事件都绑定在document对象上，当真实 DOM 元素触发事件，会冒泡到 document 对象后，再处理 React 事件
 
+而 react17 之后了把合成事件绑定在了 root 节点，即id='root'的那个dom元素，避免在微前端框架下，对整体 document 对象的影响
 
 
 

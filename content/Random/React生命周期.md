@@ -13,12 +13,12 @@ tags:
 
 ### 1.1 挂载阶段（Mounting）
 
-| 生命周期方法           | 执行时机       | 常见用途                       |
-| ---------------------- | -------------- | ------------------------------ |
-| `constructor()`        | 组件实例创建时 | 初始化 state、绑定事件处理函数 |
-| `componentWillMount()` | render 之前    | ⚠️ 已废弃，不推荐使用          |
-| `render()`             | 必选方法       | 返回 JSX                       |
-| `componentDidMount()`  | 挂载完成后     | 发请求、设置定时器、添加订阅   |
+| 生命周期方法                 | 执行时机      | 常见用途               |
+| ---------------------- | --------- | ------------------ |
+| `constructor()`        | 组件实例创建时   | 初始化 state、绑定事件处理函数 |
+| `componentWillMount()` | render 之前 | ⚠️ 已废弃，不推荐使用       |
+| `render()`             | 必选方法      | 返回 JSX             |
+| `componentDidMount()`  | 挂载完成后     | 发请求、设置定时器、添加订阅     |
 
 ```javascript
 class MyComponent extends React.Component {
@@ -48,6 +48,7 @@ class MyComponent extends React.Component {
 | `componentWillUpdate(nextProps, nextState)`   | ⚠️ 已废弃    | -                      |
 | `render()`                                    | 必选方法      | 返回 JSX                 |
 | `componentDidUpdate(prevProps, prevState)`    | 更新完成后     | 操作 DOM、请求新数据           |
+|                                               |           |                        |
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {

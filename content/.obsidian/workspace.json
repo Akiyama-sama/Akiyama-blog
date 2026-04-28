@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "4c5b87cb43c2ecc3",
+        "id": "b5d2db997e1b1b18",
         "type": "tabs",
         "children": [
           {
-            "id": "a5000ec0a60f0507",
+            "id": "4c1235a58712414f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thought.md",
+                "file": "Random/白盒测试.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Thought"
+              "title": "白盒测试"
             }
           }
         ]
@@ -88,8 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 213.5,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -105,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Private/大三下期末考试记录.md",
+                "file": "Random/构建自己的React.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "大三下期末考试记录 的反向链接列表"
+              "title": "构建自己的React 的反向链接列表"
             }
           },
           {
@@ -197,44 +196,50 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a5000ec0a60f0507",
+  "active": "4c1235a58712414f",
   "lastOpenFiles": [
-    "Random/盒模型.md",
+    "Random/浏览器缓存策略.md",
+    "Random/强缓存.md",
+    "Random/协商缓存.md",
     "Thought.md",
-    "Random/欲把西湖比西子，淡妆浓抹总相宜：杭州实习两月有感.md",
-    "Project/前端实习挑战.md",
+    "Random/事件循环 Event loop.md",
+    "Random/渲染阶段.md",
     "Random/Promise底层讲解.md",
     "Random/Promise.md",
-    "Random/Promise_any.md",
-    "Random/Typescript 类型的高级用法.md",
-    "Random/面向对象编程.md",
-    "Random/Promise_race.md",
-    "Random/Promise_all.md",
-    "Random/Js的 == 与 === 有什么区别.md",
-    "Random/js 当中 new 关键字.md",
-    "Random/手写 new.md",
-    "Random/面试鸭.md",
-    "Random/原型链.md",
-    "Random/允许 2 个任务执行的异步调度器.md",
+    "Random/函数中的this绑定.md",
+    "Random/this 指向.md",
+    "Random/BFC.md",
+    "Random/Intersection Observer API.md",
+    "Random/回流(Reflow).md",
+    "Random/自定义hook.md",
+    "Random/懒加载.md",
+    "Random/Git常用命令.md",
+    "Random/Git协作.md",
+    "Random/商汤科技 一面 前端实习生.md",
+    "Random/前端简历 - v1.2.0.md",
     "Random/构建自己的Promise.md",
-    "Random/var const let的区别.md",
-    "Random/闭包.md",
-    "Random/控制反转 IoC.md",
-    "Random/面试150道刷题.md",
-    "Random/虚拟列表.md",
-    "Random/transition关键字.md",
-    "Random/浏览器渲染流程.md",
-    "Random/重绘(Repaint).md",
-    "MC",
-    "Attachment/Pasted image 20260314213542.png",
-    "Knowlege/计算机大类/软件测试.zip",
-    "tmp/~$AI Coding 一年实战 - v2.pptx",
-    "tmp/AI Coding 一年实战 - v2.pptx",
-    "tmp/generate_ai_coding_ppt.py",
-    "tmp/AI Coding 一年实战.pptx",
-    "tmp",
-    "Project/~$AI Coding 一年实战.pptx",
-    "Project/AI Coding 一年实战.pptx",
-    "Project/generate_ai_coding_ppt.py"
+    "Random/面试经历 - INDEX.md",
+    "Random/面试鸭.md",
+    "Project/前端实习挑战.md",
+    "Random/简历 - INDEX.md",
+    "Random/前端简历 - v1.1.0.md",
+    "Random/React.memo.md",
+    "Attachment/Pasted Image 20260424135240_314.png",
+    "Attachment/Pasted Image 20260424135207_562.png",
+    "Attachment/Pasted Image 20260424132953_063.png",
+    "Attachment/Pasted Image 20260424131953_276.png",
+    "Attachment/Pasted Image 20260424131925_088.png",
+    "Attachment/Pasted Image 20260424131815_162.png",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/GradeTypeView/AuthenticationModelView",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/GradeTypeView",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps",
+    "Attachment/Pasted image 20260314213542.png"
   ]
 }

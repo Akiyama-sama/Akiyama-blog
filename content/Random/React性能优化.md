@@ -4,7 +4,7 @@ tags:
 ---
 # 组件级别优化
 
-- 用React.memo来包装函数组件，当父组件更新时，如果子组件的props没发生变化，传入props的children也不会重新渲染
+- 用 [[React.memo]] 包装函数组件。当父组件更新时，如果子组件的 props 没发生变化，memo 子组件可以跳过重新渲染。更完整的机制可以看 [[构建自己的React#36. React.memo：让没变的子组件跳过重新渲染|构建自己的 React 里的 React.memo 解释]]
 - PureComponent:类组件的memo
 - children组合模式：将不变的子组件作为children传入，这样即使父组件的state发生变化，传入的children也不会重新渲染
 
@@ -21,3 +21,10 @@ tags:
 # 加载策略
 
 React.lazy
+
+## 相关笔记
+
+- [[React.memo]]
+- [[构建自己的React#36. React.memo：让没变的子组件跳过重新渲染|构建自己的 React：React.memo]]
+- [[useMemo]]
+- [[useCallback]]

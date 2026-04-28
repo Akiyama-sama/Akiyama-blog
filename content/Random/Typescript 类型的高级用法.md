@@ -1,4 +1,3 @@
-RTSP
 ---
 date: 2025-10-25
 tags: 
@@ -46,7 +45,6 @@ interface A<T> = T extends Array<infer B> ? B : never
 interface A<T> {
 	[P in keyof T]
 }
-
 ```
 
 A这个类型会遍历传递过来的T的所有属性键，并添加到自己的属性当中，并且还可以用as来为这些属性键依次起别名
