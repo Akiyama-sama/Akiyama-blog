@@ -1,6 +1,10 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
+  - ES6
 ---
 **设置 state 只会为下一次渲染变更 state 的值**。在第一次渲染期间，`number` 为 `0`。这也就解释了为什么在 **那次渲染中的** `onClick` 处理函数中，即便在调用了 `setNumber(number + 1)` 之后，`number` 的值也仍然是 `0`：
 

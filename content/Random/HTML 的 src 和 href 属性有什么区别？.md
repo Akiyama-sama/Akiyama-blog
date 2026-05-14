@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - HTML
 ---
 ## 作用不同
 * src(source) 属性主要是指定**加载资源**的具体路径，常用在：`<script><img><audio><video><iframe>`上

@@ -1,6 +1,10 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
+  - ES6
 ---
 ## 使用方法
 

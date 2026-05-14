@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b5d2db997e1b1b18",
+        "id": "6294e257f09ff2e8",
         "type": "tabs",
         "children": [
           {
-            "id": "4c1235a58712414f",
+            "id": "843b0ae86eea3b0d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/白盒测试.md",
+                "file": "Thought.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,31 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "白盒测试"
+              "title": "Thought"
+            }
+          },
+          {
+            "id": "fe89fc866c415846",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Knowlege/计算机大类/收集类/常用Linux命令.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "常用Linux命令"
             }
           }
         ]
@@ -88,7 +112,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -196,50 +221,50 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4c1235a58712414f",
+  "active": "843b0ae86eea3b0d",
   "lastOpenFiles": [
-    "Random/浏览器缓存策略.md",
-    "Random/强缓存.md",
-    "Random/协商缓存.md",
+    "Random/元点引擎前端项目重构文档.md",
+    "Random/AgentCTF 文档.md",
+    "Random/Melodict 内存泄露问题回顾.md",
+    "Random/快手 商业化 一面 前端实习生.md",
+    "Knowlege/计算机大类/收集类/常用Linux命令.md",
     "Thought.md",
-    "Random/事件循环 Event loop.md",
-    "Random/渲染阶段.md",
-    "Random/Promise底层讲解.md",
-    "Random/Promise.md",
-    "Random/函数中的this绑定.md",
-    "Random/this 指向.md",
-    "Random/BFC.md",
-    "Random/Intersection Observer API.md",
-    "Random/回流(Reflow).md",
-    "Random/自定义hook.md",
-    "Random/懒加载.md",
-    "Random/Git常用命令.md",
-    "Random/Git协作.md",
-    "Random/商汤科技 一面 前端实习生.md",
-    "Random/前端简历 - v1.2.0.md",
     "Random/构建自己的Promise.md",
-    "Random/面试经历 - INDEX.md",
-    "Random/面试鸭.md",
+    "Random/argument对象.md",
+    "Random/函数中的this绑定.md",
+    "Random/SOLID 原则.md",
+    "Random/设计模式 - INDEX.md",
+    "Random/事件循环 Event loop.md",
+    "Random/渲染更新阶段.md",
+    "Random/IntersectionObserver.md",
+    "Random/requestAnimationFrame.md",
+    "Random/requestAnimationFrame是否了解？执行时机是什么？微任务队列清空后还有空闲会干什么？一帧时间会执行几次宏任务和微任务？.md",
     "Project/前端实习挑战.md",
-    "Random/简历 - INDEX.md",
-    "Random/前端简历 - v1.1.0.md",
-    "Random/React.memo.md",
-    "Attachment/Pasted Image 20260424135240_314.png",
-    "Attachment/Pasted Image 20260424135207_562.png",
-    "Attachment/Pasted Image 20260424132953_063.png",
-    "Attachment/Pasted Image 20260424131953_276.png",
-    "Attachment/Pasted Image 20260424131925_088.png",
-    "Attachment/Pasted Image 20260424131815_162.png",
-    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/GradeTypeView/AuthenticationModelView",
-    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/GradeTypeView",
-    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components",
-    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine",
+    "Random/杭州深维智元科技 前端实习生.md",
+    "Random/排序经典算法.md",
+    "Random/归并排序.md",
+    "Random/插入排序.md",
+    "Random/冒泡排序.md",
+    "Random/选择排序.md",
+    "Random/DOM 事件流.md",
+    "Random/渲染进程.md",
+    "Random/浏览器包含哪些进程.md",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-common/src/components/Websocket",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-common/src/components",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-common/src",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-common",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps",
+    "Attachment/Pasted Image 20260424135240_314.png",
+    "Attachment/Pasted Image 20260424135207_562.png",
+    "Attachment/Pasted Image 20260424132953_063.png",
+    "Attachment/Pasted Image 20260424131953_276.png",
+    "Attachment/Pasted Image 20260424131925_088.png",
+    "Attachment/Pasted Image 20260424131815_162.png",
     "Attachment/Pasted image 20260314213542.png"
   ]
 }

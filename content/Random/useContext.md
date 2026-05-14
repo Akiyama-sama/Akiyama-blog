@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - React
 ---
 这个Hook是用于解决父传子参数的问题
 参数传递：App->A->B

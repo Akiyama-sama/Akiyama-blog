@@ -1,6 +1,9 @@
 ---
 date: 2025-11-22
-tags: 
+tags:
+  - 前端实习挑战
+  - 前端
+  - 计算机网络
 ---
 全名为Cross-Sites-Script跨站脚本攻击
 

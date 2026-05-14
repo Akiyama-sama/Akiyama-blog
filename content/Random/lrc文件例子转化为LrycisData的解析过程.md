@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - React
 ---
 
 好的，我们以你提供的这个 LRC 文件为例，一步步模拟 `parseLyrics` 函数 的执行过程，看看它是如何将这个文件的信息转换成 `LyricsData` 对象的。

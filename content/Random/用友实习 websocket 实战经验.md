@@ -1,6 +1,10 @@
 ---
 date: 2026-04-15
 tags:
+  - 前端实习挑战
+  - 前端
+  - AI
+  - 工程化
 ---
 **结论**
 这个 `/machine` 不是普通“页面切换”，而是一个“后端流程配置 + 前端 WebSocket 事件驱动”的状态机。前端本地只保存少量核心状态，比如 `step / flows / record / recordList / points / progress / exception`，真正的推进很多时候不是点按钮后直接跳页，而是先发接口，再等后端通过 WebSocket 把“当前步骤”推回来，所以它非常适合写成你那条“基于 WebSocket 的多步骤流程状态机”。核心入口在 [routes/index.js](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/index.js#L395)、[machine/IndexView](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/IndexView/index.js#L46)、[machine/model.js](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/model.js#L39)。

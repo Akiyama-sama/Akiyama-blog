@@ -1,3 +1,10 @@
+---
+tags:
+  - 前端实习挑战
+  - 前端
+  - CSS
+---
+
 [`linear-gradient()`](https://developer.mozilla.org/docs/Web/CSS/linear-gradient\(\)) 函数逐步生成一种或多种颜色的图像
 
 ```css

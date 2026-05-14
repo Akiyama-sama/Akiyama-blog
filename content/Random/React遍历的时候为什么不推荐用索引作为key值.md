@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - React
 ---
 key在React中的作用是唯一标识列表中的每个元素，当列表发生变化的时候，会用key来识别哪些元素更新、删除等等
 

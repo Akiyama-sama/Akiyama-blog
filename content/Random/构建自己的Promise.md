@@ -1,6 +1,10 @@
 ---
 date: 2025-10-26
 tags:
+  - 前端实习挑战
+  - 前端
+  - JavaScript
+  - ES6
 ---
 
 # 构建自己的 Promise

@@ -1,8 +1,11 @@
 ---
 tags:
-  - '#literature'
+  - #literature
   - 计算机网络
   - Web
+  - 前端实习挑战
+  - 前端
+  - CSS
 ---
 # 概述
 FTP默认使用主动模式

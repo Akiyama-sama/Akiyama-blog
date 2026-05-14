@@ -3,6 +3,8 @@ date: 2026-04-26
 tags:
   - React
   - 性能优化
+  - 前端实习挑战
+  - 前端
 ---
 
 # React.memo

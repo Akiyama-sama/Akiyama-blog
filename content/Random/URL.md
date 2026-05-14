@@ -1,8 +1,11 @@
 ---
 tags:
-  - '#pernamant'
-  - '#Web'
-  - '#计算机网络'
+  - #pernamant
+  - #Web
+  - #计算机网络
+  - 前端实习挑战
+  - 前端
+  - CSS
 ---
 URL(uniform resource locator) 统一资源定位符，用于标识网络上某一资源的唯一位置
 通常由：协议+域名+资源路径

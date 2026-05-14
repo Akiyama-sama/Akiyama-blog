@@ -3,7 +3,23 @@ date: 2026-02-14
 tags:
   - React
   - 面试
+  - 前端实习挑战
+  - 前端
 ---
+
+# Fiber视角下的生命周期
+
+```text
+render 阶段（可中断）
+↓
+生成 Fiber Tree
+↓
+Diff（协调 reconciliation）
+↓
+commit 阶段（不可中断）
+↓
+更新真实 DOM
+```
 
 # React 生命周期面试指南
 

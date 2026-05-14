@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
 ---
 用对象扩展运算符...
 ```js

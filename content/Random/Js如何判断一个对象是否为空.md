@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
 ---
 用Object.keys()，这个方法可以返回一个包含对象所有可枚举属性的数组，如果数组长度为0，那么就是个空对象
 

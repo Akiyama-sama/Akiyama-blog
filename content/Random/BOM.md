@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - 浏览器
 ---
 全称 Browser Object Model 
 主要包含：windows对象，navigator对象，location对象，history对象，screen对象（包含用户屏幕的信息）

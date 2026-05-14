@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - HTML
 ---
 defer和async都能让浏览器在解析HTML的过程中，异步加载js文件，不会**阻塞HTML解析**，主要不同在于：
 js执行时机不同：

@@ -1,7 +1,10 @@
 ---
 tags:
-  - '#pernamant'
-  - '#榜样'
+  - #pernamant
+  - #榜样
+  - 前端实习挑战
+  - 前端
+  - React
 ---
 个人博客地址：[^1]
 代表作品：Qwerty Learner[^2]。github 1.8k star(2025-2-18)。一个边打单词边学习英语的网站

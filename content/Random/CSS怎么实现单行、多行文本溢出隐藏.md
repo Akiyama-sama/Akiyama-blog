@@ -1,7 +1,10 @@
 ---
 date: 2025-11-20
 tags:
-  - "#CSS"
+  - #CSS
+  - 前端实习挑战
+  - 前端
+  - CSS
 ---
 实现单行文本溢出隐藏可以通过使用 CSS 的 `white-space`, `overflow`, 以及 `text-overflow` 属性。具体代码如下：
 

@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - React
 ---
 
 ## LRC格式和ID3标签中的歌词数据

@@ -1,6 +1,10 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
+  - ES6
 ---
 **`async/await` 是 [[Promise]] 的语法糖**，它能让你用 **同步的写法** 编写 **异步逻辑**，既直观又优雅。
 

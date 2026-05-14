@@ -1,7 +1,10 @@
 ---
 date: 2025-11-20
 tags:
-  - "#CSS"
+  - #CSS
+  - 前端实习挑战
+  - 前端
+  - CSS
 ---
 
 1. **模块化** ：将 CSS 按照模块拆分，比如使用 [[BEM命名法]]（Block Element Modifier）命名法，或采用 Sass、LESS 等预处理器来实现模块化开发。

@@ -41,13 +41,33 @@ interface A<T> = T extends Array<infer B> ? B : never
 
 还有 `in keyof [as ..]`  关键字，in keyof用于遍历一个类型的所有属性的键，后面的as 部分是给这个键来起别名的
 
+keyof 是用来遍历后面类型所有属性的键名，把它变为一个联合类型
+
+in 就是用来将后面的联合类型迭代，将联合类型的每一个变为当前的一个属性
+
 ```ts
 interface A<T> {
 	[P in keyof T]
 }
 ```
 
+
+key of T遍历 T 的键名为联合类型，再由in 来迭代为 P
+
 A这个类型会遍历传递过来的T的所有属性键，并添加到自己的属性当中，并且还可以用as来为这些属性键依次起别名
+
+
+```ts
+function isPromise<T = any>(val: any): val is Promise<T> {
+  return (
+    val !== null &&
+    (typeof val === 'object' || typeof val === 'function') &&
+    typeof val.then === 'function'
+  )
+}
+```
+这里的 is 为类型谓词，
+它的作用是：**告诉 TypeScript 编译器，如果这个函数返回 `true`，那么在调用该函数的代码块内，`val` 的类型就确定是 `Promise<T>`。**
 
 
 下面的示例是 typeof 以及 keyof 的配合组合，可以仅编辑一个对象，就能进行类型推断枚举，相较于枚举 emun 关键字，他还可以作为值使用（对象本身），还可以类型推断，是比较推崇的做法，这里是在 orval 学习到的

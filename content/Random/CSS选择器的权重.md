@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - CSS
 ---
 [[!important]]>[[内联样式]]>id选择器>类/伪类选择器>元素/伪元素选择器>通配符
 

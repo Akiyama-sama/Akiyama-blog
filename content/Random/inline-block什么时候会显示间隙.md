@@ -1,7 +1,10 @@
 ---
 date: 2025-11-20
 tags:
-  - "#CSS"
+  - #CSS
+  - 前端实习挑战
+  - 前端
+  - CSS
 ---
 [[display的各个属性值]]里面我介绍了，inline-block既有inline的宽度由子元素决定，可以让block设置上下margin的特性。
 

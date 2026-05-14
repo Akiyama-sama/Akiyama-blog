@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - 计算机网络
 ---
 Axios是基于Promise的 HTTP客户端，浏览器和Node.js都可以用
 

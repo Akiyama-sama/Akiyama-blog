@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - HTML
 ---
 HTML5离线缓存是指的是支持开发者允许某些文件（js，html，css等等）缓存，让用户在无网络的情况下使用web服务
 

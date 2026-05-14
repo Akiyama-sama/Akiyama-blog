@@ -1,6 +1,9 @@
 ---
 date: 2025-11-29
-tags: 
+tags:
+  - 前端实习挑战
+  - 前端
+  - 计算机网络
 ---
 这是一个利用浏览器API中的XMLHttpRequest的实现
 

@@ -2,6 +2,8 @@
 date: 2025-11-29
 tags:
   - React
+  - 前端实习挑战
+  - 前端
 ---
 useLayoutEffect相较于useEffect，他自己的setup函数是在浏览器绘制之前执行的，而useEffect是在挂载之后执行的，详细看[[浏览器渲染流程]]
 

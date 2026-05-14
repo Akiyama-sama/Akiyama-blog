@@ -1,6 +1,9 @@
 ---
 date: 2025-11-29
-tags: 
+tags:
+  - 前端实习挑战
+  - 前端
+  - 浏览器
 ---
 无论触发多少次，按**固定频率**执行。本质是**“稀释冷却”**。
 
@@ -11,7 +14,7 @@ const throttle = function (action,wait){
     let timeout
     return function(...arg){
         const content  = this
-        //有计时器才会去执行，没有不执行
+        //没有计时器才会去执行，有不执行
         if(!timeout){
             timeout = setTimeout(() => {
                action.apply(content,arg)

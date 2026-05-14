@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - HTML
 ---
 head标签用于包裹元数据，这些元数据不会在页面上显示，但对SEO，脚本，样式有作用
 其中，title和meta标签是必不可少的

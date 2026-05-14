@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
 ---
 - **增删类方法**：
     - push(item)：在数组末尾添加元素。时间复杂度平均O(1)。

@@ -1,7 +1,10 @@
 ---
 date: 2025-11-20
 tags:
-  - "#CSS"
+  - #CSS
+  - 前端实习挑战
+  - 前端
+  - CSS
 ---
 translate是[[transition关键字]]中的一个属性，其操作的是渲染层，而不是布局层（例如利用top，left，right，bottom），这样浏览器不会因为位置的改变而重新计算布局（reflow），从而提高性能
 

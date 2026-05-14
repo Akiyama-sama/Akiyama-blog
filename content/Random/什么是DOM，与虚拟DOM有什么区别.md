@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - React
 ---
 [[DOM]]全程为Document Object Model，文档对象模型，主要用于让Javascript操作网页
 

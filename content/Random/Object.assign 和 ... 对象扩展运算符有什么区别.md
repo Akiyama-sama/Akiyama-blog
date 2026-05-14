@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
 ---
 Object.assign和 [[对象扩展运算符]]都是[[浅拷贝]]，但是Object.assign会修改原对象并且返回原对象，而... 会创建一个新的对象并进行拷贝
 

@@ -1,13 +1,14 @@
 ---
 tags:
   - index
+  - 前端实习挑战
+  - 前端
+  - CSS
 ---
 
 参考文档：[web.dev](https://web.dev/learn/css/welcome?continue=https%3A%2F%2Fweb.dev%2Flearn%2Fcss&hl=zh-cn#article-https://web.dev/learn/css/welcome&hl=zh-cn)
-
+[[CSS - INDEX - AI]]
 ## 总结
-
-
 
 
 ## 重要链接

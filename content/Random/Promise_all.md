@@ -1,6 +1,10 @@
 ---
 date: 2026-04-12
 tags:
+  - 前端实习挑战
+  - 前端
+  - 手撕题
+  - JavaScript
 ---
 ```js
 function all(promises){

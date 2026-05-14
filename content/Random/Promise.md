@@ -1,6 +1,10 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
+  - ES6
 ---
 Promise是一个Javascript对象，是**异步操作与[[回调函数]]** 的中介，让异步操作具有同步操作的接口，解决异步处理的[[回调函数]]地狱问题，让写法更加清晰。
 

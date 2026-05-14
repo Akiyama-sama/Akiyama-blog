@@ -2,6 +2,8 @@
 date: 2025-10-25
 tags:
   - React
+  - 前端实习挑战
+  - 前端
 ---
 
 # 构建自己的 React
@@ -257,7 +259,7 @@ render(element, container)
 
 > 如果页面结构很大，递归渲染会一次性做完所有工作，期间浏览器可能没有机会响应用户操作。
 
-浏览器主线程要负责很多事情：
+[[浏览器包含哪些进程|浏览器进程]]负责很多事情：
 
 - 执行 JavaScript。
 - 处理点击、输入、滚动。
@@ -325,7 +327,7 @@ type Fiber = {
 
 ---
 
-## 8. 用 requestIdleCallback 做工作循环
+## 8. 用 [[requestIdleCallback]] 做工作循环
 
 我们需要一个循环，它在浏览器空闲时处理 Fiber。
 

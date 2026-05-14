@@ -1,6 +1,10 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - AI
+  - 工程化
 ---
 服务器向浏览器发送信息，除了[[WebSocket]]之外，还有SSE（Server-Sent Events）。他只能服务器向浏览器发送数据，与之相对的是[[WebSocket]]，且这个数据不是一次性数据包，而是一个数据流
 

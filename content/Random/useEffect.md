@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - React
 ---
 ## 为什么需要useEffect
 了解useEffect之前得了解React中的两种逻辑处理方式，就能知道为什么需要useEffcect了

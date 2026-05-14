@@ -2,6 +2,8 @@
 date: 2025-11-30
 tags:
   - 前端
+  - 前端实习挑战
+  - CSS
 ---
 # 第一阶段：网络请求链路 (The Network Journey)
 
@@ -47,7 +49,7 @@ tags:
 
 # 第二阶段：浏览器渲染链路 (The Rendering Path)
 
-这是前端最核心的领域，主要由浏览器的**渲染进程（Renderer Process）**完成。
+这是前端最核心的领域，主要由浏览器的**[[渲染进程]]（Renderer Process）**完成。
 
 ## 1. 解析 (Parsing)
 

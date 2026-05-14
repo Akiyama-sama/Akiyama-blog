@@ -2,22 +2,32 @@
 date: 2025-11-22
 tags:
   - CSS
+  - 前端实习挑战
+  - 前端
 ---
 全称为Block Formatting Context块级上下文
 
-**特性**：
-- 内部block会垂直一个一个放置
-- 属于**同一个** BFC 的两个相邻块级盒子的垂直外边距（Margin）会发生折叠。而创建了**新 BFC** 的元素，其内部子元素不会与外部元素发生外边距折叠。
-- BFC 就像是一个隔离的作用域，其内部元素的布局不会影响到外部
-- BFC 会包含浮动元素（[[float]]）：BFC在计算自身高度时，会将内部的浮动元素（`float`）也计算在内。
+**触发元素与子元素的关系**
+
+- 子元素为[[float]]的，计算其高度
+- 子元素直接垂直排列，并塌陷 margin，取子元素 margin 直接最大的那个
+- 隔离外部作用域
+
+**触发元素与兄弟元素的关系**
+
+- 兄弟元素为浮动元素时，触发元素能够"排斥"这个兄弟元素，即避开浮动元素
 
 # 触发条件
-- 根元素（）
-- 浮动元素（float 不为 none）
-- 绝对定位元素（position 为 absolute 或 fixed）
-- 行内块元素（display: inline-block）
-- 表格单元格（display: table-cell，表格默认）
-- 弹性盒子（display: flex / inline-flex）
-- 网格布局（display: grid / inline-grid）
-- overflow 值为 hidden、auto、scroll（不为 visible）
-- display: flow-root（专门用于创建无副作用的 BFC）
+
+| **属性**   | **触发值**                                                               |
+| -------- | --------------------------------------------------------------------- |
+| **根元素**  | `<html>`                                                              |
+| **浮动**   | `float` 的值不为 `none`                                                   |
+| **定位**   | `position` 为 `absolute` 或 `fixed`                                     |
+| **显示类型** | `display` 为 `inline-block`, `table-cell`, `flow-root`, `flex`, `grid` |
+| **溢出**   | `overflow` 的值不为 `visible` (如 `hidden`, `auto`, `scroll`)              |
+
+最推荐 display:flow-root,这个无副作用，其他或多或少有副作用
+
+**边界与包含块**
+

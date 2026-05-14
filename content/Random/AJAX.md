@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - 计算机网络
 ---
 Ajax是 Asyncchronous JavaScript and XML的缩写，指的是通过JS的异步通信，获取XML文档再获取其中的数据，更新部分网页，而不用刷新整个网页
 

@@ -2,6 +2,8 @@
 date: 2025-11-22
 tags:
   - CSS
+  - 前端实习挑战
+  - 前端
 ---
 一种CSS属性，允许这个元素脱离[[Nomal Flow]]但又不像position:absolute那样完全脱离文档流，而是会让那些inline的元素包裹这个元素
 

@@ -2,6 +2,8 @@
 date: 2025-11-21
 tags:
   - CSS
+  - 前端实习挑战
+  - 前端
 ---
 CSS 的 `position` 属性有五种主要的属性值： `static` 、 `relative` 、 `absolute` 、 `fixed` 和 `sticky` 。每个属性值的作用和行为如下：
 

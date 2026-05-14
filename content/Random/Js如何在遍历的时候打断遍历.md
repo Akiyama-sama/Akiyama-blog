@@ -1,6 +1,9 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
 ---
 for循环遍历的时候可以用break语句，但像是forEach这样的方法不能用break，因为这个函数设计初衷就是用来遍历整个数组的
 

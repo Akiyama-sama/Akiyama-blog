@@ -1,6 +1,10 @@
 ---
 tags:
-  - '#pernamant'
+  - #pernamant
+  - 前端实习挑战
+  - 前端
+  - JavaScript
+  - ES6
 ---
 1. 新增let和const，具有块级作用域
 2. [[JavaScript箭头函数]]

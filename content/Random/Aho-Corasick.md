@@ -1,7 +1,10 @@
 ---
 tags:
-  - '#pernamant'
-  - '#算法'
+  - #pernamant
+  - #算法
+  - 前端实习挑战
+  - 前端
+  - React
 ---
 多模匹配算法（Aho-Corasick）中文名叫AC自动机算法。
 
