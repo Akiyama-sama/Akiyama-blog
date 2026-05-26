@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thought.md",
+                "file": "Random/Git常用命令.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,31 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Thought"
-            }
-          },
-          {
-            "id": "fe89fc866c415846",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Knowlege/计算机大类/收集类/常用Linux命令.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "常用Linux命令"
+              "title": "Git常用命令"
             }
           }
         ]
@@ -112,8 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -129,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Random/构建自己的React.md",
+                "file": "Project/揭榜挂帅比赛项目前端.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "构建自己的React 的反向链接列表"
+              "title": "揭榜挂帅比赛项目前端 的反向链接列表"
             }
           },
           {
@@ -223,32 +198,32 @@
   },
   "active": "843b0ae86eea3b0d",
   "lastOpenFiles": [
-    "Random/元点引擎前端项目重构文档.md",
-    "Random/AgentCTF 文档.md",
-    "Random/Melodict 内存泄露问题回顾.md",
-    "Random/快手 商业化 一面 前端实习生.md",
-    "Knowlege/计算机大类/收集类/常用Linux命令.md",
-    "Thought.md",
-    "Random/构建自己的Promise.md",
-    "Random/argument对象.md",
-    "Random/函数中的this绑定.md",
+    "Random/Git协作.md",
+    "Random/快手实习相关.md",
+    "Random/快手 - 需求 - 平台触点 AI 形象升级.md",
+    "Random/esp-mobile包.md",
+    "Random/create 包.md",
+    "Excalidraw/广告计划页流程时序图.md",
+    "Random/create 包 - 广告计划页面例子.md",
+    "Random/create 包  简要讲解.md",
+    "Random/biz-mobile包.md",
+    "Project/前端实习挑战.md",
+    "Excalidraw/esp-create 包依赖图.md",
+    "Random/未命名 4.md",
+    "index.md",
+    "Random/连过中大厂17轮技术面的秘诀是什么_牛客网.md",
+    "Random/暑期实习投递记录.md",
+    "Random/快手 - 需求 - 平台触点 AI 形象升级 概念 hover 新组件.md",
     "Random/SOLID 原则.md",
     "Random/设计模式 - INDEX.md",
-    "Random/事件循环 Event loop.md",
-    "Random/渲染更新阶段.md",
-    "Random/IntersectionObserver.md",
-    "Random/requestAnimationFrame.md",
-    "Random/requestAnimationFrame是否了解？执行时机是什么？微任务队列清空后还有空闲会干什么？一帧时间会执行几次宏任务和微任务？.md",
-    "Project/前端实习挑战.md",
-    "Random/杭州深维智元科技 前端实习生.md",
-    "Random/排序经典算法.md",
-    "Random/归并排序.md",
-    "Random/插入排序.md",
-    "Random/冒泡排序.md",
-    "Random/选择排序.md",
-    "Random/DOM 事件流.md",
-    "Random/渲染进程.md",
-    "Random/浏览器包含哪些进程.md",
+    "Random/Javascript高级程序设计通读.md",
+    "Thought.md",
+    "Random/代码提交规范.md",
+    "Random/深维智元科技 git 协作.md",
+    "Random/版本号管理.md",
+    "Random/git flow规范.md",
+    "Random/低代码名词词典.md",
+    "Excalidraw/create 包架构图.md",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-common/src/components/Websocket",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-common/src/components",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-common/src",

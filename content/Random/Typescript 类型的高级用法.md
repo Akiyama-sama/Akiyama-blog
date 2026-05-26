@@ -31,7 +31,7 @@ interface Animal<T> = T extends feature ? Dog : never
 
 如果传递过来的T是feature的超集，那么就会推断Animal为Dog类型，否则是never类型
 
-结合`infer`关键字，可以结合出强大的类型操作，infer顾名思义就是推断，推断是不是这个类型
+结合`infer`关键字，可以结合出强大的类型操作，[[infer]]顾名思义就是推断，推断是不是这个类型
 
 ```ts
 interface A<T> = T extends Array<infer B> ? B : never
