@@ -108,3 +108,47 @@ create 应用
 
 核心设计模式是 **IoC（控制反转）+ DI（依赖注入）**，宏观上是**微内核架构**。这和你见过的 VSCode 插件系统、Webpack loader 体系是同一套思想的不同表现形式。
 
+
+# 路由/低码分支全貌
+
+| URL | 页面文件 | 作用 |
+|---|---|---|
+| `/niucreate` | [Create/index.tsx](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/Create/index.tsx:1) | 老标准推广创编 |
+| `/niucreate/super` | [SuperCreate/index.tsx](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/SuperCreate/index.tsx:1) | 新 V3 外壳，里面再分标准/全站/极简 |
+| `/niucreate/simple` | [CreateSimple](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/CreateSimple) | 老极简推广 |
+| `/niucreate/storeCreate` / `/storeCreate` | [CreateStoreWide](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/CreateStoreWide) | 老全站推广 |
+| `/niucreate/cidCreate` | [cidCreate](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/cidCreate) | CID 创编 |
+| `/niucreate/CombinationHostingModal` | [HostingModalCreate](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/HostingModalCreate) | 托管弹窗创编 |
+
+**V3 `/niucreate/super` 分支**
+`/niucreate/super` 不是一个具体业务表单，而是外壳。它通过 URL 参数和白名单选择三种 model：
+
+`modelType=standard` → [SuperCreateStandard.tsx]
+
+`modelType=simple` → [SuperCreateSimple]()
+
+`modelType=storewide` → [SuperCreateStoreWide]()
+
+选择逻辑在 [superModel/index.ts](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/models/superModel/index.ts:134)，三种适配器是：
+
+| modelType | Adapter | 复用/承载 |
+|---|---|---|
+| `standard` | [StandardModelAdapter.ts](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/models/superModel/adapters/StandardModelAdapter.ts:1) | 复用老标准推广 `CreateStore` |
+| `simple` | [SimpleModelAdapter.ts](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/models/superModel/adapters/SimpleModelAdapter.ts:1) | 复用极简 `CreateSimple` store |
+| `storewide` | [StoreWideModelAdapter.ts](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/models/superModel/adapters/StoreWideModelAdapter.ts:1) | 全站 V3 自己的一套模型 |
+
+**标准推广全码分支**
+老标准推广核心 store 是 [createModel/index.ts](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/models/createModel/index.ts:1)。它读 URL 里的 `version`，然后决定当前是计划层级还是某个广告组/创意层级。
+
+`version=campaign` → 计划层级 → [CampaignFormGroup](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/Create/moduleGroups/campaign.tsx:10)
+
+其他 `version` → 进入 [Create/index.tsx](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/Create/index.tsx:100) 和 [SuperCreateStandard.tsx](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/SuperCreate/SuperCreateStandard.tsx:101) 里的 `VERSIONS` 映射表，比如 `videoGrowthFansShowCustom`、`kwaiIdLivePlanting`、`productProductSaleShowHost` 等，对应文件集中在 [Create/moduleGroups](/Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages/Create/moduleGroups)。
+
+**低代码分支**
+计划层级最容易踩坑：同一个 `CampaignFormGroup` 内部有全码/低码开关：
+
+```tsx
+!global.whiteList.createRuntimeSwitch -> CampaignVersionModule + CampaignSettingModule
+global.whiteList.createRuntimeSwitch -> AdESPCreateReactRuntimeFC(moduleId="67dbaaaa-...")
+```
+
