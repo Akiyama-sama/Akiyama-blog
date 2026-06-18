@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thought.md",
+                "file": "Random/SDD 快手落地规范.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,16 +28,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Thought"
+              "title": "SDD 快手落地规范"
             }
           },
           {
-            "id": "7703478a79ddc28c",
+            "id": "4dd20f3874546f1b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/实现圆形环状进度条.md",
+                "file": "Random/SDD 沉淀.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "实现圆形环状进度条"
+              "title": "SDD 沉淀"
             }
           }
         ]
@@ -222,8 +222,13 @@
   },
   "active": "9b2716041aa86d3c",
   "lastOpenFiles": [
-    "Random/前端每日练习 TODO.md",
+    "Thought.md",
+    "Random/SDD 沉淀.md",
+    "Random/SDD 快手落地规范.md",
+    "Random/快手实习相关.md",
+    "index.md",
     "Random/实现圆形环状进度条.md",
+    "Random/前端每日练习 TODO.md",
     "Random/Typescript 类型的高级用法.md",
     "Random/myReadonly.md",
     "Random/CSS - INDEX.md",
@@ -243,11 +248,6 @@
     "Random/myPick.md",
     "Random/TS 实现 hooks: useInterval.md",
     "Random/原创组件设计题：互斥级联表单组件.md",
-    "Random/拖拽.md",
-    "Random/选项卡.md",
-    "Random/遍历树组件.md",
-    "Random/列表子元素顺序反转.md",
-    "Random/编码实现宽高不相同图片的自适配排列.md",
     "琢玉七期 创编内部分体验优化/取消手动添加交互优化",
     "琢玉七期 创编内部分体验优化",
     "未命名.canvas",
