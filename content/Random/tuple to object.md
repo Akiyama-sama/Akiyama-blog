@@ -13,3 +13,9 @@ type TupleToObject<T extends readonly any[] > = {
 	[P in T[Number]]: P
 }
 ```
+
+# tuple to object
+
+## 题目
+
+tuple to object

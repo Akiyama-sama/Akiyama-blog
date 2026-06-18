@@ -98,6 +98,61 @@ export const OriginpointengineInternalApiHandlersResCode = {
 ```
 
 
+# 套路
+
+遍历
+
+```ts
+[K in keyof T]
+```
+
+过滤: as+never
+```ts
+[K in keyof T as K extends X ? K : never]
+```
+
+模式匹配
+
+```ts
+T extends Pattern<infer X> ? X : never
+```
+
+数组拆解
+
+```ts
+T extends [infer F, ...infer R]
+```
+
+函数拆解
+
+```ts
+T extends (...args: infer P) => infer R
+```
+
+
+ Promise拆解
+
+```ts
+T extends Promise<infer U>
+```
+
+
+
+ 对象拆解
+
+```ts
+T extends { a: infer A }
+```
+
+
+递归结构
+
+```ts
+type R<T> =
+  T extends Base
+    ? 终止
+    : R<下一层>
+```
 
 # reference
 

@@ -17,3 +17,10 @@ type MyExclude<T, U> = T extends U ? never : T;
 1. **第一项 `'a'`**： `'a' extends 'a' ? never : 'a'` 因为成立，所以返回 **`never`**。
 2. **第二项 `'b'`**： `'b' extends 'a' ? never : 'b'` 因为不成立，所以返回 **`b`**。
 3. **第三项 `'c'`**： `'c' extends 'a' ? never : 'c'` 因为不成立，所以返回 **`c`**。
+
+
+# myExclude
+
+## 题目
+
+myExclude

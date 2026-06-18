@@ -11,3 +11,10 @@ type myPick<T,k extends keyof T> = {
 
 [[Typescript 类型的高级用法]]
 
+
+
+# myPick
+
+## 题目
+
+myPick

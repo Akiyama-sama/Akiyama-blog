@@ -11,3 +11,10 @@ type myAwaited<T> = T extends Promise<infer U> ? U : myAwaited<U>
 
 这里用到了[[infer]]关键字以及递归
 
+
+
+# awaited
+
+## 题目
+
+awaited

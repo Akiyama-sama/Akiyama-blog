@@ -7,5 +7,11 @@ aliases:
 
 
 ```ts
-type If<T extends bo
+type If<C extends boloan,T,F> = C extends true ? T : F
 ```
+
+# If
+
+## 题目
+
+If

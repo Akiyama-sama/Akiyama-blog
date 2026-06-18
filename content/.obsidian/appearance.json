@@ -1,7 +1,7 @@
 {
   "cssTheme": "Minimal",
-  "interfaceFontFamily": "JetBrainsMono Nerd Font Mono",
-  "textFontFamily": "JetBrainsMono Nerd Font Mono",
+  "interfaceFontFamily": "Fira Code,JetBrainsMono Nerd Font Mono",
+  "textFontFamily": "Fira Code,JetBrainsMono Nerd Font Mono",
   "baseFontSize": 18,
-  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono"
+  "monospaceFontFamily": "Fira Code,JetBrainsMono Nerd Font Mono"
 }

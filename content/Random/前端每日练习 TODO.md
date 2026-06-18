@@ -46,27 +46,27 @@ aliases:
 
 - [x] Day 07 - [[awaited]]
 
-- [ ] Day 08 - [[If]]
+- [x] Day 08 - [[If]]
 
-- [ ] Day 09 - `concat`
+- [x] Day 09 - [[concat]]
 
-- [ ] Day 10 - `includes`
+- [x] Day 10 - [[includes]]
 
-- [ ] Day 11 - `Trim`
+- [ ] Day 11 - [[Trim]]
 
-- [ ] Day 12 - `push`
+- [ ] Day 12 - [[push]]
 
-- [ ] Day 13 - `unshift`
+- [ ] Day 13 - [[unshift]]
 
-- [ ] Day 14 - `parameters`
+- [ ] Day 14 - [[parameters]]
 
-- [ ] Day 15 - `returnType`
+- [x] Day 15 - [[returnType]]
 
-- [ ] Day 16 - `myReadonly2`
+- [x] Day 16 - [[myReadonly2]]
 
-- [ ] Day 17 - `Omit`
+- [ ] Day 17 - [[Omit]]
 
-- [ ] Day 18 - `deepReadonly`
+- [ ] Day 18 - [[deepReadonly]]
 
   
 
@@ -78,51 +78,51 @@ aliases:
 
   
 
-- [ ] Day 19 - 实现圆形环状进度条
+- [ ] Day 19 - [[实现圆形环状进度条]]
 
-- [ ] Day 20 - 等边三角形
+- [ ] Day 20 - [[等边三角形]]
 
-- [ ] Day 21 - 实现扇形
+- [ ] Day 21 - [[实现扇形]]
 
-- [ ] Day 22 - 实现平行四边形
+- [ ] Day 22 - [[实现平行四边形]]
 
-- [ ] Day 23 - 实现九宫格
+- [ ] Day 23 - [[实现九宫格]]
 
-- [ ] Day 24 - 实现一个秒针绕一点转动的效果
+- [ ] Day 24 - [[实现一个秒针绕一点转动的效果]]
 
-- [ ] Day 25 - 实现一个球字节
+- [ ] Day 25 - [[实现一个球字节]]
 
-- [ ] Day 26 - 圆弧旋转
+- [ ] Day 26 - [[圆弧旋转]]
 
-- [ ] Day 27 - 使用 div 和 css 实现一个圆形，红色部分占 60%，绿色 40%
+- [ ] Day 27 - [[使用 div 和 css 实现一个圆形，红色部分占 60%，绿色 40%]]
 
-- [ ] Day 28 - 进度条覆盖文字后文字反色
+- [ ] Day 28 - [[进度条覆盖文字后文字反色]]
 
-- [ ] Day 29 - shadowDOM 实现 css 隔离
+- [ ] Day 29 - [[shadowDOM 实现 css 隔离]]
 
-- [ ] Day 30 - 两栏布局
+- [ ] Day 30 - [[两栏布局]]
 
-- [ ] Day 31 - 宽高自适应正方形
+- [ ] Day 31 - [[宽高自适应正方形]]
 
-- [ ] Day 32 - 1px 问题
+- [ ] Day 32 - [[1px 问题]]
 
-- [ ] Day 33 - 实现筛子
+- [ ] Day 33 - [[实现筛子]]
 
-- [ ] Day 34 - css3 实现多行文字截断处理
+- [ ] Day 34 - [[css3 实现多行文字截断处理]]
 
-- [ ] Day 35 - 三栏布局移动优先设计
+- [ ] Day 35 - [[三栏布局移动优先设计]]
 
-- [ ] Day 36 - css 实现一个自适应搜索框
+- [ ] Day 36 - [[css 实现一个自适应搜索框]]
 
-- [ ] Day 37 - css 书卡布局
+- [ ] Day 37 - [[css 书卡布局]]
 
-- [ ] Day 38 - 实现宽高比例固定的 div
+- [ ] Day 38 - [[实现宽高比例固定的 div]]
 
-- [ ] Day 39 - 实现一个五点骰子
+- [ ] Day 39 - [[实现一个五点骰子]]
 
-- [ ] Day 40 - 实现圣杯布局
+- [ ] Day 40 - [[实现圣杯布局]]
 
-- [ ] Day 41 - 黑白主题切换
+- [ ] Day 41 - [[黑白主题切换]]
 
   
 
@@ -138,9 +138,9 @@ aliases:
 
   
 
-- [ ] Day 42 - `JSON2DOM = react 的 render 函数`
+- [ ] Day 42 - [[JSON2DOM = react 的 render 函数]]
 
-- [ ] Day 43 - `实现简易版的 useState`
+- [ ] Day 43 - [[实现简易版的 useState]]
 
   
 
@@ -148,25 +148,25 @@ aliases:
 
   
 
-- [ ] Day 44 - Hooks 怎么封装手势逻辑
+- [ ] Day 44 - [[Hooks 怎么封装手势逻辑]]
 
-- [ ] Day 45 - Hooks 实现移动端的滑动轮播插件
+- [ ] Day 45 - [[Hooks 实现移动端的滑动轮播插件]]
 
-- [ ] Day 46 - 如何用 Hooks 模拟 `componentDidMount` 与 `componentWillUnmount`
+- [ ] Day 46 - [[如何用 Hooks 模拟 componentDidMount 与 componentWillUnmount]]
 
-- [ ] Day 47 - 实现一个 `useBodyScrollLock`
+- [ ] Day 47 - [[实现一个 useBodyScrollLock]]
 
-- [ ] Day 48 - TS 实现 hooks: `useInterval`
+- [ ] Day 48 - [[TS 实现 hooks: useInterval]]
 
-- [ ] Day 49 - 实现 `useQuery`
+- [ ] Day 49 - [[实现 useQuery]]
 
-- [ ] Day 50 - 实现 `useRequest`
+- [ ] Day 50 - [[实现 useRequest]]
 
-- [ ] Day 51 - 实现 `usePosition`
+- [ ] Day 51 - [[实现 usePosition]]
 
-- [ ] Day 52 - 实现 `useStorage`
+- [ ] Day 52 - [[实现 useStorage]]
 
-- [ ] Day 53 - 实现防抖收藏 `useFavorite`
+- [ ] Day 53 - [[实现防抖收藏 useFavorite]]
 
   
 
@@ -174,33 +174,33 @@ aliases:
 
   
 
-- [ ] Day 54 - 全选
+- [ ] Day 54 - [[全选]]
 
-- [ ] Day 55 - 轮播图
+- [ ] Day 55 - [[轮播图]]
 
-- [ ] Day 56 - 根据 response 渲染 table
+- [ ] Day 56 - [[根据 response 渲染 table]]
 
-- [ ] Day 57 - 歌词滚动功能
+- [ ] Day 57 - [[歌词滚动功能]]
 
-- [ ] Day 58 - 实现一个百度搜索框（搜索提示）
+- [ ] Day 58 - [[实现一个百度搜索框（搜索提示）]]
 
-- [ ] Day 59 - 实现 todos
+- [ ] Day 59 - [[实现 todos]]
 
-- [ ] Day 60 - 计时器或倒计时组件
+- [ ] Day 60 - [[计时器或倒计时组件]]
 
-- [ ] Day 61 - 设计一个公会入驻信息提交页
+- [ ] Day 61 - [[设计一个公会入驻信息提交页]]
 
-- [ ] Day 62 - 编码实现宽高不相同图片的自适配排列
+- [ ] Day 62 - [[编码实现宽高不相同图片的自适配排列]]
 
-- [ ] Day 63 - 列表子元素顺序反转
+- [ ] Day 63 - [[列表子元素顺序反转]]
 
-- [ ] Day 64 - 遍历树组件
+- [ ] Day 64 - [[遍历树组件]]
 
-- [ ] Day 65 - 选项卡
+- [ ] Day 65 - [[选项卡]]
 
-- [ ] Day 66 - 拖拽
+- [ ] Day 66 - [[拖拽]]
 
-- [ ] Day 67 - 原创组件设计题：互斥级联表单组件
+- [ ] Day 67 - [[原创组件设计题：互斥级联表单组件]]
 
   
 

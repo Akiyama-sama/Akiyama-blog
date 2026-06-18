@@ -56,3 +56,214 @@ https://www.kindyear.cn/archives/949/
 
 [[Melodict 内存泄露问题回顾]]
 
+
+
+## 随心记录
+
+[[Melodict - 异步任务请求状态机]]
+
+
+TS 版本新的结构
+
+```ts
+export const LanguageCodeValues = {
+  JA: 'ja',
+  EN: 'en',
+  ZH: 'zh',
+  KO: 'ko',
+  MIXED: 'mixed',
+  UNKNOWN: 'unknown',
+} as const;
+
+export type LanguageCode =
+  (typeof LanguageCodeValues)[keyof typeof LanguageCodeValues];
+
+export const TokenTypeValues = {
+  WORD: 'word',
+  PHRASE: 'phrase',
+  PARTICLE: 'particle',
+  PUNCTUATION: 'punctuation',
+  SYMBOL: 'symbol',
+  UNKNOWN: 'unknown',
+} as const;
+
+export type TokenType =
+  (typeof TokenTypeValues)[keyof typeof TokenTypeValues];
+
+export const AnalysisStateValues = {
+  COMPLETED: 'completed',
+  PARTIAL: 'partial',
+  FAILED: 'failed',
+} as const;
+
+export type AnalysisState =
+  (typeof AnalysisStateValues)[keyof typeof AnalysisStateValues];
+
+export const DifficultyLevelValues = {
+  BEGINNER: 'beginner',
+  INTERMEDIATE: 'intermediate',
+  ADVANCED: 'advanced',
+} as const;
+
+export type DifficultyLevel =
+  (typeof DifficultyLevelValues)[keyof typeof DifficultyLevelValues];
+
+export const SourceTypeValues = {
+  MANUAL: 'manual',
+  LRC: 'lrc',
+  REMOTE: 'remote',
+} as const;
+
+export type SourceType =
+  (typeof SourceTypeValues)[keyof typeof SourceTypeValues];
+
+export interface SongAnalysisSummary {
+  schemaVersion: '1.0';
+
+  songId?: string;
+  title?: string;
+  artists?: string[];
+  album?: string;
+
+  targetLanguage: LanguageCode;
+  sourceLyricsText: string;
+
+  lines: LyricLineAnalysis[];
+
+  summary?: SongAnalysisMetaSummary;
+  metadata?: SongAnalysisMetadata;
+}
+
+export interface SongAnalysisMetaSummary {
+  overallTranslation?: string;
+  keywords?: string[];
+  difficulty?: DifficultyLevel;
+}
+
+export interface SongAnalysisMetadata {
+  generator: 'llm';
+  model?: string;
+  generatedAt?: string;
+  sourceType?: SourceType;
+}
+
+export interface LyricLineAnalysis {
+  id: string;
+
+  index: number;
+  startTimeMs?: number;
+  endTimeMs?: number;
+
+  source: LyricLineSource;
+
+  language: LyricLineLanguageInfo;
+
+  analysis: {
+    tokens: Token[];
+  };
+
+  translation: {
+    lineTranslation: string;
+    alternatives?: string[];
+  };
+
+  status: {
+    state: AnalysisState;
+    warnings?: string[];
+    errorMessage?: string;
+  };
+
+  extensions?: LineExtensions;
+}
+
+export interface LyricLineSource {
+  text: string;
+  normalizedText?: string;
+  textHash?: string;
+}
+
+export interface LyricLineLanguageInfo {
+  code: LanguageCode;
+  confidence?: number;
+}
+
+export interface Token {
+  id: string;
+
+  position: TokenPosition;
+
+  surface: TokenSurface;
+
+  language: {
+    code: LanguageCode;
+  };
+
+  type: TokenType;
+
+  reading?: TokenReading;
+
+  grammar: TokenGrammar;
+
+  meaning: TokenMeaning;
+
+  translation?: TokenTranslation;
+
+  extensions?: TokenExtensions;
+}
+
+export interface TokenPosition {
+  index: number;
+  startChar: number;
+  endChar: number;
+}
+
+export interface TokenSurface {
+  text: string;
+  normalizedText?: string;
+}
+
+export interface TokenReading {
+  kana?: string;
+  romaji?: string;
+  ipa?: string;
+}
+
+export interface TokenGrammar {
+  partOfSpeech: string;
+  subcategory?: string;
+}
+
+export interface TokenMeaning {
+  gloss: string;
+  notes?: string[];
+}
+
+export interface TokenTranslation {
+  literal?: string;
+}
+
+export interface LineExtensions {
+  ja?: JapaneseLineExtension;
+  en?: EnglishLineExtension;
+  [key: string]: unknown;
+}
+
+export interface TokenExtensions {
+  ja?: JapaneseTokenExtension;
+  en?: EnglishTokenExtension;
+  [key: string]: unknown;
+}
+
+export interface JapaneseLineExtension {
+  kanaText?: string;
+  romajiText?: string;
+}
+
+export interface JapaneseTokenExtension {
+  dictionaryForm?: string;
+}
+
+export interface EnglishLineExtension {}
+
+export interface EnglishTokenExtension {}
+```
