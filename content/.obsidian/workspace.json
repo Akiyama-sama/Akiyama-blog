@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "36e8e2b727cf895e",
+        "id": "f92521dbfab86259",
         "type": "tabs",
         "children": [
           {
-            "id": "9b2716041aa86d3c",
+            "id": "423ddedac698201c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -32,12 +32,12 @@
             }
           },
           {
-            "id": "4dd20f3874546f1b",
+            "id": "baf6c1d4a2eaf048",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/SDD 沉淀.md",
+                "file": "Random/装饰模式.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,79 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "SDD 沉淀"
+              "title": "装饰模式"
+            }
+          },
+          {
+            "id": "44d178e82e2209fd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/类图.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "类图"
+            }
+          },
+          {
+            "id": "6e95aa7abf3731e7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/面向对象设计原则.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "面向对象设计原则"
+            }
+          },
+          {
+            "id": "6c25ef4513433f24",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/代理模式.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "代理模式"
             }
           }
         ]
@@ -112,7 +184,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -220,34 +293,36 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9b2716041aa86d3c",
+  "active": "423ddedac698201c",
   "lastOpenFiles": [
-    "Random/SDD 快手落地规范.md",
-    "Thought.md",
-    "Random/SDD 沉淀.md",
-    "Random/快手实习相关.md",
-    "index.md",
-    "Random/实现圆形环状进度条.md",
-    "Random/前端每日练习 TODO.md",
-    "Random/Typescript 类型的高级用法.md",
-    "Random/myReadonly.md",
-    "Random/CSS - INDEX.md",
-    "Project/蓝白碗画布！！.md",
-    "Random/myReadonly2.md",
-    "Random/parameters.md",
-    "Random/returnType.md",
-    "Random/myReturnType.md",
-    "Random/Omit.md",
-    "Random/Trim.md",
-    "Random/includes.md",
-    "Random/concat.md",
-    "Random/使用 div 和 css 实现一个圆形，红色部分占 60%，绿色 40%.md",
-    "Random/圆弧旋转.md",
-    "Random/first of Array.md",
-    "Random/tuple to object.md",
-    "Random/myPick.md",
-    "Random/TS 实现 hooks: useInterval.md",
-    "Random/原创组件设计题：互斥级联表单组件.md",
+    "Random/访问者模式.md",
+    "Random/设计模式 - INDEX.md",
+    "Random/装饰模式.md",
+    "Random/代理模式.md",
+    "Random/享元模式.md",
+    "Random/组合模式.md",
+    "Random/桥接模式.md",
+    "Random/适配器模式.md",
+    "Random/单例模式.md",
+    "Random/原型模式.md",
+    "Random/生成器模式.md",
+    "Random/抽象工厂模式.md",
+    "Random/工厂方法模式.md",
+    "Random/简单工厂模式.md",
+    "Random/设计模式题目案例.md",
+    "Random/模板方法模式.md",
+    "Random/迭代器模式.md",
+    "Random/备忘录模式.md",
+    "Random/解释器模式.md",
+    "Random/命令模式.md",
+    "Random/状态模式.md",
+    "Random/责任链模式.md",
+    "Random/中介者模式.md",
+    "Random/策略模式.md",
+    "Random/观察者模式.md",
+    "Random/外观模式.md",
+    "scripts/fill-design-pattern-notes.mjs",
+    "scripts",
     "琢玉七期 创编内部分体验优化/取消手动添加交互优化",
     "琢玉七期 创编内部分体验优化",
     "未命名.canvas",
@@ -266,8 +341,6 @@
     "Attachment/Pasted image 20260314213542.png",
     "Attachment/Pasted Image 20260424135240_314.png",
     "Attachment/Pasted Image 20260424135207_562.png",
-    "Attachment/Pasted Image 20260424131815_162.png",
-    "Attachment",
-    "Knowlege/生活杂类"
+    "Attachment/Pasted Image 20260424131815_162.png"
   ]
 }
