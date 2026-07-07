@@ -62,6 +62,33 @@ https://www.kindyear.cn/archives/949/
 
 [[Melodict - 异步任务请求状态机]]
 
+立党说过，Agent相比于人类，最适合干的是那种验证复杂度为 1，但实现复杂度为 1000 的任务。因一旦验证标准不明确，整个 Agent loop 循环就会跑偏，导致最终结果的偏差，像是那种有多个集成测试用例的，以及单元测试用例的，红绿灯测试这些。
+
+因此我得自己设计一套验证结果的这个一个标准。首先是结果质量，也就是前端拿到的这个JSON 内容的质量。注意这里并没有说有validate 的东西，validate 的这个工作交给函数，内容质量的判定交给 LLM
+
+内容质量总分 10 分，打分如下：
+
+|维度|分值|看什么|
+|---|---|---|
+|1. 行级语义准确性|2.0|每行翻译是否符合歌词上下文，不生硬直译，不误解主谓、语气、隐喻、前后承接|
+|2. 分词与 token 覆盖|1.5|是否覆盖核心词、助词、短语、外来语；是否漏掉关键教学点；token 切分是否合理|
+|3. 语法/词性解释质量|1.5|日语助词、动词形态、接续、固定表达、缩略/外来语解释是否准确且适合学习者|
+|4. 读音与语言识别|1.0|日语 kana/romaji、英文 IPA、mixed language 判断是否正确；不要给标点乱造读音|
+|5. 教学可用性|1.5|gloss 是否短而清楚；解释是否能帮用户学会这句；不是只给词典义，而是贴合歌词|
+|6. 上下文一致性|1.0|chunk 内多行语义是否连贯；重复副歌解释是否稳定；同一个词/表达前后不矛盾|
+|7. 幻觉与保守性|1.0|不编不存在的典故、语法、文化解释；不把不确定内容说死；不输出明显过度解释|
+|8. 前端呈现友好度|0.5|文案长度适中、字段内容干净、没有模型废话、没有 Markdown/说明文字污染 JSON|
+
+合计 10 分。
+
+我会把通过线设计成：
+
+- **>= 8.0**：通过，可进入前端展示。
+- **7.0 - 7.9**：可接受但建议重试一次，取更高分版本。
+- **< 7.0**：失败，需要重试生成。
+- **任一严重错误直接不通过**：比如整行翻译反了、日语助词大面积错、输出大量臆造内容、明显不符合原歌词。
+
+
 
 TS 版本新的结构
 
@@ -129,16 +156,9 @@ export interface SongAnalysisSummary {
   sourceLyricsText: string;
 
   lines: LyricLineAnalysis[];
-
-  summary?: SongAnalysisMetaSummary;
   metadata?: SongAnalysisMetadata;
 }
 
-export interface SongAnalysisMetaSummary {
-  overallTranslation?: string;
-  keywords?: string[];
-  difficulty?: DifficultyLevel;
-}
 
 export interface SongAnalysisMetadata {
   generator: 'llm';

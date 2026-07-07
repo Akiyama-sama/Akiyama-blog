@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "f92521dbfab86259",
+        "id": "d620655bf4cb8961",
         "type": "tabs",
         "children": [
           {
-            "id": "423ddedac698201c",
+            "id": "83566071a8c84b5e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/访问者模式.md",
+                "file": "Random/02-Go标准库.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,16 +28,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "访问者模式"
+              "title": "02-Go标准库"
             }
           },
           {
-            "id": "baf6c1d4a2eaf048",
+            "id": "d542618ec6743a9c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/组合模式.md",
+                "file": "Random/01-Go基础.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,59 +52,11 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "组合模式"
-            }
-          },
-          {
-            "id": "6e95aa7abf3731e7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Random/备忘录模式.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "备忘录模式"
-            }
-          },
-          {
-            "id": "6c25ef4513433f24",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Random/代理模式.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "代理模式"
+              "title": "01-Go基础"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -258,7 +210,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
@@ -270,34 +222,35 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "6e95aa7abf3731e7",
+  "active": "d542618ec6743a9c",
   "lastOpenFiles": [
-    "Random/命令模式.md",
-    "Random/中介者模式.md",
-    "Random/责任链模式.md",
-    "Random/策略模式.md",
-    "Random/代理模式.md",
-    "Random/享元模式.md",
-    "Random/组合模式.md",
-    "Random/适配器模式.md",
-    "Random/生成器模式.md",
-    "Random/抽象工厂模式.md",
-    "Random/面向对象设计原则.md",
-    "Random/工厂方法模式.md",
-    "Random/设计模式 - INDEX.md",
-    "Private/大三下期末考试记录.md",
-    "Random/SOLID 原则.md",
-    "Random/装饰模式.md",
-    "Random/访问者模式.md",
-    "Random/桥接模式.md",
-    "Random/单例模式.md",
-    "Random/原型模式.md",
-    "Random/简单工厂模式.md",
-    "Random/类图.md",
-    "Random/迭代器模式.md",
-    "Random/备忘录模式.md",
-    "Random/解释器模式.md",
-    "Random/状态模式.md",
+    "Random/02-Go标准库.md",
+    "Random/橙子老师的 Go 相关笔记.md",
+    "Random/01-Go基础.md",
+    "Random/README.md",
+    "Random/Go 八股求职.md",
+    "Thought.md",
+    "Random/10-Go测试与工程实践.md",
+    "Random/99-Go后端开发面试题库大全.md",
+    "Random/字节外包面试必考点速查.md",
+    "Random/薄弱点复习.md",
+    "Random/15-字节飞书面试真题解析.md",
+    "Random/12-Gin与GORM框架详解.md",
+    "Random/05-Go并发编程.md",
+    "Random/18-考前查缺补漏_终极备忘.md",
+    "Random/17-飞书专项突击计划.md",
+    "Random/16-飞书面试真题解析_Vol2.md",
+    "Random/14-Go面试题速查.md",
+    "Random/13-Kubernetes基础入门.md",
+    "Random/12-Kratos框架特性.md",
+    "Random/11-微服务与分布式架构.md",
+    "Random/09-Linux与容器化.md",
+    "Random/08-网络与操作系统.md",
+    "Random/07-数据库与中间件.md",
+    "Random/06-Go垃圾回收与性能优化.md",
+    "Random/04-Go底层原理.md",
+    "Random/03-Go面向对象.md",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine",
     "scripts/fill-design-pattern-notes.mjs",
     "scripts",
     "琢玉七期 创编内部分体验优化/取消手动添加交互优化",
@@ -308,7 +261,6 @@
     "templates",
     "Private",
     "Project",
-    "Excalidraw",
     "Attachment/观察者模式-1764392816254.webp",
     "Attachment/各个主流图片格式的区别-1760939258812.png",
     "Attachment/蓝白碗画布！！-1760971777277.png",
