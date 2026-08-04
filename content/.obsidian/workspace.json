@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/02-Go标准库.md",
+                "file": "Random/快手 - 需求 - 重构 ad-robot.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,16 +28,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "02-Go标准库"
+              "title": "快手 - 需求 - 重构 ad-robot"
             }
           },
           {
-            "id": "d542618ec6743a9c",
+            "id": "b9214bbffd5191b1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/01-Go基础.md",
+                "file": "Random/Vibe Design Playbook.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,11 +52,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "01-Go基础"
+              "title": "Vibe Design Playbook"
+            }
+          },
+          {
+            "id": "41c20a99a8f20b7c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/快手 - 需求 - 原子组件库从零设计.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "快手 - 需求 - 原子组件库从零设计"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -113,8 +137,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -222,54 +245,54 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "d542618ec6743a9c",
+  "active": "41c20a99a8f20b7c",
   "lastOpenFiles": [
-    "Random/02-Go标准库.md",
-    "Random/橙子老师的 Go 相关笔记.md",
-    "Random/01-Go基础.md",
-    "Random/README.md",
-    "Random/Go 八股求职.md",
+    "Random/SDD 设计沉淀.md",
+    "Random/建设一个独立的 Design Lab，而不是让设计直接改生产页.md",
+    "Random/磁力小牛 UI Designer SDD 流程介绍.md",
+    "Random/SDD 快手落地规范.md",
+    "Random/快手 - 需求 - 原子组件库从零设计.md",
+    "Random/组件库分级规范 (L1-L3).md",
+    "Random/token 设计调研.md",
+    "Random/无头样式组件库调研.md",
+    "Random/SDD 沉淀.md",
+    "Excalidraw/Drawing 2026-07-29 17.43.27.excalidraw.md",
+    "Random/Vibe Design Playbook.md",
+    "Random/类图.md",
+    "Random/UML的五种图形机制.md",
+    "Random/无头样式组件库 Ant Design 组件能力对比.md",
+    "Random/快手 - 需求 - 重构 ad-robot.md",
+    "Random/快手 - 需求 - Pc 容器重构.md",
+    "Random/状态码.md",
+    "Random/快手实习相关.md",
+    "Random/快手 - 需求 - Node 定时任务服务.md",
+    "Random/哪些css属性会创建新的层叠上下文.md",
+    "Random/CSS - INDEX.md",
+    "Random/状态行.md",
+    "Random/琢玉七期 创编内部分体验优化 取消手动添加交互优化 报表下载优化.md",
+    "Random/快手 - 需求 - AI 一句话创编.md",
     "Thought.md",
-    "Random/10-Go测试与工程实践.md",
-    "Random/99-Go后端开发面试题库大全.md",
-    "Random/字节外包面试必考点速查.md",
-    "Random/薄弱点复习.md",
-    "Random/15-字节飞书面试真题解析.md",
-    "Random/12-Gin与GORM框架详解.md",
-    "Random/05-Go并发编程.md",
-    "Random/18-考前查缺补漏_终极备忘.md",
-    "Random/17-飞书专项突击计划.md",
-    "Random/16-飞书面试真题解析_Vol2.md",
-    "Random/14-Go面试题速查.md",
-    "Random/13-Kubernetes基础入门.md",
-    "Random/12-Kratos框架特性.md",
-    "Random/11-微服务与分布式架构.md",
-    "Random/09-Linux与容器化.md",
-    "Random/08-网络与操作系统.md",
-    "Random/07-数据库与中间件.md",
-    "Random/06-Go垃圾回收与性能优化.md",
-    "Random/04-Go底层原理.md",
-    "Random/03-Go面向对象.md",
-    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine",
-    "scripts/fill-design-pattern-notes.mjs",
-    "scripts",
-    "琢玉七期 创编内部分体验优化/取消手动添加交互优化",
-    "琢玉七期 创编内部分体验优化",
+    "Attachment/Pasted Image 20260424135240_314.png",
+    "Random/GMP 调度器.md",
+    "Attachment/Pasted image 20260714212152.png",
+    "Attachment/SSL TLS-1763870246408.png",
+    "Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages",
+    "Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src",
+    "Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create",
+    "Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages",
+    "Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create",
+    "Users/mio/Develop/kuaishou-front",
+    "Users/mio/Develop",
+    "Users/mio",
+    "Users",
+    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/IndexView",
     "未命名.canvas",
-    "Random/未命名.base",
-    "Random",
-    "templates",
-    "Private",
-    "Project",
     "Attachment/观察者模式-1764392816254.webp",
     "Attachment/各个主流图片格式的区别-1760939258812.png",
     "Attachment/蓝白碗画布！！-1760971777277.png",
     "Attachment/image.webp",
-    "Attachment/SSL TLS-1763870246408.png",
     "Attachment/image-1.webp",
     "Attachment/Pasted image 20260314213542.png",
-    "Attachment/Pasted Image 20260424135240_314.png",
-    "Attachment/Pasted Image 20260424135207_562.png",
-    "Attachment/Pasted Image 20260424131815_162.png"
+    "Attachment/Pasted Image 20260424135207_562.png"
   ]
 }

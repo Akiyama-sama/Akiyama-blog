@@ -10,10 +10,10 @@ tags:
 这个 `/machine` 不是普通“页面切换”，而是一个“后端流程配置 + 前端 WebSocket 事件驱动”的状态机。前端本地只保存少量核心状态，比如 `step / flows / record / recordList / points / progress / exception`，真正的推进很多时候不是点按钮后直接跳页，而是先发接口，再等后端通过 WebSocket 把“当前步骤”推回来，所以它非常适合写成你那条“基于 WebSocket 的多步骤流程状态机”。核心入口在 [routes/index.js](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/index.js#L395)、[machine/IndexView](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/IndexView/index.js#L46)、[machine/model.js](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/model.js#L39)。
 
 **状态机骨架**
-- 设备初始化：页面通过 `machine_id` 查询设备配置，拿到 `mached / flowGroups / flows`，默认先加载第一个流程组。[IndexView](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/IndexView/index.js#L49) [model.js](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/model.js#L105)
-- 状态定义：`step` 存的其实是“当前 flow 在数组里的索引”，真正的业务步骤码是 `flows[step].step`，这点很关键。[IndexView](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/IndexView/index.js#L141) [model.js](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/model.js#L179)
+- 设备初始化：页面通过 `machine_id` 查询设备配置，拿到 `mached / flowGroups / flows`，默认先加载第一个流程组。[IndexView](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/IndexView/index.js#L49) [model.js]
+- 状态定义：`step` 存的其实是“当前 flow 在数组里的索引”，真正的业务步骤码是 `flows[step].step`，这点很关键。[IndexView](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/IndexView/index.js#L141) [model.js]
 - 流程可配置：自助机管理页里 `flowGroups` 是可配置的，默认步骤来自 `group.def`，说明这个状态机不是纯前端硬编码，而是“设备配置驱动”。[machinep/Edit](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machinep/components/Edit/index.js#L369)
-- 双流程组：从首页能进入 `group.id == '1'` 的“判级主流程”，也能进入 `group.id == '2'` 的“进展查询流程”；切组时还会把 `mached.id` 拼上 `,groupId`，回首页再恢复旧 id。[GradeTypeView](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/GradeTypeView/index.js#L32) [AuthenticationModelView](/Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/GradeTypeView/AuthenticationModelView/index.js#L47)
+- 双流程组：从首页能进入 `group.id == '1'` 的“判级主流程”，也能进入 `group.id == '2'` 的“进展查询流程”；切组时还会把 `mached.id` 拼上 `,groupId`，回首页再恢复旧 id。[GradeTypeView][AuthenticationModelView]
 
 ```mermaid
 stateDiagram-v2

@@ -3,5 +3,6 @@
   "interfaceFontFamily": "Fira Code,JetBrainsMono Nerd Font Mono",
   "textFontFamily": "Fira Code,JetBrainsMono Nerd Font Mono",
   "baseFontSize": 18,
-  "monospaceFontFamily": "Fira Code,JetBrainsMono Nerd Font Mono"
+  "monospaceFontFamily": "Fira Code,JetBrainsMono Nerd Font Mono",
+  "theme": "moonstone"
 }

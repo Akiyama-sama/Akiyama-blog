@@ -15,10 +15,14 @@ aliases:
 - [Go 后端模版](https://github.com/evrone/go-clean-template)
 - [从零开始实现系列](https://github.com/geektutu/7days-golang)
 - [[橙子老师的 Go 相关笔记]]
+- [Go 一站式学习平台](https://goguide.ryansu.tech/guide/concepts/golang/1-keywords.html)
 
 
 
+## 八股
 
+[[GMP 模型]]
+[[三色标记法]]
 
 
 
