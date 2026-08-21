@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/快手 - 需求 - 重构 ad-robot.md",
+                "file": "Random/快手 - 需求 - 原子组件库从零设计.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "快手 - 需求 - 重构 ad-robot"
+              "title": "快手 - 需求 - 原子组件库从零设计"
             }
           },
           {
@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/快手 - 需求 - 原子组件库从零设计.md",
+                "file": "Random/Git常用命令.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,11 +76,10 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "快手 - 需求 - 原子组件库从零设计"
+              "title": "Git常用命令"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -100,7 +99,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -245,13 +246,16 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "41c20a99a8f20b7c",
+  "active": "83566071a8c84b5e",
   "lastOpenFiles": [
     "Random/SDD 设计沉淀.md",
+    "Random/Worktrunk 完全指南：让 Git Worktree 和 Claude Code 和平共处  工具  余弦の博客.md",
+    "Random/快手 - 需求 - 原子组件库从零设计.md",
+    "Random/快手 - 需求 - 重构 ad-robot.md",
+    "Random/Git常用命令.md",
     "Random/建设一个独立的 Design Lab，而不是让设计直接改生产页.md",
     "Random/磁力小牛 UI Designer SDD 流程介绍.md",
     "Random/SDD 快手落地规范.md",
-    "Random/快手 - 需求 - 原子组件库从零设计.md",
     "Random/组件库分级规范 (L1-L3).md",
     "Random/token 设计调研.md",
     "Random/无头样式组件库调研.md",
@@ -261,7 +265,6 @@
     "Random/类图.md",
     "Random/UML的五种图形机制.md",
     "Random/无头样式组件库 Ant Design 组件能力对比.md",
-    "Random/快手 - 需求 - 重构 ad-robot.md",
     "Random/快手 - 需求 - Pc 容器重构.md",
     "Random/状态码.md",
     "Random/快手实习相关.md",
@@ -271,9 +274,7 @@
     "Random/状态行.md",
     "Random/琢玉七期 创编内部分体验优化 取消手动添加交互优化 报表下载优化.md",
     "Random/快手 - 需求 - AI 一句话创编.md",
-    "Thought.md",
     "Attachment/Pasted Image 20260424135240_314.png",
-    "Random/GMP 调度器.md",
     "Attachment/Pasted image 20260714212152.png",
     "Attachment/SSL TLS-1763870246408.png",
     "Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages",
