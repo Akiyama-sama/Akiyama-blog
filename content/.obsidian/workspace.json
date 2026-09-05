@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "d620655bf4cb8961",
+        "id": "74ab660847589a72",
         "type": "tabs",
         "children": [
           {
-            "id": "83566071a8c84b5e",
+            "id": "5066b16cda96f11b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/快手 - 需求 - 原子组件库从零设计.md",
+                "file": "Thought.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,16 +28,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "快手 - 需求 - 原子组件库从零设计"
+              "title": "Thought"
             }
           },
           {
-            "id": "b9214bbffd5191b1",
+            "id": "42a819d81fda85f9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/Vibe Design Playbook.md",
+                "file": "Random/休学联想随笔.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,16 +52,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Vibe Design Playbook"
+              "title": "休学联想随笔"
             }
           },
           {
-            "id": "41c20a99a8f20b7c",
+            "id": "f73113a3db610b0f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/Git常用命令.md",
+                "file": "Random/多臂老虎机问题.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,7 +76,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Git常用命令"
+              "title": "多臂老虎机问题"
             }
           }
         ]
@@ -138,7 +138,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -234,7 +235,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
@@ -246,13 +247,23 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "83566071a8c84b5e",
+  "active": "5066b16cda96f11b",
   "lastOpenFiles": [
+    "Random/休学联想随笔.md",
+    "Thought.md",
+    "Random/多臂老虎机问题.md",
+    "Random/Java - index.md",
+    "Random/简历 - INDEX.md",
+    "Random/前端简历 - v1.2.0.md",
+    "Random/经济学原理：微观经济学分析手册.md",
+    "Knowlege/生活杂类/读书笔记 - INDEX.md",
+    "Knowlege/生活杂类/金融 - INDEX.md",
+    "Random/Git常用命令.md",
+    "Random/Vibe Design Playbook.md",
+    "Random/快手 - 需求 - 原子组件库从零设计.md",
     "Random/SDD 设计沉淀.md",
     "Random/Worktrunk 完全指南：让 Git Worktree 和 Claude Code 和平共处  工具  余弦の博客.md",
-    "Random/快手 - 需求 - 原子组件库从零设计.md",
     "Random/快手 - 需求 - 重构 ad-robot.md",
-    "Random/Git常用命令.md",
     "Random/建设一个独立的 Design Lab，而不是让设计直接改生产页.md",
     "Random/磁力小牛 UI Designer SDD 流程介绍.md",
     "Random/SDD 快手落地规范.md",
@@ -261,19 +272,9 @@
     "Random/无头样式组件库调研.md",
     "Random/SDD 沉淀.md",
     "Excalidraw/Drawing 2026-07-29 17.43.27.excalidraw.md",
-    "Random/Vibe Design Playbook.md",
     "Random/类图.md",
     "Random/UML的五种图形机制.md",
     "Random/无头样式组件库 Ant Design 组件能力对比.md",
-    "Random/快手 - 需求 - Pc 容器重构.md",
-    "Random/状态码.md",
-    "Random/快手实习相关.md",
-    "Random/快手 - 需求 - Node 定时任务服务.md",
-    "Random/哪些css属性会创建新的层叠上下文.md",
-    "Random/CSS - INDEX.md",
-    "Random/状态行.md",
-    "Random/琢玉七期 创编内部分体验优化 取消手动添加交互优化 报表下载优化.md",
-    "Random/快手 - 需求 - AI 一句话创编.md",
     "Attachment/Pasted Image 20260424135240_314.png",
     "Attachment/Pasted image 20260714212152.png",
     "Attachment/SSL TLS-1763870246408.png",
