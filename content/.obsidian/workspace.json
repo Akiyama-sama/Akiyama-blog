@@ -4,11 +4,59 @@
     "type": "split",
     "children": [
       {
-        "id": "d620655bf4cb8961",
+        "id": "8ad802d594be66af",
         "type": "tabs",
         "children": [
           {
-            "id": "83566071a8c84b5e",
+            "id": "1257c9a45db91c56",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/全排列问题.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "全排列问题"
+            }
+          },
+          {
+            "id": "1f7fa5a505395ca3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/回溯算法.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "回溯算法"
+            }
+          },
+          {
+            "id": "6c28a67282d48165",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -32,12 +80,12 @@
             }
           },
           {
-            "id": "b9214bbffd5191b1",
+            "id": "6ce789b54e6badd6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/Vibe Design Playbook.md",
+                "file": "Random/磁力小牛重构技术方案.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,16 +100,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Vibe Design Playbook"
+              "title": "磁力小牛重构技术方案"
             }
           },
           {
-            "id": "41c20a99a8f20b7c",
+            "id": "8bbe88308801c754",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/Git常用命令.md",
+                "file": "Random/快手转正答辩文档.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,10 +124,59 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Git常用命令"
+              "title": "快手转正答辩文档"
+            }
+          },
+          {
+            "id": "a9bd10119047f873",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/快手实习相关.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "快手实习相关"
+            }
+          },
+          {
+            "id": "ad2651b42e212b91",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Random/CCAR 模型.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "CCAR 模型"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -138,7 +235,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -246,34 +344,41 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "83566071a8c84b5e",
+  "active": "8bbe88308801c754",
   "lastOpenFiles": [
-    "Random/SDD 设计沉淀.md",
-    "Random/Worktrunk 完全指南：让 Git Worktree 和 Claude Code 和平共处  工具  余弦の博客.md",
+    "Random/CCAR 模型.md",
+    "Random/快手实习相关.md",
     "Random/快手 - 需求 - 原子组件库从零设计.md",
-    "Random/快手 - 需求 - 重构 ad-robot.md",
-    "Random/Git常用命令.md",
-    "Random/建设一个独立的 Design Lab，而不是让设计直接改生产页.md",
-    "Random/磁力小牛 UI Designer SDD 流程介绍.md",
-    "Random/SDD 快手落地规范.md",
     "Random/组件库分级规范 (L1-L3).md",
-    "Random/token 设计调研.md",
-    "Random/无头样式组件库调研.md",
-    "Random/SDD 沉淀.md",
-    "Excalidraw/Drawing 2026-07-29 17.43.27.excalidraw.md",
-    "Random/Vibe Design Playbook.md",
-    "Random/类图.md",
-    "Random/UML的五种图形机制.md",
+    "Random/SDD 设计沉淀.md",
+    "Random/快手 - 需求 - 重构 ad-robot.md",
+    "Random/快手转正答辩文档.md",
+    "Random/磁力小牛重构技术方案.md",
+    "Random/D2S 设计及交付.md",
+    "Random/磁力小牛.md",
+    "Attachment/Pasted image 20260909143902.png",
+    "Attachment/Pasted image 20260909143826.png",
+    "Attachment/Pasted image 20260909143742.png",
+    "Attachment/Pasted image 20260909143716.png",
+    "Attachment/Pasted image 20260909143634.png",
     "Random/无头样式组件库 Ant Design 组件能力对比.md",
     "Random/快手 - 需求 - Pc 容器重构.md",
-    "Random/状态码.md",
-    "Random/快手实习相关.md",
+    "Attachment/Pasted image 20260909140423.png",
+    "Attachment/Pasted Image 20260424131925_088.png",
+    "Random/磁力小牛入口管理与效果评测.md",
+    "Random/磁力方舟品牌版-5R.md",
+    "Random/【PRD】品牌竞价种草.md",
     "Random/快手 - 需求 - Node 定时任务服务.md",
-    "Random/哪些css属性会创建新的层叠上下文.md",
-    "Random/CSS - INDEX.md",
-    "Random/状态行.md",
-    "Random/琢玉七期 创编内部分体验优化 取消手动添加交互优化 报表下载优化.md",
-    "Random/快手 - 需求 - AI 一句话创编.md",
+    "Random/快手 - 需求 - Node 定时任务服务 - 方案v2.md",
+    "Random/回溯算法.md",
+    "Random/全排列问题.md",
+    "Random/算法题：两数之和.md",
+    "Random/两数相加.md",
+    "Random/字符串相加.md",
+    "Random/面试150道刷题.md",
+    "Random/有效的括号.md",
+    "Thought.md",
+    "Random/比较版本号.md",
     "Attachment/Pasted Image 20260424135240_314.png",
     "Attachment/Pasted image 20260714212152.png",
     "Attachment/SSL TLS-1763870246408.png",
@@ -287,13 +392,6 @@
     "Users/mio",
     "Users",
     "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/IndexView",
-    "未命名.canvas",
-    "Attachment/观察者模式-1764392816254.webp",
-    "Attachment/各个主流图片格式的区别-1760939258812.png",
-    "Attachment/蓝白碗画布！！-1760971777277.png",
-    "Attachment/image.webp",
-    "Attachment/image-1.webp",
-    "Attachment/Pasted image 20260314213542.png",
-    "Attachment/Pasted Image 20260424135207_562.png"
+    "未命名.canvas"
   ]
 }

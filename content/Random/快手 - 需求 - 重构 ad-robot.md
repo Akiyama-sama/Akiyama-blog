@@ -3,6 +3,7 @@ date: 2026-07-14
 tags:
 aliases:
 ---
+[[磁力小牛重构技术方案]]
 ## 前言
 
 这是一个绝佳的搞产出以及提升的机会，这段时间一定要认真搞这个，就算我接了一些UI组件的活儿，但我觉得要不能搞出差错，这个还是需要多花点时间的。
@@ -44,47 +45,34 @@ aliases:
 
 目录：
 
-```txt
-ad-im-esp-v2/
-├── packages/
-│   ├── @esp/ui/              # 原子 UI 包（独立发包，设计团队消费）
-│   │   └── src/              # Popover / Tooltip / MarkdownRenderer / BaseCard / BubbleCard ...
-│   │
-│   ├── @esp/core/            # 核心框架包（独立发包）
-│   │   └── src/
-│   │       ├── components/
-│   │       │   ├── shared/   # 跨卡片复用业务组件（AiFooter / GuessAskBubble / TimeStamp ...）
-│   │       │   ├── cards/
-│   │       │   │   ├── messages/   # 消息卡片 30+（每卡独立目录）
-│   │       │   │   └── streaming/ # 流式卡片 15+（每卡独立目录）
-│   │       │   └── MessageList / InputInfo / JinGangCard ...  # 页面级业务组件
-│   │       ├── store/        # GlobalStore / SessionStore / StreamingStore / RuntimeStore
-│   │       ├── eventbus/     # EspEventBus
-│   │       ├── streaming/    # 流式引擎核心
-│   │       ├── registry.ts   # CardRegistry（lazy import 同包 cards/）
-│   │       ├── service/      # 统一请求层
-│   │       ├── types / utils / hooks / config / mock
-│   │
-│   ├── @esp/pc/              # PC 端入口包（独立发包）
-│   │   └── src/
-│   │       ├── container/    # 侧边栏/展开窗口/拖拽
-│   │       ├── history/      # 历史会话面板
-│   │       ├── components/   # Avatar / ReachMGT / NPSSurvey / Welcome
-│   │       └── entry/        # PcRobotEntry
-│   │
-│   └── @esp/mobile/          # Mobile 端入口包（独立发包）
-│       └── src/
-│           ├── container/    # 全屏/抽屉
-│           ├── history/      # 历史会话抽屉
-│           ├── components/   # Avatar / Welcome
-│           └── entry/        # MobileRobotEntry
-│
-├── pnpm-workspace.yaml       # 四个包，workspace:* 关联
-├── turbo.json                # build: ^build 拓扑排序
-└── tsconfig.base.json
+|                                 |                           |
+| ------------------------------- | ------------------------- |
+| 包                               | 职责                        |
+| @ad/esp-robot-core              | IM SDK 集成、标准化 IM 模型       |
+| @ad/esp-robot-runtime           | 实例生命周期、宿主上下文、会话、请求和流式客户端  |
+| @ad/esp-robot-ui                | L1/L2/L3 UI 组件库           |
+| @ad/esp-robot-chat-content      | 消息解码和注册、会话渲染、输入区与欢迎页      |
+| @ad/esp-robot-platform          | PC/Mobile 宿主装配            |
+| @ad/esp-robot-devtools          | 本地环境配置、Chrome DevTools 扩展 |
+| @ad/esp-robot-ecom-card-adapter | 电商场景卡片适配层和独立 CDN 产物       |
 
-依赖方向：@esp/ui ← @esp/core ← @esp/pc / @esp/mobile，严格单向。
+核心依赖方向：
+
 ```
+platform      → runtime, chat-content, robot-ui
+chat-content  → runtime, robot-ui
+robot-ui      → runtime
+runtime       → im-core
+im-core       → IM SDK packages only
+```
+
+实际接需求时，可以这样定位：
+
+- 🌟改已有卡片的展示、接口字段或交互 → 优先只改 robot-ui 对应 L3 目录。 
+- 🌟新增消息卡片类型 → 通常改 robot-ui + chat-content；涉及共享协议再改 runtime。
+- 改输入框、推荐问题、消息列表 → 优先看 chat-content。
+- 改 PC / 移动端容器、宿主集成 → 优先看 platform。
+改连接、底层通信协议 → 才进入 im-core。
 
 ## PC容器设计
 
