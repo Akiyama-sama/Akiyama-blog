@@ -32,3 +32,6 @@ function log(value) {
 log.myCall(student,'yui')
 
 ```
+
+跟[[Function_apply]]的区别是：call 传过来的是任意个参数，而 apply 传过来的第二个参数是一个数组
+

@@ -13,7 +13,7 @@ aliases:
   - RAF
 ---
 
-`requestAnimationFrame`，通常简写为 `rAF`，是浏览器提供的一个 API，用来在**下一次浏览器重绘之前**执行某个回调。
+`requestAnimationFrame`，通常简写为 `rAF`，是浏览器提供的一个 API，用来在**下一次浏览器重绘之前**执行传过来的回调。
 
 它最适合做两类事：
 

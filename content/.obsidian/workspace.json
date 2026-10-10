@@ -4,40 +4,26 @@
     "type": "split",
     "children": [
       {
-        "id": "8ad802d594be66af",
+        "id": "3d398bb78e5f0997",
         "type": "tabs",
         "children": [
           {
-            "id": "1257c9a45db91c56",
+            "id": "843e68e860025ddf",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Random/全排列问题.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "全排列问题"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           },
           {
-            "id": "1f7fa5a505395ca3",
+            "id": "fe9c1f23230c78db",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/回溯算法.md",
+                "file": "Random/DOM 事件流.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,83 +38,11 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "回溯算法"
-            }
-          },
-          {
-            "id": "6c28a67282d48165",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Thought.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Thought"
-            }
-          },
-          {
-            "id": "6ce789b54e6badd6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Random/磁力小牛重构技术方案.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "磁力小牛重构技术方案"
-            }
-          },
-          {
-            "id": "ad2651b42e212b91",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Random/CCAR 模型.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "CCAR 模型"
+              "title": "DOM 事件流"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -187,8 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -296,44 +209,44 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "ad2651b42e212b91",
+  "active": "fe9c1f23230c78db",
   "lastOpenFiles": [
-    "Random/快手实习相关.md",
-    "Random/快手转正答辩文档.md",
-    "Random/CCAR 模型.md",
-    "Random/快手 - 需求 - 原子组件库从零设计.md",
-    "Random/组件库分级规范 (L1-L3).md",
-    "Random/SDD 设计沉淀.md",
-    "Random/快手 - 需求 - 重构 ad-robot.md",
-    "Random/磁力小牛重构技术方案.md",
-    "Random/D2S 设计及交付.md",
-    "Random/磁力小牛.md",
+    "Random/事件委托.md",
+    "Random/Golang 面经.md",
+    "Random/Go 八股求职.md",
+    "Random/GC垃圾回收算法.md",
+    "Random/CSP并发模型.md",
+    "Random/moleculer.md",
+    "Random/go-microv5.md",
+    "Random/MongoDB的优势有哪些.md",
+    "Random/超卖问题.md",
+    "Random/秒杀场景.md",
+    "Random/评论系统.md",
+    "Random/翻转字符串.md",
+    "Random/实现秒杀功能.md",
+    "Random/实时输出最近一个小时内访问频率最高的10个IP.md",
+    "Random/判断链表是否有回环.md",
+    "Random/假如明天是活动高峰？QPS 预计会翻10倍，你要怎么做？.md",
+    "Random/ES监听binlog.md",
+    "Random/10亿个数中找到最大的一个数以及最大的K个数.md",
+    "Random/树的遍历.md",
+    "Random/找出数组中最小的k个数.md",
+    "Random/图相关的算法题.md",
+    "Random/反转合并有序链表.md",
+    "Random/二叉树锯齿遍历.md",
+    "Random/二叉树层次遍历.md",
+    "Random/红黑树的性质.md",
+    "Random/分布式锁及优化思路.md",
+    "Attachment/观察者模式-1764392816254.webp",
     "Attachment/Pasted image 20260909143902.png",
     "Attachment/Pasted image 20260909143826.png",
     "Attachment/Pasted image 20260909143742.png",
     "Attachment/Pasted image 20260909143716.png",
     "Attachment/Pasted image 20260909143634.png",
-    "Random/无头样式组件库 Ant Design 组件能力对比.md",
-    "Random/快手 - 需求 - Pc 容器重构.md",
     "Attachment/Pasted image 20260909140423.png",
     "Attachment/Pasted Image 20260424131925_088.png",
-    "Random/磁力小牛入口管理与效果评测.md",
-    "Random/磁力方舟品牌版-5R.md",
-    "Random/【PRD】品牌竞价种草.md",
-    "Random/快手 - 需求 - Node 定时任务服务.md",
-    "Random/快手 - 需求 - Node 定时任务服务 - 方案v2.md",
-    "Random/回溯算法.md",
-    "Random/全排列问题.md",
-    "Random/算法题：两数之和.md",
-    "Random/两数相加.md",
-    "Random/字符串相加.md",
-    "Random/面试150道刷题.md",
-    "Random/有效的括号.md",
-    "Thought.md",
-    "Random/比较版本号.md",
     "Attachment/Pasted Image 20260424135240_314.png",
     "Attachment/Pasted image 20260714212152.png",
-    "Attachment/SSL TLS-1763870246408.png",
     "Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src/pages",
     "Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create/src",
     "Users/mio/Develop/kuaishou-front/kuaishou-frontend-esp-create/packages/create",

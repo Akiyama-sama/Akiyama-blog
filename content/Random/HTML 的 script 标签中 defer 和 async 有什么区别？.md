@@ -9,6 +9,7 @@ defer和async都能让浏览器在解析HTML的过程中，异步加载js文件�
 js执行时机不同：
 	defer是所有的HTML解析完毕后再执行js文件
 	async是哪一个js文件先加载完毕后就开始执行那个js文件
+	
 ![NhkvosHR_1603547262709-5029c4e4-42f5-4fd4-bcbb-c0e0e3a40f5a_mianshiya.png](https://pic.code-nav.cn/mianshiya/question_picture/markdown/NhkvosHR_1603547262709-5029c4e4-42f5-4fd4-bcbb-c0e0e3a40f5a_mianshiya.png)
 ## 适用场景
 

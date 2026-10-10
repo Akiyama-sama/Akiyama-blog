@@ -10,30 +10,16 @@ tags:
 实现
 
 ```js
-const throttle = function (action,wait){
-    let timeout
-    return function(...arg){
-        const content  = this
-        //没有计时器才会去执行，有不执行
-        if(!timeout){
-            timeout = setTimeout(() => {
-               action.apply(content,arg)
-               //执行完毕过后清除计时器
-               timeout = null
-               
-            }, wait);
-        }
+function thorttle(func,delay){
+  let lastTime = 0
+
+  return function(...args){
+    const now = Date.now()
+    if(now - lastTime>delay){
+      func.apply(this,args)
+      lastTime = now
     }
+  }
 }
 
-const WAIT_TIME = 2000
-
-const throttleAction = throttle(()=>{
-    console.log(`正在节流执行当中...`)
-},WAIT_TIME)
-
-const handleClick = function (){
-   throttleAction()
-   console.log('同步代码正在执行，但节流代码不会执行') 
-}
 ```
