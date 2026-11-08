@@ -8,3 +8,4 @@ tsconfig.tsbuildinfo
 .replit
 replit.nix
 .gstack/
+.claude/worktrees/
