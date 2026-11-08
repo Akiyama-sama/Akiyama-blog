@@ -16,8 +16,8 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "zh-CN",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian","excalidraw"],
+    baseUrl: "akiyama-blog.pages.dev",
+    ignorePatterns: ["Private", "templates", ".obsidian", "Excalidraw"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
@@ -82,7 +82,7 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [Plugin.RemoveDrafts(),Plugin.RemovePrivates()],
+    filters: [Plugin.RemoveDrafts(), Plugin.RemovePrivates()],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
@@ -97,8 +97,8 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
+      // Disabled: 1293 OG images added ~38MB to the bundle and made the build very slow (OOM on CI)
+      // Plugin.CustomOgImages(),
     ],
   },
 }

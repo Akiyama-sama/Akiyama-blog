@@ -1,5 +1,5 @@
 {
-  "collapse-filter": false,
+  "collapse-filter": true,
   "search": "",
   "showTags": true,
   "showAttachments": false,
@@ -13,18 +13,25 @@
         "a": 1,
         "rgb": 14048348
       }
+    },
+    {
+      "query": "tag:#学习观  ",
+      "color": {
+        "a": 1,
+        "rgb": 6072278
+      }
     }
   ],
   "collapse-display": false,
   "showArrow": false,
   "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1,
-  "lineSizeMultiplier": 1,
+  "nodeSizeMultiplier": 1.02704089647589,
+  "lineSizeMultiplier": 1.93073257579725,
   "collapse-forces": true,
   "centerStrength": 0.518713248970312,
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.3141231324859801,
-  "close": false
+  "scale": 0.48589487552973676,
+  "close": true
 }

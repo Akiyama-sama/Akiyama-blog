@@ -4,6 +4,9 @@ tags:
 aliases:
 ---
 参考文章： [Claude Code From Scratch](http://diwang.info/claude-code-from-scratch/#/?id=claude-code-from-scratch)
+Harness 指标评测：[[Agent Harness 评测]]
+Harness 记忆方案: [[Agent 记忆方案]]
+Harness 扩展架构对比：[[Pi 与 DeepSeek Harness 的扩展架构]]
 
 这是一个最典型的 agent loop 循环：
 

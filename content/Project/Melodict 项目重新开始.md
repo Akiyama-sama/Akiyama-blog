@@ -287,3 +287,21 @@ export interface EnglishLineExtension {}
 
 export interface EnglishTokenExtension {}
 ```
+
+2026-10-21
+
+主题色
+
+|Swatch|RGB|HEX|
+|---|---|---|
+|LightVibrant(主底色来源)|`rgb(217, 236, 227)`|`#D9ECE3`|
+|Vibrant(logo 身体色)|`rgb(82, 173, 129)`|`#52AD81`|
+|DarkVibrant(高亮/进度条)|`rgb(41, 91, 67)`|`#295B43`|
+|DarkMuted|`rgb(49, 103, 78)`|`#31674E`|
+|LightMuted|`rgb(196, 195, 188)`|`#C4C3BC`|
+|Muted|`rgb(183, 177, 170)`|`#B7B1AA`|
+
+
+2026-10-21
+
+改名为“知音”，英文名：Knote

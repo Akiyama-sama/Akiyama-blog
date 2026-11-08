@@ -4,26 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3d398bb78e5f0997",
+        "id": "bf7a312643ad79c8",
         "type": "tabs",
         "children": [
           {
-            "id": "843e68e860025ddf",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
-            }
-          },
-          {
-            "id": "fe9c1f23230c78db",
+            "id": "29197174541aa653",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/DOM 事件流.md",
+                "file": "Thought.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -38,11 +28,10 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "DOM 事件流"
+              "title": "Thought"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +90,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "84ca7dee8a0a8f88",
@@ -117,9 +107,9 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Project/揭榜挂帅比赛项目前端.md",
-                "collapseAll": false,
-                "extraContext": false,
+                "file": "Random/Magpie AI 工作流落地分析.md",
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -127,7 +117,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "揭榜挂帅比赛项目前端 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -136,12 +126,22 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Private/大三下期末考试记录.md",
+                "file": "Random/Magpie AI 工作流落地分析.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "大三下期末考试记录 的出链列表"
+              "title": "出链"
+            }
+          },
+          {
+            "id": "0e124eeb3ce0f469",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           },
           {
@@ -179,16 +179,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Private/大三下期末考试记录.md",
+                "file": "Random/Magpie AI 工作流落地分析.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大三下期末考试记录 的大纲"
+              "title": "大纲"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -209,34 +210,35 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "fe9c1f23230c78db",
+  "active": "29197174541aa653",
   "lastOpenFiles": [
-    "Random/事件委托.md",
-    "Random/Golang 面经.md",
-    "Random/Go 八股求职.md",
-    "Random/GC垃圾回收算法.md",
-    "Random/CSP并发模型.md",
-    "Random/moleculer.md",
-    "Random/go-microv5.md",
-    "Random/MongoDB的优势有哪些.md",
-    "Random/超卖问题.md",
-    "Random/秒杀场景.md",
-    "Random/评论系统.md",
-    "Random/翻转字符串.md",
-    "Random/实现秒杀功能.md",
-    "Random/实时输出最近一个小时内访问频率最高的10个IP.md",
-    "Random/判断链表是否有回环.md",
-    "Random/假如明天是活动高峰？QPS 预计会翻10倍，你要怎么做？.md",
-    "Random/ES监听binlog.md",
-    "Random/10亿个数中找到最大的一个数以及最大的K个数.md",
-    "Random/树的遍历.md",
-    "Random/找出数组中最小的k个数.md",
-    "Random/图相关的算法题.md",
-    "Random/反转合并有序链表.md",
-    "Random/二叉树锯齿遍历.md",
-    "Random/二叉树层次遍历.md",
-    "Random/红黑树的性质.md",
-    "Random/分布式锁及优化思路.md",
+    "Random/构建自己的分布式缓存.md",
+    "Thought.md",
+    "Random/接口型函数.md",
+    "Random/构建自己的 RPC.md",
+    "Random/工厂方法模式.md",
+    "Random/简单工厂模式.md",
+    "Random/白色相簿 2.md",
+    "Random/自然小调.md",
+    "Random/基础乐理Learnig.md",
+    "Random/音程.md",
+    "Project/肉鸽 2048.md",
+    "Random/小丑牌设计研究.md",
+    "Project/小游戏.md",
+    "Random/肉鸽 2048.md",
+    "Random/IAA 小游戏品类与爆款母题.md",
+    "Random/Godot 与 Cocos Creator 引擎对比.md",
+    "Random/IAA 与 IAP 的区别.md",
+    "Random/微信小游戏生态与题材调研.md",
+    "Random/小游戏分发平台与入驻要求.md",
+    "Random/学习诊断学.md",
+    "Random/睿云联 前端.md",
+    "index.md",
+    "templates/Random - Template.md",
+    "Random/学习观.md",
+    "Random/概念代理.md",
+    "Random/渐构靶图.md",
+    "scripts/arxiv_verify.py",
     "Attachment/观察者模式-1764392816254.webp",
     "Attachment/Pasted image 20260909143902.png",
     "Attachment/Pasted image 20260909143826.png",
@@ -256,7 +258,6 @@
     "Users/mio/Develop",
     "Users/mio",
     "Users",
-    "Users/mac/Develop/work/yongyou/ib-iv-fe/ucf-apps/ibd/igs/scheme/src/routes/machine/components/IndexView",
     "未命名.canvas"
   ]
 }
